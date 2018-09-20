@@ -92,7 +92,6 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
     return cell
   }
 
-  
   //#Pragma Mark: Navigation
   
  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
