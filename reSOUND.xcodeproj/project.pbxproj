@@ -48,6 +48,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2565F4BC215458F90034FD72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				25E926BD215420A400C1D019 /* AppDelegate.swift */,
+				2565F4BA21544CFC0034FD72 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2565F4BD215459170034FD72 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2565F4B0215423DE0034FD72 /* UsersViewController.swift */,
+				2565F4B6215440910034FD72 /* UsersDetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2565F4BE215459300034FD72 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2565F4B4215431BA0034FD72 /* UsersCollectionViewCell.swift */,
+				25E926C1215420A400C1D019 /* Main.storyboard */,
+				25E926C6215420A500C1D019 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		25E926B1215420A400C1D019 = {
 			isa = PBXGroup;
 			children = (
@@ -69,14 +97,10 @@
 		25E926BC215420A400C1D019 /* reSOUND */ = {
 			isa = PBXGroup;
 			children = (
-				25E926BD215420A400C1D019 /* AppDelegate.swift */,
-				2565F4BA21544CFC0034FD72 /* User.swift */,
-				2565F4B0215423DE0034FD72 /* UsersViewController.swift */,
-				2565F4B4215431BA0034FD72 /* UsersCollectionViewCell.swift */,
-				2565F4B6215440910034FD72 /* UsersDetailViewController.swift */,
-				25E926C1215420A400C1D019 /* Main.storyboard */,
+				2565F4BC215458F90034FD72 /* Model */,
+				2565F4BD215459170034FD72 /* Controllers */,
+				2565F4BE215459300034FD72 /* Views */,
 				25E926C4215420A500C1D019 /* Assets.xcassets */,
-				25E926C6215420A500C1D019 /* LaunchScreen.storyboard */,
 				2565F4AE215423D30034FD72 /* GoogleService-Info.plist */,
 				25E926C9215420A500C1D019 /* Info.plist */,
 			);

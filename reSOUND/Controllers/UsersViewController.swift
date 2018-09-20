@@ -12,8 +12,6 @@ import Firebase
 
 class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollectionViewDataSource {
   
-//  @IBOutlet weak var tableView: UITableView!
-  
   @IBOutlet weak var collectionView: UICollectionView!
   
   var users: [DataSnapshot]! = []
@@ -50,6 +48,8 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
   func configureDatabase() {
     ref = Database.database().reference()
     
+    // TODO: change fetch method to limit amount of users shown in collection view
+    
     _refHandle = self.ref.child("users").observe(.childAdded, with: {[weak self] (snapshot) -> Void in
       guard let strongSelf = self else { return }
             strongSelf.users.append(snapshot)
@@ -62,9 +62,9 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
   //    storageRef = Storage.storage().reference()
   //  }
   
-  //#Pragma Mark DataSource Delegate
+
   
-  //UICollectionViewDatasource methods
+  //#Pragma Mark UICollectionViewDatasource methods
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
     
     return 2
