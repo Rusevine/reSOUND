@@ -8,5 +8,6 @@ target 'reSOUND' do
   # Pods for reSOUND
 pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'Firebase/Auth'
 
 end

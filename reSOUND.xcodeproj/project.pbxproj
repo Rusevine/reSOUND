@@ -13,6 +13,7 @@
 		2565F4B7215440910034FD72 /* UsersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565F4B6215440910034FD72 /* UsersDetailViewController.swift */; };
 		2565F4BB21544CFC0034FD72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565F4BA21544CFC0034FD72 /* User.swift */; };
 		2565F4C0215461610034FD72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565F4BF215461610034FD72 /* ProfileViewController.swift */; };
+		2595D93C21554DB5008CDA9C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595D93B21554DB5008CDA9C /* SignInViewController.swift */; };
 		25E926BE215420A400C1D019 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E926BD215420A400C1D019 /* AppDelegate.swift */; };
 		25E926C3215420A400C1D019 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25E926C1215420A400C1D019 /* Main.storyboard */; };
 		25E926C5215420A500C1D019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25E926C4215420A500C1D019 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		2565F4B6215440910034FD72 /* UsersDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDetailViewController.swift; sourceTree = "<group>"; };
 		2565F4BA21544CFC0034FD72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2565F4BF215461610034FD72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2595D93B21554DB5008CDA9C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		25E926BA215420A400C1D019 /* reSOUND.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reSOUND.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E926BD215420A400C1D019 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25E926C2215420A400C1D019 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				2565F4B0215423DE0034FD72 /* UsersViewController.swift */,
 				2565F4BF215461610034FD72 /* ProfileViewController.swift */,
 				2565F4B6215440910034FD72 /* UsersDetailViewController.swift */,
+				2595D93B21554DB5008CDA9C /* SignInViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -222,12 +225,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-reSOUND/Pods-reSOUND-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -244,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2595D93C21554DB5008CDA9C /* SignInViewController.swift in Sources */,
 				2565F4C0215461610034FD72 /* ProfileViewController.swift in Sources */,
 				25E926BE215420A400C1D019 /* AppDelegate.swift in Sources */,
 				2565F4B5215431BA0034FD72 /* UsersCollectionViewCell.swift in Sources */,
