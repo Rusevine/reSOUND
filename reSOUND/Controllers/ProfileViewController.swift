@@ -29,20 +29,36 @@ class ProfileViewController: UIViewController {
     }
 
 
-  func saveProfile() {
+//  func saveProfile() {
+//    var user1 = [String:String]()
+//    user1["name"] = nameTextField.text
+//    user1["province"] = provinceTextField.text
+//    user1["email"] = emailTextField.text
+//    user1["city"] = cityTextField.text
+//        self.ref.child("users/U001/name").setValue(user1["name"])
+//        self.ref.child("users/U001/province").setValue(user1["province"])
+//        self.ref.child("users/U001/city").setValue(user1["city"])
+//        self.ref.child("users/U001/email").setValue(user1["email"])
+//  }
+  
+  func newProfile() {
     var user1 = [String:String]()
+    
+    let userID = Auth.auth().currentUser!.uid
     user1["name"] = nameTextField.text
     user1["province"] = provinceTextField.text
     user1["email"] = emailTextField.text
     user1["city"] = cityTextField.text
-        self.ref.child("users/U001/name").setValue(user1["name"])
-        self.ref.child("users/U001/province").setValue(user1["province"])
-        self.ref.child("users/U001/city").setValue(user1["city"])
-        self.ref.child("users/U001/email").setValue(user1["email"])
+    self.ref.child("users").child("\(userID)/name").setValue(user1["name"])
+    self.ref.child("users").child("\(userID)/province").setValue(user1["province"])
+    self.ref.child("users").child("\(userID)/city").setValue(user1["city"])
+    self.ref.child("users").child("\(userID)/email").setValue(user1["email"])
+    
   }
   
   @IBAction func saveButtonPressed(_ sender: Any) {
-    saveProfile()
+   // saveProfile()
+    newProfile()
   }
 
 
