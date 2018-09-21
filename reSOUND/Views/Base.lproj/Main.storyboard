@@ -288,6 +288,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2s2-fT-brt">
+                                <rect key="frame" x="114" y="560" width="147" height="48"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="save profile"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="lOk-34-fsC" eventType="touchUpInside" id="WnB-MH-f5o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -298,11 +307,14 @@
                             <constraint firstItem="RFn-p3-Lji" firstAttribute="leading" secondItem="PAd-yO-PDl" secondAttribute="leading" constant="10" id="6II-Zw-Mmo"/>
                             <constraint firstItem="cJV-ke-SZV" firstAttribute="top" secondItem="PAd-yO-PDl" secondAttribute="top" constant="46" id="FyM-Yz-nR3"/>
                             <constraint firstItem="miJ-5L-GG5" firstAttribute="leading" secondItem="PAd-yO-PDl" secondAttribute="leading" constant="10" id="Icl-aI-ylU"/>
+                            <constraint firstItem="PAd-yO-PDl" firstAttribute="bottom" secondItem="2s2-fT-brt" secondAttribute="bottom" constant="10" id="Jym-Cx-5XX"/>
                             <constraint firstItem="2O6-J8-iN0" firstAttribute="leading" secondItem="PAd-yO-PDl" secondAttribute="leading" constant="10" id="KYo-24-TkE"/>
                             <constraint firstItem="PAd-yO-PDl" firstAttribute="trailing" secondItem="asg-ia-2ig" secondAttribute="trailing" constant="10" id="OWl-gm-D1V"/>
                             <constraint firstItem="PAd-yO-PDl" firstAttribute="trailing" secondItem="miJ-5L-GG5" secondAttribute="trailing" constant="10" id="VI5-bU-Xy0"/>
                             <constraint firstItem="XxO-Yd-GiT" firstAttribute="top" secondItem="RFn-p3-Lji" secondAttribute="bottom" constant="8" id="Wcm-0e-cBU"/>
                             <constraint firstItem="PAd-yO-PDl" firstAttribute="trailing" secondItem="XxO-Yd-GiT" secondAttribute="trailing" constant="10" id="cbs-96-z3s"/>
+                            <constraint firstItem="PAd-yO-PDl" firstAttribute="trailing" secondItem="2s2-fT-brt" secondAttribute="trailing" constant="114" id="gWs-yX-2Pf"/>
+                            <constraint firstItem="2s2-fT-brt" firstAttribute="leading" secondItem="PAd-yO-PDl" secondAttribute="leading" constant="114" id="iRb-fD-O5z"/>
                             <constraint firstItem="PAd-yO-PDl" firstAttribute="trailing" secondItem="cJV-ke-SZV" secondAttribute="trailing" constant="88" id="jrh-l3-XBc"/>
                             <constraint firstItem="PAd-yO-PDl" firstAttribute="trailing" secondItem="RFn-p3-Lji" secondAttribute="trailing" constant="10" id="kth-fi-a4v"/>
                             <constraint firstItem="PAd-yO-PDl" firstAttribute="trailing" secondItem="2O6-J8-iN0" secondAttribute="trailing" constant="10" id="rRQ-A6-UJd"/>
@@ -320,6 +332,7 @@
                         <outlet property="nameTextField" destination="miJ-5L-GG5" id="jAU-tD-30W"/>
                         <outlet property="profileView" destination="cJV-ke-SZV" id="pe2-aw-tJi"/>
                         <outlet property="provinceTextField" destination="XxO-Yd-GiT" id="qZH-BQ-oEi"/>
+                        <outlet property="saveButton" destination="2s2-fT-brt" id="JFF-OU-gN0"/>
                         <outlet property="skillsTextField" destination="2O6-J8-iN0" id="ac7-VJ-srB"/>
                     </connections>
                 </viewController>
@@ -333,6 +346,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="pZc-8o-UAh" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I6K-IG-qTo">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

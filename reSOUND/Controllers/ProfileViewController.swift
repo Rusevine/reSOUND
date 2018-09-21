@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
 
@@ -16,15 +17,39 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var provinceTextField: UITextField!
   @IBOutlet weak var skillsTextField: UITextField!
   @IBOutlet weak var emailTextField: UITextField!
+  @IBOutlet weak var saveButton: UIButton!
   
+  var ref: DatabaseReference!
+  //var user: User?
+
   override func viewDidLoad() {
         super.viewDidLoad()
-
+    
+        ref = Database.database().reference()
     }
 
 
-    
+  func saveProfile() {
+    var user1 = [String:String]()
+    user1["name"] = nameTextField.text
+    user1["province"] = provinceTextField.text
+    user1["email"] = emailTextField.text
+    user1["city"] = cityTextField.text
+        self.ref.child("users/U001/name").setValue(user1["name"])
+        self.ref.child("users/U001/province").setValue(user1["province"])
+        self.ref.child("users/U001/city").setValue(user1["city"])
+        self.ref.child("users/U001/email").setValue(user1["email"])
+  }
+  
+  @IBAction func saveButtonPressed(_ sender: Any) {
+    saveProfile()
+  }
+
+
+  
+  
+  }
 
 
 
-}
+

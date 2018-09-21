@@ -35,15 +35,7 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
     // Do any additional setup after loading the view.
   }
   
-//  func sendUser(withUser user: userDetails) {
-//    var user1 = [String:String]()
-//    user1["name"] = user.name
-//     user1["province"] = user.province
-//    user1["email"] = user.email
-//    user1["city"] = user.city
-//    self.ref.child("users").childByAutoId().setValue(user1)
-//
-//  }
+
   
   func configureDatabase() {
     ref = Database.database().reference()
