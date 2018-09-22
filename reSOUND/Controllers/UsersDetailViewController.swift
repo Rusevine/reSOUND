@@ -23,6 +23,12 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   var skills = [String]()
   
   override func viewDidLoad() {
+    view.setGradientBackground(colorOne: colors.black, colorTwo: colors.lightGrey)
+    
+    connectButton.layer.cornerRadius = connectButton.frame.size.height/2
+    connectButton.layer.masksToBounds = true
+    connectButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+
     configureDatabase()
     self.detailNameLabel.text = user?.name
     self.detailCityLabel.text = user?.city
@@ -38,6 +44,7 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
     self.detailSkillsLabel.text = self.skills.joined(separator: ", ")
   })
     
+
   }
   
   func configureDatabase() {
@@ -48,6 +55,8 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   
   @IBAction func connectButtonPressed(_ sender: UIButton) {
     print("button pressed")
+    sender.pulsate()
+    sender.flash()
   }
   
   

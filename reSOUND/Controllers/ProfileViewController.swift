@@ -15,16 +15,47 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var nameTextField: UITextField!
   @IBOutlet weak var cityTextField: UITextField!
   @IBOutlet weak var provinceTextField: UITextField!
-  @IBOutlet weak var skillsTextField: UITextField!
   @IBOutlet weak var emailTextField: UITextField!
   @IBOutlet weak var saveButton: UIButton!
+  
+  @IBOutlet weak var skillsButton: UIButton!
+  @IBOutlet weak var engineerButton: UIButton!
+  @IBOutlet weak var lyricistButton: UIButton!
+  @IBOutlet weak var singerButton: UIButton!
+  @IBOutlet weak var producerButton: UIButton!
+  
+  
+  
   
   var ref: DatabaseReference!
   //var user: User?
 
   override func viewDidLoad() {
         super.viewDidLoad()
+
     
+    skillsButton.layer.cornerRadius = skillsButton.frame.size.height/2
+    skillsButton.layer.masksToBounds = true
+    skillsButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+    saveButton.layer.cornerRadius = saveButton.frame.size.height/2
+    saveButton.layer.masksToBounds = true
+    saveButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+    
+    engineerButton.layer.cornerRadius = engineerButton.frame.size.height/2
+    engineerButton.layer.masksToBounds = true
+    engineerButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+    lyricistButton.layer.cornerRadius = lyricistButton.frame.size.height/2
+    lyricistButton.layer.masksToBounds = true
+    lyricistButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+    singerButton.layer.cornerRadius = singerButton.frame.size.height/2
+    singerButton.layer.masksToBounds = true
+    singerButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+    producerButton.layer.cornerRadius = producerButton.frame.size.height/2
+    producerButton.layer.masksToBounds = true
+    producerButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+    
+    view.setGradientBackground(colorOne: colors.black, colorTwo: colors.lightGrey)
+
         ref = Database.database().reference()
     }
 
@@ -56,12 +87,44 @@ class ProfileViewController: UIViewController {
     
   }
   
+  func animateBackgroundColor() {
+    UIView.animate(withDuration: 15, delay: 0, options: [.autoreverse, .curveLinear, .repeat], animations: {
+      let x = -(self.profileView.frame.width - self.view.frame.width)
+      self.profileView.transform = CGAffineTransform(translationX: x, y: 0)
+      })
+  }
+  
+  //#Pragma Mark Actions
   @IBAction func saveButtonPressed(_ sender: Any) {
    // saveProfile()
     newProfile()
   }
 
 
+  @IBAction func skillsButtonPressed(_ sender: UIButton) {
+  }
+  
+  @IBAction func engineerButtonPressed(_ sender: UIButton) {
+    sender.pulsate()
+    sender.flash()
+    
+   
+  
+
+    }
+  
+  @IBAction func lyricistButtonPressed(_ sender: UIButton) {
+    sender.flash()
+  }
+  
+  @IBAction func singerButtonPressed(_ sender: UIButton) {
+    sender.pulsate()
+  }
+  
+  @IBAction func producerButtonPressed(_ sender: UIButton) {
+    sender.pulsate()
+  }
+  
   
   
   }

@@ -29,6 +29,9 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   override func viewDidLoad() {
         super.viewDidLoad()
+    
+    view.setGradientBackground(colorOne: colors.black, colorTwo: colors.lightGrey)
+
     chatTextFieldDelegate = self
         configureDatabase()
     

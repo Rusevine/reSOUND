@@ -33,6 +33,8 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
     //    configureStorage()
   //  sendUser(withUser: user)
     // Do any additional setup after loading the view.
+    view.setGradientBackground(colorOne: colors.black, colorTwo: colors.lightGrey)
+
   }
   
 

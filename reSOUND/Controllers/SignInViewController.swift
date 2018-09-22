@@ -23,6 +23,8 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate  {
   
   override func viewDidLoad() {
         super.viewDidLoad()
+    view.setGradientBackground(colorOne: colors.black, colorTwo: colors.lightGrey)
+
 
     GIDSignIn.sharedInstance().uiDelegate = self
     GIDSignIn.sharedInstance().signInSilently()
@@ -39,6 +41,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate  {
       Auth.auth().removeStateDidChangeListener(handle)
     }
   }
+  
 }
 
 
