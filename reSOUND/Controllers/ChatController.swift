@@ -22,7 +22,10 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
   var chatTextFieldDelegate: UITextFieldDelegate?
   var ref: DatabaseReference!
   fileprivate var _refHandle: DatabaseHandle!
-  var msglength: NSNumber = 30
+  var msglength: NSNumber = 140
+  var user: User?
+  let userID = Auth.auth().currentUser!.uid
+
   
   
   
@@ -38,8 +41,8 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
   func configureDatabase() {
-    ref = Database.database().reference()
-    _refHandle = self.ref.child("chats/U003/U002").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+      ref = Database.database().reference()
+    _refHandle = self.ref.child("chats/\(userID)/\(user?.id ?? "")").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
       guard let strongSelf = self else { return }
       strongSelf.messages.append(snapshot)
       strongSelf.chatTableView.insertRows(at: [IndexPath(row: strongSelf.messages.count-1, section: 0)], with: .automatic)
@@ -81,9 +84,9 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let message = ["sender": Auth.auth().currentUser?.displayName,
                               "text" : text]
-    let key = self.ref.child("chats/U002/U003").childByAutoId().key
-    self.ref.child("chats/U002/U003/\(key)").setValue(message)
-    self.ref.child("chats/U003/U002/\(key)").setValue(message)
+    let key = self.ref.child("chats/\(user?.id ?? "")/\(userID)").childByAutoId().key
+    self.ref.child("chats/\(user?.id ?? "")/\(userID)/\(key)").setValue(message)
+    self.ref.child("chats/\(userID)/\(user?.id ?? "")/\(key)").setValue(message)
     //    view.endEditing(true)
     }
   

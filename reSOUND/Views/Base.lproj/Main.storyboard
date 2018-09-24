@@ -246,6 +246,7 @@
                                 </state>
                                 <connections>
                                     <action selector="connectButtonPressed:" destination="jJ0-IW-2xk" eventType="touchUpInside" id="jE6-H0-fUf"/>
+                                    <segue destination="Oeb-Wb-hbv" kind="show" identifier="chatSegue" id="0cK-Vw-Ehx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -485,7 +486,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lcp-UB-EfH">
-                                <rect key="frame" x="10" y="60" width="355" height="489"/>
+                                <rect key="frame" x="10" y="104" width="355" height="396"/>
                                 <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatCell" id="vBp-jQ-7bb" customClass="ChatCell" customModule="reSOUND" customModuleProvider="target">
@@ -503,7 +504,7 @@
                                 </connections>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="chat here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eZk-ws-Mnt">
-                                <rect key="frame" x="10" y="559" width="355" height="30"/>
+                                <rect key="frame" x="10" y="510" width="355" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -512,7 +513,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3za-TC-eRl">
-                                <rect key="frame" x="308" y="599" width="57" height="45"/>
+                                <rect key="frame" x="308" y="550" width="57" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="send"/>
                                 <connections>
