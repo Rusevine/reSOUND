@@ -59,6 +59,7 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
     })
   }
 
+  
   //#Pragma Mark Actions
   
   @IBAction func connectButtonPressed(_ sender: UIButton) {

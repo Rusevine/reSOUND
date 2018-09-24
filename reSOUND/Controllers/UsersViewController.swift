@@ -13,10 +13,13 @@ import Firebase
 class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollectionViewDataSource {
   
   @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet weak var skillsFilterButton: UIButton!
   
   var users: [DataSnapshot]! = []
   var ref: DatabaseReference!
   fileprivate var _refHandle: DatabaseHandle!
+  var skillsArray = ["Lyricist", "Singer","Producer"]
+  
   //  var storageRef: StorageReference!
   //  var remoteConfig: RemoteConfig!
   
@@ -27,17 +30,17 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
     collectionView.dataSource = self
     collectionView.delegate = self
     
-  //  let user = userDetails(name: "Kyla2", city: "Windsor", province: "Manitoba", email: "kyla@kyla.com")
+    //  let user = userDetails(name: "Kyla2", city: "Windsor", province: "Manitoba", email: "kyla@kyla.com")
     //let user = ["name":"Kyla"]
     configureDatabase()
     //    configureStorage()
-  //  sendUser(withUser: user)
+    //  sendUser(withUser: user)
     // Do any additional setup after loading the view.
     view.setGradientBackground(colorOne: colors.black, colorTwo: colors.lightGrey)
-
+    
   }
   
-
+  
   
   func configureDatabase() {
     ref = Database.database().reference()
@@ -46,16 +49,16 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
     
     _refHandle = self.ref.child("users").observe(.childAdded, with: {[weak self] (snapshot) -> Void in
       guard let strongSelf = self else { return }
-            strongSelf.users.append(snapshot)
-            strongSelf.collectionView.insertItems(at: [IndexPath(row: strongSelf.users.count-1, section: 0)])
-})
+      strongSelf.users.append(snapshot)
+      strongSelf.collectionView.insertItems(at: [IndexPath(row: strongSelf.users.count-1, section: 0)])
+    })
   }
   
   //  func configureStorage() {
   //    storageRef = Storage.storage().reference()
   //  }
   
-
+  
   
   //#Pragma Mark UICollectionViewDatasource methods
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -85,15 +88,83 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
     
     return cell
   }
+  
+  //#Pragma Mark: Filter
+  
+  
+  @IBAction func skillsFilterButtonPressed(_ sender: UIButton) {
+    self.users = []
+    filterSkills { (keys) in
+      self.applyFilter(filter: keys, completion: { (_) in
+        self.collectionView.reloadData()
+    })
+  }
+}
+  
 
+  
+  func filterSkills(completion: @escaping ([String])->()){
+    var keys = [String]()
+    var count = 0 {
+      didSet {
+        if count == skillsArray.count{
+          completion(keys)
+        }
+      }
+    }
+    
+    let userID = ref.child("skills")
+    for skill in skillsArray{
+      let query = userID.queryOrdered(byChild: "\(skill)").queryEqual(toValue: true)
+      query.observeSingleEvent(of: .value) { (snapshot) in
+        for childSnapshot in snapshot.children {
+          let snapshot = childSnapshot as? DataSnapshot
+          
+          if keys.contains((snapshot?.key)!){
+          } else {
+            keys.append((snapshot?.key)!)
+          }
+        }
+        count = count + 1
+//        self.applyFilter(filter: keys, completion: { (_) in
+//          self.collectionView.reloadData()
+        
+      }
+    }
+  }
+  
+  func applyFilter(filter: [String], completion: @escaping (Bool)->()){
+    var count = 0 {
+      didSet {
+        if count == filter.count {
+          completion(true)
+        }
+      }
+    }
+    for id in filter {
+      self.ref.child("users").child("\(id)").observeSingleEvent(of: .value) { (snapshot) in
+        self.users.append(snapshot)
+        count = count + 1
+      }
+    }
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+  
   //#Pragma Mark: Navigation
   
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "detailSegue" {
-    let usersCollectionViewCell = sender as! UsersCollectionViewCell
-    let vc = segue.destination as! UsersDetailViewController
-    vc.user = usersCollectionViewCell.user
-  }
+      let usersCollectionViewCell = sender as! UsersCollectionViewCell
+      let vc = segue.destination as! UsersDetailViewController
+      vc.user = usersCollectionViewCell.user
+    }
   }
   
   
