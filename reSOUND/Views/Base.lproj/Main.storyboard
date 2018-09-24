@@ -121,19 +121,47 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkz-LU-QOt">
-                                <rect key="frame" x="249" y="85" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkz-LU-QOt">
+                                <rect key="frame" x="329" y="62" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="skillsFilterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="26U-N6-SSN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVh-tg-o28">
-                                <rect key="frame" x="39" y="76" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRH-is-9at">
+                                <rect key="frame" x="269" y="61" width="54" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Lyricist"/>
                                 <connections>
-                                    <action selector="reloadTable:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l1V-yY-bDl"/>
+                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wMX-8h-RgW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1e7-BE-Hvd">
+                                <rect key="frame" x="43" y="62" width="116" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Audio Engineer"/>
+                                <connections>
+                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iek-dx-pbe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSc-aa-4W6">
+                                <rect key="frame" x="165" y="82" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Producer"/>
+                                <connections>
+                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gEu-lK-uis"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5B-7x-UKC">
+                                <rect key="frame" x="0.0" y="82" width="50" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Singer"/>
+                                <connections>
+                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ICs-N9-OzH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -159,6 +187,10 @@
                     <navigationItem key="navigationItem" id="EI6-wf-uqR"/>
                     <connections>
                         <outlet property="collectionView" destination="822-ho-CEM" id="a9u-Lg-cK2"/>
+                        <outlet property="engineerButton" destination="1e7-BE-Hvd" id="rXk-OJ-V1v"/>
+                        <outlet property="lyricistButton" destination="pRH-is-9at" id="qWp-ih-LUu"/>
+                        <outlet property="producerButton" destination="ZSc-aa-4W6" id="d30-DA-oq2"/>
+                        <outlet property="singerButton" destination="z5B-7x-UKC" id="pKT-5e-lnC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

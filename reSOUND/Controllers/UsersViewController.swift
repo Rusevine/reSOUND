@@ -13,12 +13,19 @@ import Firebase
 class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollectionViewDataSource {
   
   @IBOutlet weak var collectionView: UICollectionView!
-  @IBOutlet weak var skillsFilterButton: UIButton!
+
+  @IBOutlet weak var singerButton: UIButton!
+  @IBOutlet weak var engineerButton: UIButton!
+  @IBOutlet weak var producerButton: UIButton!
+  @IBOutlet weak var lyricistButton: UIButton!
+  
+  
+  
   
   var users: [DataSnapshot]! = []
   var ref: DatabaseReference!
   fileprivate var _refHandle: DatabaseHandle!
-  var skillsArray = ["Lyricist", "Singer","Producer"]
+  var skillsArray = [String]()
   
   //  var storageRef: StorageReference!
   //  var remoteConfig: RemoteConfig!
@@ -90,15 +97,33 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
   }
   
   //#Pragma Mark: Filter
-  
-  
-  @IBAction func skillsFilterButtonPressed(_ sender: UIButton) {
+  @IBAction func pickedSkillsPressed(_ sender: UIButton) {
+    if skillsArray.contains(sender.currentTitle!){
+      if let index = skillsArray.index(of: sender.currentTitle!) {
+        skillsArray.remove(at: index)
+      }
+    } else {
+    self.skillsArray.append(sender.currentTitle!)
+    }
     self.users = []
+    
     filterSkills { (keys) in
       self.applyFilter(filter: keys, completion: { (_) in
         self.collectionView.reloadData()
-    })
+      })
+    }
+    
+    
   }
+  
+  
+  @IBAction func skillsFilterButtonPressed(_ sender: UIButton) {
+//    self.users = []
+//    filterSkills { (keys) in
+//      self.applyFilter(filter: keys, completion: { (_) in
+//        self.collectionView.reloadData()
+//    })
+//  }
 }
   
 
