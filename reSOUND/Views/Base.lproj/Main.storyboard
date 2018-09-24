@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kQK-rg-STz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pZc-8o-UAh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="piT-cr-7O4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="977" y="-672"/>
+            <point key="canvasLocation" x="97" y="1583"/>
         </scene>
         <!--users-->
         <scene sceneID="tne-QT-ifu">
@@ -146,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976.79999999999995" y="31.934032983508249"/>
+            <point key="canvasLocation" x="-1527" y="2319"/>
         </scene>
         <!--Users Detail View Controller-->
         <scene sceneID="DxH-eR-9mV">
@@ -235,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eat-bH-dr4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1754" y="32"/>
+            <point key="canvasLocation" x="-738" y="2319"/>
         </scene>
         <!--Item-->
         <scene sceneID="CRe-zF-pyK">
@@ -254,7 +254,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NoR-fH-w7H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="37.600000000000001" y="31.934032983508249"/>
+            <point key="canvasLocation" x="-1527" y="1583"/>
         </scene>
         <!--profile-->
         <scene sceneID="4Gj-5g-OIo">
@@ -425,7 +425,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxT-4J-xok" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976.79999999999995" y="716.49175412293857"/>
+            <point key="canvasLocation" x="-738" y="1583"/>
         </scene>
         <!--Chat Controller-->
         <scene sceneID="FwP-Uc-8Iw">
@@ -494,7 +494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lO0-Hy-QeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1562.4000000000001" y="31.934032983508249"/>
+            <point key="canvasLocation" x="79" y="2319"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="gfd-Td-2ls">
@@ -533,8 +533,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="lOk-34-fsC" kind="relationship" relationship="viewControllers" id="Pkj-zz-uSo"/>
                         <segue destination="SeY-sq-78g" kind="relationship" relationship="viewControllers" id="vsr-UJ-8ON"/>
+                        <segue destination="lOk-34-fsC" kind="relationship" relationship="viewControllers" id="Pkj-zz-uSo"/>
                         <segue destination="tiq-6z-yQj" kind="relationship" relationship="viewControllers" id="TtX-Cr-30m"/>
                     </connections>
                 </tabBarController>

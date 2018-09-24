@@ -47,7 +47,6 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
     _refHandle = self.ref.child("users").observe(.childAdded, with: {[weak self] (snapshot) -> Void in
       guard let strongSelf = self else { return }
             strongSelf.users.append(snapshot)
-
             strongSelf.collectionView.insertItems(at: [IndexPath(row: strongSelf.users.count-1, section: 0)])
 })
   }
@@ -78,8 +77,9 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
     let city = user["city"] ?? ""
     let province = user["province"] ?? ""
     let email = user["email"] ?? ""
+    let id = user["id"] ?? ""
     
-    let _user = User(name: name, city: city, province: province, email: email)
+    let _user = User(name: name, city: city, province: province, email: email, id: id)
     
     cell.configureCell(withUser: _user)
     
