@@ -14,10 +14,9 @@ class ChatCell: UITableViewCell {
   @IBOutlet weak var chatImageView: UIImageView!
   @IBOutlet weak var chatLabel: UILabel!
   
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+  
+  
+
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

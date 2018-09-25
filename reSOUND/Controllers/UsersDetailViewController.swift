@@ -69,12 +69,12 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   }
   
   //#Pragma Mark: Navigation
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "chatSegue" {
-      let vc = segue.destination as! ChatController
-      vc.user = self.user
-    }
-  }
+//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    if segue.identifier == "chatSegue" {
+//      let vc = segue.destination as! ChatController
+//      vc.user = self.user
+//    }
+//  }
 }
 
 
