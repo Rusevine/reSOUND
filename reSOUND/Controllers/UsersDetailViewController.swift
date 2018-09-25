@@ -19,20 +19,17 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   @IBOutlet weak var connectButton: UIButton!
   
   var user: User?
-  var ref: DatabaseReference!
   var skills = [String]()
+  let database = DatabaseManager.shared
   
   override func viewDidLoad() {
     
     setupUI()
-    configureDatabase()
+
     setupUserInfo()
-    
+
   }
   
-  func configureDatabase() {
-    ref = Database.database().reference()
-  }
  
   func setupUI() {
     view.setGradientBackground(colorOne: colors.black, colorTwo: colors.lightGrey)
@@ -44,11 +41,12 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   }
     
   func setupUserInfo() {
+
     self.detailNameLabel.text = user?.name
     self.detailCityLabel.text = user?.city
     self.detailProvinceLabel.text = user?.province
     
-    ref.child("skills").child("\(user?.id ?? "")").observeSingleEvent(of: .value, with: { (snapshot) in
+    database.reference.child((database.skillsPath) + "/" + (user?.id)!).observeSingleEvent(of: .value, with: { (snapshot) in
         guard let value = snapshot.value as? [String:Bool] else {return}
         for key in value.keys {
             if value[key] == true {
@@ -68,13 +66,6 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
     sender.flash()
   }
   
-  //#Pragma Mark: Navigation
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//    if segue.identifier == "chatSegue" {
-//      let vc = segue.destination as! ChatController
-//      vc.user = self.user
-//    }
-//  }
 }
 
 

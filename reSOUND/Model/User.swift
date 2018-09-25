@@ -15,9 +15,10 @@ class User: NSObject {
   var province: String
   var email: String
   var id: String
+
 //  var skills: String
   
-  init(name: String, city: String, province: String, email: String, id: String /*,skills: String*/) {
+  init(name: String, city: String, province: String, email: String, id: String) {
     self.name = name
     self.city = city
     self.province = province
