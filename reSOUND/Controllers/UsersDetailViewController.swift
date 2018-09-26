@@ -25,7 +25,6 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   override func viewDidLoad() {
     
     setupUI()
-
     setupUserInfo()
 
   }

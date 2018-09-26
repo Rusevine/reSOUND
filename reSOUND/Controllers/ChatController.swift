@@ -20,35 +20,42 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   var messages: [DataSnapshot]! = []
   var chatTextFieldDelegate: UITextFieldDelegate?
-  var ref: DatabaseReference!
+  var database = DatabaseManager.shared
   fileprivate var _refHandle: DatabaseHandle!
   var msglength: NSNumber = 140
   var user: User?
-  let userID = Auth.auth().currentUser!.uid
+  var sendPath: String!
+  var receivePath: String!
+    
 
   
   
-  
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
   
   override func viewDidLoad() {
         super.viewDidLoad()
     
     view.setGradientBackground(colorOne: colors.black, colorTwo: colors.lightGrey)
-
     chatTextFieldDelegate = self
-        configureDatabase()
+    configurePaths()
+    configureDatabase()
     
+    }
+    func configurePaths() {
+        let userID = database.currentUser?.uid
+        self.sendPath = "chats/\(user?.id ?? "")/\(userID ?? "")"
+        self.receivePath = "chats/\(userID ?? "")/\(user?.id ?? "")"
     }
 
   func configureDatabase() {
-      ref = Database.database().reference()
-    _refHandle = self.ref.child("chats/\(userID)/\(user?.id ?? "")").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+    _refHandle = database.reference.child(receivePath).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
       guard let strongSelf = self else { return }
       strongSelf.messages.append(snapshot)
       strongSelf.chatTableView.insertRows(at: [IndexPath(row: strongSelf.messages.count-1, section: 0)], with: .automatic)
     })
   }
-  
 
   
   @IBAction func chatSendButtonPressed(_ sender: UIButton) {
@@ -82,12 +89,11 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   func sendMessage(text: String) {
     
-    let message = ["sender": Auth.auth().currentUser?.displayName,
+    let message = ["sender": database.currentUser?.displayName,
                               "text" : text]
-    let key = self.ref.child("chats/\(user?.id ?? "")/\(userID)").childByAutoId().key
-    self.ref.child("chats/\(user?.id ?? "")/\(userID)/\(key)").setValue(message)
-    self.ref.child("chats/\(userID)/\(user?.id ?? "")/\(key)").setValue(message)
-    //    view.endEditing(true)
+    let key = database.reference.child(sendPath).childByAutoId().key
+    database.reference.child("\(sendPath)/\(key)").setValue(message)
+    database.reference.child("\(receivePath)/\(key)").setValue(message)
     }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {

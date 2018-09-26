@@ -26,4 +26,5 @@ class DatabaseManager: NSObject {
     let province = "province"
     let email = "email"
     
+    
 }
