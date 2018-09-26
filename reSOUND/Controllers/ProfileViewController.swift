@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class ProfileViewController: UIViewController {
 
   @IBOutlet weak var profileView: UIView!
   @IBOutlet weak var nameTextField: UITextField!
@@ -151,7 +151,41 @@ class ProfileViewController: UIViewController, UIPopoverPresentationControllerDe
     sender.pulsate()
   }
   
-  
+//  @IBAction func engineerButtonPressed(_ sender: UIButton) {
+//    buttonPressed = !buttonPressed
+//    if (buttonPressed == true) {
+//      engineerButton.setImage(UIImage(named: "InvertedEngineer.png"), for: .normal)
+//    } else {
+//      engineerButton.setImage(UIImage(named: "Engineer.png"), for: .normal)
+//    }
+//  }
+//  
+//  @IBAction func lyricistButtonPressed(_ sender: Any) {
+//    buttonPressed = !buttonPressed
+//    if (buttonPressed == true) {
+//      lyricistButton.setImage(UIImage(named: "InvertedLyricist.png"), for: .normal)
+//    } else {
+//      lyricistButton.setImage(UIImage(named: "Lyricist.png"), for: .normal)
+//    }
+//  }
+//  
+//  @IBAction func producerButtonPressed(_ sender: UIButton) {
+//    buttonPressed = !buttonPressed
+//    if (buttonPressed == true) {
+//      producerButton.setImage(UIImage(named: "InvertedProducer.png"), for: .normal)
+//    } else {
+//      producerButton.setImage(UIImage(named: "Producer.png"), for: .normal)
+//    }
+//  }
+//  
+//  @IBAction func singerButtonPressed(_ sender: UIButton) {
+//    buttonPressed = !buttonPressed
+//    if (buttonPressed == true) {
+//      singerButton.setImage(UIImage(named: "InvertedSinger.png"), for: .normal)
+//    } else {
+//      singerButton.setImage(UIImage(named: "Singer.png"), for: .normal)
+//    }
+//  }
   
   }
 
