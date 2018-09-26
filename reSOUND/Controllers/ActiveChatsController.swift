@@ -14,9 +14,9 @@ class ActiveChatsController: UIViewController, UITableViewDataSource, UITableVie
   @IBOutlet weak var activeChatsTableView: UITableView!
   var chats = [String]()
   var id = [String]()
-  var ref = Database.database().reference()
+  var database = DatabaseManager.shared
   var user: User?
-  let userID = Auth.auth().currentUser!.uid
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +27,8 @@ class ActiveChatsController: UIViewController, UITableViewDataSource, UITableVie
     }
 
   func configureDatabase() {
-   
-    ref.child("users/\(userID)").child("activeChats").observeSingleEvent(of:  .value, with: {(snapshot) in
+    guard let userID = database.currentUser?.uid else {return}
+    database.reference.child("activeChats/\(userID)").observeSingleEvent(of:  .value, with: {(snapshot) in
       guard let value = snapshot.value as? [String:String] else { return }
       for name in value {
         self.chats.append(name.value)

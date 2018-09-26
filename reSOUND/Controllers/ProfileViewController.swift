@@ -30,16 +30,13 @@ class ProfileViewController: UIViewController {
   
   var pressed = false
   
-  
-  
-  var ref: DatabaseReference!
-  //var user: User?
+  let database = DatabaseManager.shared
 
   override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
-        ref = Database.database().reference()
+    
     }
     
     func setupUI() {
@@ -66,31 +63,21 @@ class ProfileViewController: UIViewController {
         view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
     }
 
-
-//  func saveProfile() {
-//    var user1 = [String:String]()
-//    user1["name"] = nameTextField.text
-//    user1["province"] = provinceTextField.text
-//    user1["email"] = emailTextField.text
-//    user1["city"] = cityTextField.text
-//        self.ref.child("users/U001/name").setValue(user1["name"])
-//        self.ref.child("users/U001/province").setValue(user1["province"])
-//        self.ref.child("users/U001/city").setValue(user1["city"])
-//        self.ref.child("users/U001/email").setValue(user1["email"])
-//  }
   
-  func newProfile() {
-    var user1 = [String:String]()
+  func updateProfile() {
+    var user = [String:String]()
+    let keys = ["name","province","email","city"]
     
-    let userID = Auth.auth().currentUser!.uid
-    user1["name"] = nameTextField.text
-    user1["province"] = provinceTextField.text
-    user1["email"] = emailTextField.text
-    user1["city"] = cityTextField.text
-    self.ref.child("users").child("\(userID)/name").setValue(user1["name"])
-    self.ref.child("users").child("\(userID)/province").setValue(user1["province"])
-    self.ref.child("users").child("\(userID)/city").setValue(user1["city"])
-    self.ref.child("users").child("\(userID)/email").setValue(user1["email"])
+    let userID = database.currentUser!.uid
+    user["name"] = nameTextField.text
+    user["province"] = provinceTextField.text
+    user["email"] = emailTextField.text
+    user["city"] = cityTextField.text
+    
+    
+    for key in keys {
+        database.reference.child(database.usersPath + "/\(userID)/" + key).setValue(user[key])
+    }
     
   }
   
@@ -104,7 +91,7 @@ class ProfileViewController: UIViewController {
   //#Pragma Mark Actions
   @IBAction func saveButtonPressed(_ sender: Any) {
    // saveProfile()
-    newProfile()
+    updateProfile()
   }
 
 
