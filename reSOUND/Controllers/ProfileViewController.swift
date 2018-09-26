@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
   @IBOutlet weak var profileView: UIView!
   @IBOutlet weak var nameTextField: UITextField!
@@ -24,6 +24,11 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var singerButton: UIButton!
   @IBOutlet weak var producerButton: UIButton!
   
+  @IBOutlet weak var popOverView: UIView!
+  @IBOutlet weak var popOverTopConstraint: NSLayoutConstraint!
+  @IBOutlet weak var popOverHeightConstraint: NSLayoutConstraint!
+  
+  var pressed = false
   
   
   
@@ -38,9 +43,9 @@ class ProfileViewController: UIViewController {
     }
     
     func setupUI() {
-        skillsButton.layer.cornerRadius = skillsButton.frame.size.height/2
+        skillsButton.layer.cornerRadius = skillsButton.frame.size.height/4
         skillsButton.layer.masksToBounds = true
-        skillsButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+//        skillsButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
         saveButton.layer.cornerRadius = saveButton.frame.size.height/2
         saveButton.layer.masksToBounds = true
         saveButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
@@ -58,7 +63,7 @@ class ProfileViewController: UIViewController {
         producerButton.layer.masksToBounds = true
         producerButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
         
-        view.setGradientBackground(colorOne: colors.black, colorTwo: colors.lightGrey)
+        view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
     }
 
 
@@ -104,15 +109,34 @@ class ProfileViewController: UIViewController {
 
 
   @IBAction func skillsButtonPressed(_ sender: UIButton) {
+    
+    if (!pressed) {
+        popOverTopConstraint.constant +=
+          (popOverHeightConstraint.constant * -1)
+        pressed = true
+     
+    }  else  {
+      popOverTopConstraint.constant -=
+        (popOverHeightConstraint.constant * -1)
+      pressed = false
+    }
+    
+    UIView.animate(withDuration: 2.0) {}
+ //   popOverView != popOverView
+    
+  
+  
+  
   }
+  
+
+ 
+  
+  
   
   @IBAction func engineerButtonPressed(_ sender: UIButton) {
     sender.pulsate()
     sender.flash()
-    
-   
-  
-
     }
   
   @IBAction func lyricistButtonPressed(_ sender: UIButton) {
