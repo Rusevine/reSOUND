@@ -389,69 +389,6 @@
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3al-8f-Am8">
                                 <rect key="frame" x="0.0" y="618" width="375" height="250"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFO-KM-q1k">
-                                        <rect key="frame" x="10" y="107" width="84" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="engineer">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="engineerButtonPressed:" destination="lOk-34-fsC" eventType="touchUpInside" id="zyG-gQ-g5P"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAa-fr-eAB">
-                                        <rect key="frame" x="84" y="107" width="86" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="lyricist">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="lyricistButtonPressed:" destination="lOk-34-fsC" eventType="touchUpInside" id="Zmn-bc-3W2"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msa-CP-7om">
-                                        <rect key="frame" x="275" y="107" width="86" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="singer">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="singerButtonPressed:" destination="lOk-34-fsC" eventType="touchUpInside" id="aSz-x7-Vn5"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yq1-vJ-Lpl">
-                                        <rect key="frame" x="200" y="107" width="86" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="producer">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="producerButtonPressed:" destination="lOk-34-fsC" eventType="touchUpInside" id="8r3-tj-Vo5"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2s2-fT-brt">
-                                        <rect key="frame" x="137" y="50" width="100" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" title="save profile">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="saveButtonPressed:" destination="lOk-34-fsC" eventType="touchUpInside" id="WnB-MH-f5o"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="FKd-gB-W1b"/>
@@ -497,17 +434,12 @@
                     <connections>
                         <outlet property="cityTextField" destination="RFn-p3-Lji" id="T33-cX-XW0"/>
                         <outlet property="emailTextField" destination="asg-ia-2ig" id="ep9-pD-Wjh"/>
-                        <outlet property="engineerButton" destination="qFO-KM-q1k" id="IQK-r6-cW7"/>
-                        <outlet property="lyricistButton" destination="mAa-fr-eAB" id="jg3-rw-DBS"/>
                         <outlet property="nameTextField" destination="miJ-5L-GG5" id="jAU-tD-30W"/>
                         <outlet property="popOverHeightConstraint" destination="FKd-gB-W1b" id="g6G-BF-G10"/>
                         <outlet property="popOverTopConstraint" destination="dSn-9e-XxG" id="D1f-ke-dO2"/>
                         <outlet property="popOverView" destination="3al-8f-Am8" id="6Ip-A0-L4D"/>
-                        <outlet property="producerButton" destination="yq1-vJ-Lpl" id="Azr-aJ-Cfb"/>
                         <outlet property="profileView" destination="cJV-ke-SZV" id="pe2-aw-tJi"/>
                         <outlet property="provinceTextField" destination="XxO-Yd-GiT" id="qZH-BQ-oEi"/>
-                        <outlet property="saveButton" destination="2s2-fT-brt" id="JFF-OU-gN0"/>
-                        <outlet property="singerButton" destination="Msa-CP-7om" id="ips-6k-uMw"/>
                         <outlet property="skillsButton" destination="KwC-c0-TOV" id="WBO-n1-oVk"/>
                     </connections>
                 </viewController>

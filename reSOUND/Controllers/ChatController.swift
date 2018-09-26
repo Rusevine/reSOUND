@@ -50,7 +50,7 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
   func configureDatabase() {
-    _refHandle = database.reference.child(receivePath).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+    _refHandle = database.reference.child(receivePath!).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
       guard let strongSelf = self else { return }
       strongSelf.messages.append(snapshot)
       strongSelf.chatTableView.insertRows(at: [IndexPath(row: strongSelf.messages.count-1, section: 0)], with: .automatic)
@@ -91,9 +91,9 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let message = ["sender": database.currentUser?.displayName,
                               "text" : text]
-    let key = database.reference.child(sendPath).childByAutoId().key
-    database.reference.child("\(sendPath)/\(key)").setValue(message)
-    database.reference.child("\(receivePath)/\(key)").setValue(message)
+    let key = database.reference.child(sendPath!).childByAutoId().key
+    database.reference.child("\(sendPath!)/\(key)").setValue(message)
+    database.reference.child("\(receivePath!)/\(key)").setValue(message)
     }
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {

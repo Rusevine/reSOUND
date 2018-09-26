@@ -19,6 +19,8 @@
 		259728B9215A816E0051DA61 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259728B8215A816E0051DA61 /* SignUpController.swift */; };
 		259728BB215A8A4B0051DA61 /* ActiveChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259728BA215A8A4A0051DA61 /* ActiveChatsController.swift */; };
 		259728BD215A8AA20051DA61 /* ActiveChatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259728BC215A8AA20051DA61 /* ActiveChatsCell.swift */; };
+		2598C283215BE1D40013F513 /* PopOver.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2598C282215BE1D40013F513 /* PopOver.xib */; };
+		2598C285215BE27A0013F513 /* PopOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2598C284215BE27A0013F513 /* PopOver.swift */; };
 		25E926BE215420A400C1D019 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E926BD215420A400C1D019 /* AppDelegate.swift */; };
 		25E926C3215420A400C1D019 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25E926C1215420A400C1D019 /* Main.storyboard */; };
 		25E926C5215420A500C1D019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25E926C4215420A500C1D019 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 		259728B8215A816E0051DA61 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		259728BA215A8A4A0051DA61 /* ActiveChatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatsController.swift; sourceTree = "<group>"; };
 		259728BC215A8AA20051DA61 /* ActiveChatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatsCell.swift; sourceTree = "<group>"; };
+		2598C282215BE1D40013F513 /* PopOver.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopOver.xib; sourceTree = "<group>"; };
+		2598C284215BE27A0013F513 /* PopOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOver.swift; sourceTree = "<group>"; };
 		25E926BA215420A400C1D019 /* reSOUND.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reSOUND.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E926BD215420A400C1D019 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25E926C2215420A400C1D019 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 				2524C2E72155685A008EBE5C /* ChatCell.swift */,
 				25E926C1215420A400C1D019 /* Main.storyboard */,
 				25E926C6215420A500C1D019 /* LaunchScreen.storyboard */,
+				2598C282215BE1D40013F513 /* PopOver.xib */,
+				2598C284215BE27A0013F513 /* PopOver.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2598C283215BE1D40013F513 /* PopOver.xib in Resources */,
 				25E926C8215420A500C1D019 /* LaunchScreen.storyboard in Resources */,
 				2565F4AF215423D30034FD72 /* GoogleService-Info.plist in Resources */,
 				25E926C5215420A500C1D019 /* Assets.xcassets in Resources */,
@@ -306,6 +313,7 @@
 				25FDE3F22156982B00D1C00E /* Colors.swift in Sources */,
 				2524C2E4215550BC008EBE5C /* SignInViewController.swift in Sources */,
 				2565F4C0215461610034FD72 /* ProfileViewController.swift in Sources */,
+				2598C285215BE27A0013F513 /* PopOver.swift in Sources */,
 				2524C2E82155685A008EBE5C /* ChatCell.swift in Sources */,
 				25E926BE215420A400C1D019 /* AppDelegate.swift in Sources */,
 				2524C2E621556725008EBE5C /* ChatController.swift in Sources */,
