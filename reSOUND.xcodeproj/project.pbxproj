@@ -16,6 +16,7 @@
 		2565F4B7215440910034FD72 /* UsersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565F4B6215440910034FD72 /* UsersDetailViewController.swift */; };
 		2565F4BB21544CFC0034FD72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565F4BA21544CFC0034FD72 /* User.swift */; };
 		2565F4C0215461610034FD72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565F4BF215461610034FD72 /* ProfileViewController.swift */; };
+		257C6391215C4B15001CDC5D /* gradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257C6390215C4B15001CDC5D /* gradientButton.swift */; };
 		259728B9215A816E0051DA61 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259728B8215A816E0051DA61 /* SignUpController.swift */; };
 		259728BB215A8A4B0051DA61 /* ActiveChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259728BA215A8A4A0051DA61 /* ActiveChatsController.swift */; };
 		259728BD215A8AA20051DA61 /* ActiveChatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259728BC215A8AA20051DA61 /* ActiveChatsCell.swift */; };
@@ -43,6 +44,7 @@
 		2565F4B6215440910034FD72 /* UsersDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDetailViewController.swift; sourceTree = "<group>"; };
 		2565F4BA21544CFC0034FD72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2565F4BF215461610034FD72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		257C6390215C4B15001CDC5D /* gradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradientButton.swift; sourceTree = "<group>"; };
 		259728B8215A816E0051DA61 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		259728BA215A8A4A0051DA61 /* ActiveChatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatsController.swift; sourceTree = "<group>"; };
 		259728BC215A8AA20051DA61 /* ActiveChatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatsCell.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				25E926C6215420A500C1D019 /* LaunchScreen.storyboard */,
 				2598C282215BE1D40013F513 /* PopOver.xib */,
 				2598C284215BE27A0013F513 /* PopOver.swift */,
+				257C6390215C4B15001CDC5D /* gradientButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				259728BD215A8AA20051DA61 /* ActiveChatsCell.swift in Sources */,
 				2565F4B7215440910034FD72 /* UsersDetailViewController.swift in Sources */,
 				2565F4BB21544CFC0034FD72 /* User.swift in Sources */,
+				257C6391215C4B15001CDC5D /* gradientButton.swift in Sources */,
 				2565F4B1215423DE0034FD72 /* UsersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
