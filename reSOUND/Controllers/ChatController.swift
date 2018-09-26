@@ -56,6 +56,8 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
       strongSelf.chatTableView.insertRows(at: [IndexPath(row: strongSelf.messages.count-1, section: 0)], with: .automatic)
     })
   }
+    
+    
 
   
   @IBAction func chatSendButtonPressed(_ sender: UIButton) {
@@ -74,13 +76,15 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = self.chatTableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath)
+    let cell = self.chatTableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatCell
     let messageSnapshot: DataSnapshot! = self.messages[indexPath.row]
     guard let message = messageSnapshot.value as? [String:String] else { return cell }
     let sender = message["sender"] ?? ""
 //    cell.textLabel?.text = "sent by: \(sender)"
     let text = message["text"] ?? ""
-    cell.textLabel?.text = sender + " : " +  text
+    let senderID = message["senderID"] ?? ""
+    
+    cell.configureCell(senderID: senderID, sender: sender, message: text)
   
     return cell
 }
@@ -90,7 +94,7 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
   func sendMessage(text: String) {
     
     let message = ["sender": database.currentUser?.displayName,
-                              "text" : text]
+                   "text" : text, "senderID": database.currentUser?.uid]
     let key = database.reference.child(sendPath!).childByAutoId().key
     database.reference.child("\(sendPath!)/\(key)").setValue(message)
     database.reference.child("\(receivePath!)/\(key)").setValue(message)
