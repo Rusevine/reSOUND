@@ -64,6 +64,14 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
     sender.pulsate()
     sender.flash()
   }
+    
+    func startChat(user: User){
+        
+        let addNew = [user.id:user.name]
+        database.reference.child("activeChats/\(database.currentUser?.uid ?? "")/").setValue(addNew)
+        
+        
+    }
   
 }
 
