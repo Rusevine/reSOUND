@@ -85,7 +85,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="822-ho-CEM">
-                                <rect key="frame" x="0.0" y="123" width="375" height="495"/>
+                                <rect key="frame" x="0.0" y="93" width="375" height="525"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oAx-Gc-EUf">
                                     <size key="itemSize" width="167" height="186"/>
@@ -158,81 +158,100 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkz-LU-QOt">
-                                <rect key="frame" x="329" y="62" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="skillsFilterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="26U-N6-SSN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRH-is-9at">
-                                <rect key="frame" x="269" y="61" width="54" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Lyricist"/>
-                                <connections>
-                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wMX-8h-RgW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1e7-BE-Hvd">
-                                <rect key="frame" x="43" y="62" width="116" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Audio Engineer"/>
-                                <connections>
-                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iek-dx-pbe"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSc-aa-4W6">
-                                <rect key="frame" x="165" y="82" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Producer"/>
-                                <connections>
-                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gEu-lK-uis"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5B-7x-UKC">
-                                <rect key="frame" x="0.0" y="82" width="50" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Singer"/>
-                                <connections>
-                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ICs-N9-OzH"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZkO-z1-4ks" customClass="PopOverFilter" customModule="reSOUND" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="-250" width="375" height="250"/>
+                                <color key="backgroundColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="qU5-cw-GsN"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pxS-Gr-K3q">
+                                <rect key="frame" x="0.0" y="-121.5" width="375" height="33"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5B-7x-UKC" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Singer"/>
+                                        <connections>
+                                            <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ICs-N9-OzH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1e7-BE-Hvd" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                                        <rect key="frame" x="55" y="0.0" width="185" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Audio Engineer"/>
+                                        <connections>
+                                            <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iek-dx-pbe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRH-is-9at" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                                        <rect key="frame" x="245" y="0.0" width="54" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Lyricist"/>
+                                        <connections>
+                                            <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wMX-8h-RgW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSc-aa-4W6" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                                        <rect key="frame" x="304" y="0.0" width="71" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Producer"/>
+                                        <connections>
+                                            <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gEu-lK-uis"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hkz-LU-QOt" secondAttribute="trailing" constant="80" id="3SH-4N-jeh"/>
-                            <constraint firstItem="822-ho-CEM" firstAttribute="top" secondItem="hkz-LU-QOt" secondAttribute="bottom" constant="8" id="CLQ-77-aa6"/>
+                            <constraint firstItem="ZkO-z1-4ks" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8OB-a8-Qpr"/>
+                            <constraint firstItem="ZkO-z1-4ks" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-250" id="Fht-gB-ta6"/>
                             <constraint firstItem="rFD-F2-lmC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KxH-NJ-Hri"/>
                             <constraint firstItem="rFD-F2-lmC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MH2-CG-Cf5"/>
+                            <constraint firstItem="pxS-Gr-K3q" firstAttribute="trailing" secondItem="ZkO-z1-4ks" secondAttribute="trailing" id="Meq-AC-4re"/>
                             <constraint firstItem="rFD-F2-lmC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="NTh-vE-6lY"/>
                             <constraint firstItem="rFD-F2-lmC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="POI-LG-MVz"/>
+                            <constraint firstItem="pxS-Gr-K3q" firstAttribute="centerX" secondItem="ZkO-z1-4ks" secondAttribute="centerX" id="RY3-LY-s9J"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="822-ho-CEM" secondAttribute="bottom" id="SJR-II-9SX"/>
                             <constraint firstItem="822-ho-CEM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SUZ-W6-NFd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="822-ho-CEM" secondAttribute="trailing" id="VyS-59-cqL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rFD-F2-lmC" secondAttribute="trailing" id="ZsJ-jE-mVf"/>
+                            <constraint firstItem="822-ho-CEM" firstAttribute="top" secondItem="rFD-F2-lmC" secondAttribute="bottom" id="cU7-t9-uiS"/>
                             <constraint firstItem="rFD-F2-lmC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="gUh-Su-zIQ"/>
-                            <constraint firstItem="hkz-LU-QOt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="249" id="nN0-Z0-CdD"/>
-                            <constraint firstItem="hkz-LU-QOt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="zUe-ns-Gna"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZkO-z1-4ks" secondAttribute="trailing" id="gps-JN-Oov"/>
+                            <constraint firstItem="pxS-Gr-K3q" firstAttribute="centerY" secondItem="ZkO-z1-4ks" secondAttribute="centerY" constant="20" id="mf3-3y-7J4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="users" id="4AQ-SO-M9y"/>
-                    <navigationItem key="navigationItem" id="EI6-wf-uqR"/>
+                    <navigationItem key="navigationItem" id="EI6-wf-uqR">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="0St-t0-ycf">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1BK-SN-sa9">
+                                <rect key="frame" x="311" y="1" width="48" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="filter"/>
+                                <connections>
+                                    <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yic-Fa-R76"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="822-ho-CEM" id="a9u-Lg-cK2"/>
                         <outlet property="engineerButton" destination="1e7-BE-Hvd" id="rXk-OJ-V1v"/>
+                        <outlet property="filterButton" destination="1BK-SN-sa9" id="jQi-un-0l6"/>
                         <outlet property="lyricistButton" destination="pRH-is-9at" id="qWp-ih-LUu"/>
+                        <outlet property="popOverFilter" destination="ZkO-z1-4ks" id="YkW-8n-SaT"/>
+                        <outlet property="popOverFilterHeightContraint" destination="qU5-cw-GsN" id="i5o-cx-gbh"/>
+                        <outlet property="popOverFilterTopConstraint" destination="Fht-gB-ta6" id="aXQ-zL-oSI"/>
                         <outlet property="producerButton" destination="ZSc-aa-4W6" id="d30-DA-oq2"/>
                         <outlet property="singerButton" destination="z5B-7x-UKC" id="pKT-5e-lnC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1527" y="2361"/>
+            <point key="canvasLocation" x="-1527" y="2497"/>
         </scene>
         <!--Users Detail View Controller-->
         <scene sceneID="DxH-eR-9mV">
@@ -318,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eat-bH-dr4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1103" y="3172"/>
+            <point key="canvasLocation" x="-1046" y="3297"/>
         </scene>
         <!--Strangers-->
         <scene sceneID="CRe-zF-pyK">
@@ -555,7 +574,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lO0-Hy-QeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="88.799999999999997" y="3170.4647676161921"/>
+            <point key="canvasLocation" x="78" y="3296"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="gfd-Td-2ls">
@@ -975,7 +994,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYa-ae-cs5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-578" y="2361"/>
+            <point key="canvasLocation" x="-578" y="2497"/>
         </scene>
         <!--Friends-->
         <scene sceneID="IgO-wh-mpv">
