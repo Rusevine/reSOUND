@@ -281,6 +281,9 @@
                                 <state key="normal" title="connect">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="connectButtonPressed:" destination="jJ0-IW-2xk" eventType="touchUpInside" id="Rvi-eD-Wz3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -318,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eat-bH-dr4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1103" y="3172"/>
+            <point key="canvasLocation" x="-1103.2" y="3171.3643178410798"/>
         </scene>
         <!--Strangers-->
         <scene sceneID="CRe-zF-pyK">
@@ -1002,6 +1005,6 @@
         <image name="britney" width="402" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YqP-dD-A2j"/>
+        <segue reference="2Pl-nZ-f8r"/>
     </inferredMetricsTieBreakers>
 </document>

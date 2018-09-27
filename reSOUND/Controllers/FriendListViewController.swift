@@ -20,8 +20,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var friends = [String]()
     var friendsID = [String]()
-    var chats = [String]()
-    var chatsID = [String]()
+    var chats: [DataSnapshot]! = []
     var database = DatabaseManager.shared
     
     override func viewDidLoad() {
@@ -45,13 +44,11 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func configureActiveChats() {
         guard let userID = database.currentUser?.uid else {return}
-        database.reference.child("activeChats/\(userID)").observeSingleEvent(of:  .value, with: {(snapshot) in
-            guard let value = snapshot.value as? [String:String] else { return }
-            for name in value {
-                self.chats.append(name.value)
-                self.chatsID.append(name.key)
-            }
-            self.chatsTables.reloadData()
+        
+        database.reference.child("activeChats/\(userID)").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+            guard let strongSelf = self else { return }
+            strongSelf.chats.append(snapshot)
+            strongSelf.chatsTables.insertRows(at: [IndexPath(row: strongSelf.chats.count-1, section: 0)], with: .automatic)
         })
     }
 
@@ -86,20 +83,30 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         var cell: UITableViewCell?
     
         switch tableView {
-            case friendsTable:
-            let friendsCell = self.friendsTable.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! ActiveChatsCell
             
+            case friendsTable:
+                
+            let friendsCell = self.friendsTable.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! ActiveChatsCell
             friendsCell.configureCell(name: friends[indexPath.row], id: friendsID[indexPath.row])
             cell = friendsCell
             break
+            
             case chatsTables:
+                
             let activeCell = self.chatsTables.dequeueReusableCell(withIdentifier: "activeChatCell", for: indexPath) as! ActiveChatsCell
-                    
-            activeCell.configureCell(name: chats[indexPath.row], id: chatsID[indexPath.row])
+            let snapshot = self.chats[indexPath.row]
+            let id = snapshot.key
+            guard let name = snapshot.value as? String else {fatalError()}
+            activeCell.configureCell(name: name, id: id)
             cell = activeCell
+            
             break
-            default: break
+            
+            default:
+            break
+            
             }
+
         
         return cell!
   }

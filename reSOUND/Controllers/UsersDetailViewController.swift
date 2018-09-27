@@ -60,15 +60,13 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   //#Pragma Mark Actions
   
   @IBAction func connectButtonPressed(_ sender: UIButton) {
-    print("button pressed")
-    sender.pulsate()
-    sender.flash()
+    startChat(user: self.user!)
   }
     
     func startChat(user: User){
         
         let addNew = [user.id:user.name]
-        database.reference.child("activeChats/\(database.currentUser?.uid ?? "")/").setValue(addNew)
+        database.reference.child("activeChats/\(database.currentUser?.uid ?? "")/").updateChildValues(addNew)
         
         
     }
