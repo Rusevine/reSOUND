@@ -106,7 +106,6 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             break
             
             }
-
         
         return cell!
   }
