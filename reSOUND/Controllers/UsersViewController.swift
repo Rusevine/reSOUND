@@ -38,7 +38,8 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
     configureDatabase()
 
     view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
-    
+    filterButton.setTitleColor(colors.fontBlue, for: UIControlState.normal)
+
   }
   
   func configureDatabase() {
@@ -101,10 +102,14 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
     if (!pressed) {
       popOverFilterTopConstraint.constant += popOverFilterHeightContraint.constant
       pressed = true
-      
+      filterButton.setTitle("done", for: UIControlState.normal)
+      filterButton.setTitleColor(colors.fontBlue, for: UIControlState.normal)
+
     } else {
       popOverFilterTopConstraint.constant -= popOverFilterHeightContraint.constant
       pressed = false
+      filterButton.setTitle("filter", for: UIControlState.normal)
+
     }
     UIView.animate(withDuration: 2) {}
   }

@@ -26,13 +26,6 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="so9-ms-xtb" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                    <rect key="frame" x="142" y="184" width="90" height="36"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
-                    <state key="normal" title="save">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                </button>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5Va-SB-wDJ">
                     <rect key="frame" x="23" y="104" width="328" height="36"/>
                     <subviews>
@@ -80,10 +73,7 @@
             <constraints>
                 <constraint firstItem="WRw-Sn-HnK" firstAttribute="top" secondItem="9Ah-QS-YA6" secondAttribute="top" constant="30" id="5du-Ac-zPI"/>
                 <constraint firstItem="5Va-SB-wDJ" firstAttribute="leading" secondItem="9Ah-QS-YA6" secondAttribute="leading" constant="23" id="6kW-1t-huq"/>
-                <constraint firstItem="9Ah-QS-YA6" firstAttribute="bottom" secondItem="so9-ms-xtb" secondAttribute="bottom" constant="30" id="D1J-aV-ftq"/>
-                <constraint firstItem="so9-ms-xtb" firstAttribute="leading" secondItem="9Ah-QS-YA6" secondAttribute="leading" constant="142" id="Qee-5w-DF3"/>
                 <constraint firstItem="5Va-SB-wDJ" firstAttribute="top" secondItem="WRw-Sn-HnK" secondAttribute="bottom" constant="45" id="VKq-6T-VqU"/>
-                <constraint firstItem="9Ah-QS-YA6" firstAttribute="trailing" secondItem="so9-ms-xtb" secondAttribute="trailing" constant="143" id="Wl7-SX-h9Y"/>
                 <constraint firstItem="WRw-Sn-HnK" firstAttribute="leading" secondItem="9Ah-QS-YA6" secondAttribute="leading" constant="10" id="buL-Wr-qt5"/>
                 <constraint firstItem="9Ah-QS-YA6" firstAttribute="trailing" secondItem="WRw-Sn-HnK" secondAttribute="trailing" constant="10" id="gs6-MI-Aj0"/>
                 <constraint firstItem="9Ah-QS-YA6" firstAttribute="trailing" secondItem="5Va-SB-wDJ" secondAttribute="trailing" constant="24" id="tLh-oP-5ah"/>

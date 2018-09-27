@@ -16,11 +16,14 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var cityTextField: UITextField!
   @IBOutlet weak var provinceTextField: UITextField!
   @IBOutlet weak var emailTextField: UITextField!
-
+  @IBOutlet weak var descriptionTextField: UITextField!
+  @IBOutlet weak var linkTextField: UITextField!
+  @IBOutlet weak var skillsLabel: UILabel!
+  
+  @IBOutlet weak var profileImageView: UIImageView!
   
   @IBOutlet weak var skillsButton: UIButton!
 
-  
   @IBOutlet weak var popOverView: UIView!
   @IBOutlet weak var popOverTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var popOverHeightConstraint: NSLayoutConstraint!
@@ -34,31 +37,31 @@ class ProfileViewController: UIViewController {
 
         setupUI()
     
+    view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
+    self.nameTextField.attributedPlaceholder = NSAttributedString(string: "enter name",
+                                                                  attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+    self.cityTextField.attributedPlaceholder = NSAttributedString(string: "enter city",
+                                                                  attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+    self.provinceTextField.attributedPlaceholder = NSAttributedString(string: "enter province",
+                                                                      attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+    self.emailTextField.attributedPlaceholder = NSAttributedString(string: "enter email",
+                                                                   attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+    self.descriptionTextField.attributedPlaceholder = NSAttributedString(string: "enter a little description about yourself", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+    self.linkTextField.attributedPlaceholder = NSAttributedString(string: "enter any links to your work if applicable", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+    
+    self.profileImageView.layer.masksToBounds = false 
+    self.profileImageView.layer.cornerRadius = profileImageView.frame.height/2
+    self.profileImageView.clipsToBounds = true
+    self.profileImageView.layer.borderWidth = 4
+    self.profileImageView.layer.borderColor = colors.white.cgColor
+  
+
     }
     
     func setupUI() {
         skillsButton.layer.cornerRadius = skillsButton.frame.size.height/4
         skillsButton.layer.masksToBounds = true
 //        skillsButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
-      
-//        saveButton.layer.cornerRadius = saveButton.frame.size.height/2
-//        saveButton.layer.masksToBounds = true
-//        saveButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
-//
-//        engineerButton.layer.cornerRadius = engineerButton.frame.size.height/2
-//        engineerButton.layer.masksToBounds = true
-//        engineerButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
-//        lyricistButton.layer.cornerRadius = lyricistButton.frame.size.height/2
-//        lyricistButton.layer.masksToBounds = true
-//        lyricistButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
-//        singerButton.layer.cornerRadius = singerButton.frame.size.height/2
-//        singerButton.layer.masksToBounds = true
-//        singerButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
-//        producerButton.layer.cornerRadius = producerButton.frame.size.height/2
-//        producerButton.layer.masksToBounds = true
-//        producerButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
-      
-        view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
     }
 
   
@@ -96,13 +99,15 @@ class ProfileViewController: UIViewController {
   @IBAction func skillsButtonPressed(_ sender: UIButton) {
     
     if (!pressed) {
-        popOverTopConstraint.constant +=
-          (popOverHeightConstraint.constant * -1)
-        pressed = true
-     
+      popOverTopConstraint.constant +=
+        (popOverHeightConstraint.constant * -1)
+      skillsButton.setTitle("done", for: UIControlState.normal)
+      pressed = true
+      
     }  else  {
       popOverTopConstraint.constant -=
         (popOverHeightConstraint.constant * -1)
+      skillsButton.setTitle("add skills", for: UIControlState.normal)
       pressed = false
     }
     

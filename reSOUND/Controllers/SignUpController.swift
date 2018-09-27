@@ -31,6 +31,25 @@ class SignUpController: UIViewController {
       self.signUpName.text = userName.displayName
       self.signUpEmail.text = userName.email
       
+      //for circle image view 
+//      self.imageView.layer.borderWidth = 1
+//      self.imageView.layer.borderColor = colors.fontBlue.cgColor
+//      self.imageView.layer.masksToBounds = false
+//      self.imageView.layer.cornerRadius = imageView.frame.height/2
+//      self.imageView.clipsToBounds = true
+
+      view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
+      
+//      self.signUpName.attributedPlaceholder = NSAttributedString(string: "enter name",
+//                                                                    attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+//      self.signUpCity.attributedPlaceholder = NSAttributedString(string: "enter city",
+//                                                                    attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+//      self.signUpProvince.attributedPlaceholder = NSAttributedString(string: "enter province",
+//                                                                        attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+//      self.signUpEmail.attributedPlaceholder = NSAttributedString(string: "enter email",
+//                                                                     attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+//      self.signUpLink.attributedPlaceholder = NSAttributedString(string: "enter any links to your work",
+//                                                                  attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
     }
 
  
