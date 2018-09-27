@@ -146,7 +146,20 @@
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hHg-RQ-bf7">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="find other members with the skills you need here " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSA-pc-wmT">
+                                            <rect key="frame" x="8" y="20" width="359" height="22"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="cSA-pc-wmT" firstAttribute="leading" secondItem="hHg-RQ-bf7" secondAttribute="leadingMargin" id="3xe-7W-FPV"/>
+                                        <constraint firstItem="cSA-pc-wmT" firstAttribute="trailing" secondItem="hHg-RQ-bf7" secondAttribute="trailingMargin" id="HUB-QI-SOI"/>
+                                        <constraint firstItem="cSA-pc-wmT" firstAttribute="bottom" secondItem="hHg-RQ-bf7" secondAttribute="bottomMargin" id="kt5-ea-qn2"/>
+                                    </constraints>
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Ocb-Fd-hV3"/>
