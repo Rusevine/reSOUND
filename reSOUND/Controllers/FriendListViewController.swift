@@ -116,12 +116,14 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             
         case requestTables:
             let requestCell = self.requestTables.dequeueReusableCell(withIdentifier: "requestCell", for: indexPath) as! ActiveChatsCell
-            let snapshot = self.requests[indexPath.row].value as! [String:Any]
-            let name = snapshot["name"]
-           // let id = snapshot.
+            let snapshot = self.requests[indexPath.row]
+            let values = snapshot.value as! [String:Any]
+            let name = values["name"] as! String
+            let id = snapshot.key
             
-            
+            requestCell.configureCell(name: name, id: id)
             cell = requestCell
+            
             break
             default: break
             }

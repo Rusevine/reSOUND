@@ -959,7 +959,22 @@
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mfw-9D-zf1" id="Iqh-m2-TV9">
                                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8z-jn-xk2">
+                                                                            <rect key="frame" x="166" y="11" width="42" height="21"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="X8z-jn-xk2" firstAttribute="centerY" secondItem="Iqh-m2-TV9" secondAttribute="centerY" id="S1K-Gy-afz"/>
+                                                                        <constraint firstItem="X8z-jn-xk2" firstAttribute="centerX" secondItem="Iqh-m2-TV9" secondAttribute="centerX" id="kdz-PX-kJ8"/>
+                                                                    </constraints>
                                                                 </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="activeChatsLabel" destination="X8z-jn-xk2" id="f56-tm-0Od"/>
+                                                                </connections>
                                                             </tableViewCell>
                                                         </prototypes>
                                                         <connections>
@@ -1053,7 +1068,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYa-ae-cs5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-578" y="2497"/>
+            <point key="canvasLocation" x="-578.39999999999998" y="2496.7016491754125"/>
         </scene>
         <!--Friends-->
         <scene sceneID="IgO-wh-mpv">
