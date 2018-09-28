@@ -24,13 +24,15 @@ class ProfileViewController: UIViewController {
   
   @IBOutlet weak var skillsButton: UIButton!
 
-  @IBOutlet weak var popOverView: UIView!
+  @IBOutlet weak var popOverView: PopOver!
+//  @IBOutlet weak var popOverView: UIView!
   @IBOutlet weak var popOverTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var popOverHeightConstraint: NSLayoutConstraint!
   
 //  var pressed = false
   let database = DatabaseManager.shared
   var skillsArray = [String]()
+  var skillSet = ["engineer":false,"lyricist":false,"singer":false,"producer":false]
 
   override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +52,7 @@ class ProfileViewController: UIViewController {
     self.linkTextField.attributedPlaceholder = NSAttributedString(string: "enter any links to your work if applicable", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
     
     self.profileImageView.layer.masksToBounds = false 
-    self.profileImageView.layer.cornerRadius = profileImageView.frame.height/2
+    self.profileImageView.layer.cornerRadius = profileImageView.frame.width/2
     self.profileImageView.clipsToBounds = true
     self.profileImageView.layer.borderWidth = 4
     self.profileImageView.layer.borderColor = colors.white.cgColor
@@ -67,16 +69,33 @@ class ProfileViewController: UIViewController {
   
   func updateProfile() {
     var user = [String:String]()
-    let keys = ["name","province","email","city"]
+    let keys = ["name","province","email","city", "id"]
     
     let userID = database.currentUser!.uid
     user["name"] = nameTextField.text
     user["province"] = provinceTextField.text
     user["email"] = emailTextField.text
     user["city"] = cityTextField.text
+    user["id"] = userID
     
     for key in keys {
         database.reference.child(database.usersPath + "/\(userID)/" + key).setValue(user[key])
+    }
+  }
+  
+  func updateSkills() {
+    var skill = [String:Bool]()
+    let keys = ["Audio Engineer", "Lyricist", "Producer", "Singer"]
+    
+    print(skillSet)
+    let skills = database.currentUser!.uid
+    skill["Audio Engineer"] = skillSet["engineer"]
+    skill["Lyricist"] = skillSet["lyricist"]
+    skill["Producer"] = skillSet["producer"]
+    skill["Singer"] = skillSet["singer"]
+    
+    for key in keys {
+      database.reference.child(database.skillsPath + "/\(skills)/" + key).setValue(skill[key])
     }
     
   }
@@ -91,10 +110,12 @@ class ProfileViewController: UIViewController {
   //#Pragma Mark Actions
   @IBAction func saveButtonPressed(_ sender: Any) {
    // saveProfile()
+    updateSkills()
     updateProfile()
   }
 
   @IBAction func skillsButtonPressed(_ sender: gradientButton) {
+    popOverView.profileViewController = self
     if (sender.pressed == true) {
       popOverTopConstraint.constant +=
         (popOverHeightConstraint.constant * -1)
@@ -106,28 +127,8 @@ class ProfileViewController: UIViewController {
     }
     UIView.animate(withDuration: 2.0) {}
   }
-  
-//  @IBAction func addSkillsToProfile(_ sender: gradientButton) {
-//    var user = [String:String]()
-//    let keys = ["Audio Engineer","Singer","Producer","Lyricist"]
-//
-//    if (sender.pressed == true) {
-//
-////      self.skillsLabel.text = skillsArray.index(of: sender.currentTitle!)
-//      if skillsArray.contains(sender.currentTitle!){
-//        if let index = skillsArray.index(of: sender.currentTitle!) {
-//          skillsArray.remove(at: index)
-//        } else {
-//          self.skillsArray.append(sender.currentTitle!)
-//        }
-//        for key in keys {
-//          database.reference.updateChildValues(database.usersPath +"/\(skills)/" + key).updateValue(user[key])
-////          database.reference.child(database.usersPath + "/\(skills)/" + key).updateValue(user[key])
-//        }
-//      }
-//    }
-//  }
-  
+
+ 
 //  func filterSkills(completion: @escaping ([String])->()){
 //    var keys = [String]()
 //    var count = 0 {
