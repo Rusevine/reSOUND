@@ -31,12 +31,6 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   
  
   func setupUI() {
-    view.setGradientBackground(colorOne: colors.black, colorTwo: colors.lightGrey)
-    
-    connectButton.layer.cornerRadius = connectButton.frame.size.height/2
-    connectButton.layer.masksToBounds = true
-    connectButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
-
   }
     
   func setupUserInfo() {
@@ -60,10 +54,34 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   //#Pragma Mark Actions
   
   @IBAction func connectButtonPressed(_ sender: UIButton) {
-    print("button pressed")
-    sender.pulsate()
-    sender.flash()
+//    sender.setTitle("Pending Request", for: UIControlState.disabled)
+//    sender.backgroundColor = UIColor.lightGray
+//    sender.isEnabled = false
+ //   startChat(user: user!)
+    friendRequest(user: user!)
   }
+    func friendRequest(user: User){
+        let senderID = database.currentUser?.uid ?? ""
+        let senderName = database.currentUser?.displayName ?? ""
+        let request = ["name":senderName,"pending":true,"rejected":false] as [String : Any]
+        database.reference.child("friendRequest/\(user.id)/\(senderID)").setValue(request)
+    }
+    
+//    func startChat(user: User){
+//
+//        let addNew = [user.id:user.name]
+//        database.reference.child("activeChats/\(database.currentUser?.uid ?? "")/").updateChildValues(addNew)
+//
+//
+//    }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if segue.identifier == "detailToChatSegue" {
+//            let vc = segue.destination as! ChatController
+//            vc.user = self.user
+//        }
+//    }
   
 }
 

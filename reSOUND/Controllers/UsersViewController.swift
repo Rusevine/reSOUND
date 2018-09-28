@@ -18,14 +18,17 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
   @IBOutlet weak var engineerButton: UIButton!
   @IBOutlet weak var producerButton: UIButton!
   @IBOutlet weak var lyricistButton: UIButton!
+  @IBOutlet weak var popOverFilter: UIView!
+  @IBOutlet weak var popOverFilterHeightContraint: NSLayoutConstraint!
+  @IBOutlet weak var popOverFilterTopConstraint: NSLayoutConstraint!
   
+  @IBOutlet weak var filterButton: UIButton!
   
   var users: [DataSnapshot]! = []
   let database = DatabaseManager.shared
   var skillsArray = [String]()
-  
+  var pressed = false
 
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -34,10 +37,10 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
     
     configureDatabase()
 
-    view.setGradientBackground(colorOne: colors.black, colorTwo: colors.lightGrey)
-    
+    view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
+    filterButton.setTitleColor(colors.fontBlue, for: UIControlState.normal)
+
   }
-  
   
   func configureDatabase() {
 
@@ -92,21 +95,24 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
         self.collectionView.reloadData()
       })
     }
-    
-    
   }
   
-  
-  @IBAction func skillsFilterButtonPressed(_ sender: UIButton) {
-//    self.users = []
-//    filterSkills { (keys) in
-//      self.applyFilter(filter: keys, completion: { (_) in
-//        self.collectionView.reloadData()
-//    })
-//  }
-}
-  
+  @IBAction func filterButtonPressed(_ sender: Any) {
+    print("filter button was pressed")
+    if (!pressed) {
+      popOverFilterTopConstraint.constant += popOverFilterHeightContraint.constant
+      pressed = true
+      filterButton.setTitle("done", for: UIControlState.normal)
+      filterButton.setTitleColor(colors.fontBlue, for: UIControlState.normal)
 
+    } else {
+      popOverFilterTopConstraint.constant -= popOverFilterHeightContraint.constant
+      pressed = false
+      filterButton.setTitle("filter", for: UIControlState.normal)
+
+    }
+    UIView.animate(withDuration: 2) {}
+  }
   
   func filterSkills(completion: @escaping ([String])->()){
     var keys = [String]()

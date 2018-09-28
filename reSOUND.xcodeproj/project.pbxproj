@@ -16,9 +16,14 @@
 		2565F4B7215440910034FD72 /* UsersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565F4B6215440910034FD72 /* UsersDetailViewController.swift */; };
 		2565F4BB21544CFC0034FD72 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565F4BA21544CFC0034FD72 /* User.swift */; };
 		2565F4C0215461610034FD72 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565F4BF215461610034FD72 /* ProfileViewController.swift */; };
+		257C6391215C4B15001CDC5D /* gradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257C6390215C4B15001CDC5D /* gradientButton.swift */; };
 		259728B9215A816E0051DA61 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259728B8215A816E0051DA61 /* SignUpController.swift */; };
 		259728BB215A8A4B0051DA61 /* ActiveChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259728BA215A8A4A0051DA61 /* ActiveChatsController.swift */; };
 		259728BD215A8AA20051DA61 /* ActiveChatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259728BC215A8AA20051DA61 /* ActiveChatsCell.swift */; };
+		2598C283215BE1D40013F513 /* PopOver.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2598C282215BE1D40013F513 /* PopOver.xib */; };
+		2598C285215BE27A0013F513 /* PopOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2598C284215BE27A0013F513 /* PopOver.swift */; };
+		25C3B641215D2ED80030771B /* PopOverFilter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C3B640215D2ED80030771B /* PopOverFilter.xib */; };
+		25C3B643215D2F460030771B /* PopOverFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C3B642215D2F460030771B /* PopOverFilter.swift */; };
 		25E926BE215420A400C1D019 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E926BD215420A400C1D019 /* AppDelegate.swift */; };
 		25E926C3215420A400C1D019 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25E926C1215420A400C1D019 /* Main.storyboard */; };
 		25E926C5215420A500C1D019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25E926C4215420A500C1D019 /* Assets.xcassets */; };
@@ -26,6 +31,7 @@
 		25FDE3F02156917100D1C00E /* UIButtonExtentsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FDE3EF2156917100D1C00E /* UIButtonExtentsion.swift */; };
 		25FDE3F22156982B00D1C00E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FDE3F12156982B00D1C00E /* Colors.swift */; };
 		25FDE3F421569AFF00D1C00E /* UIViewExtentsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FDE3F321569AFF00D1C00E /* UIViewExtentsion.swift */; };
+		464C48C7215BF96B00B7D07F /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464C48C6215BF96B00B7D07F /* FriendListViewController.swift */; };
 		46DA731A215AD11900B87081 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DA7319215AD11900B87081 /* DatabaseManager.swift */; };
 		B0C0FAC59BBDF97137A19CF7 /* Pods_reSOUND.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D6C8B4642768B3A9A9C8F6 /* Pods_reSOUND.framework */; };
 /* End PBXBuildFile section */
@@ -40,9 +46,14 @@
 		2565F4B6215440910034FD72 /* UsersDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDetailViewController.swift; sourceTree = "<group>"; };
 		2565F4BA21544CFC0034FD72 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2565F4BF215461610034FD72 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		257C6390215C4B15001CDC5D /* gradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradientButton.swift; sourceTree = "<group>"; };
 		259728B8215A816E0051DA61 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		259728BA215A8A4A0051DA61 /* ActiveChatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatsController.swift; sourceTree = "<group>"; };
 		259728BC215A8AA20051DA61 /* ActiveChatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatsCell.swift; sourceTree = "<group>"; };
+		2598C282215BE1D40013F513 /* PopOver.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopOver.xib; sourceTree = "<group>"; };
+		2598C284215BE27A0013F513 /* PopOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOver.swift; sourceTree = "<group>"; };
+		25C3B640215D2ED80030771B /* PopOverFilter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopOverFilter.xib; sourceTree = "<group>"; };
+		25C3B642215D2F460030771B /* PopOverFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverFilter.swift; sourceTree = "<group>"; };
 		25E926BA215420A400C1D019 /* reSOUND.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reSOUND.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E926BD215420A400C1D019 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25E926C2215420A400C1D019 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +65,7 @@
 		25FDE3F321569AFF00D1C00E /* UIViewExtentsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtentsion.swift; sourceTree = "<group>"; };
 		2674E798F70AA28919A72B99 /* Pods-reSOUND.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reSOUND.release.xcconfig"; path = "Pods/Target Support Files/Pods-reSOUND/Pods-reSOUND.release.xcconfig"; sourceTree = "<group>"; };
 		31D6C8B4642768B3A9A9C8F6 /* Pods_reSOUND.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reSOUND.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		464C48C6215BF96B00B7D07F /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		46DA7319215AD11900B87081 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		83669AED5A50297B14A9F7D8 /* Pods-reSOUND.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reSOUND.debug.xcconfig"; path = "Pods/Target Support Files/Pods-reSOUND/Pods-reSOUND.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +105,7 @@
 				259728B8215A816E0051DA61 /* SignUpController.swift */,
 				2524C2E521556725008EBE5C /* ChatController.swift */,
 				259728BA215A8A4A0051DA61 /* ActiveChatsController.swift */,
+				464C48C6215BF96B00B7D07F /* FriendListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -105,6 +118,11 @@
 				2524C2E72155685A008EBE5C /* ChatCell.swift */,
 				25E926C1215420A400C1D019 /* Main.storyboard */,
 				25E926C6215420A500C1D019 /* LaunchScreen.storyboard */,
+				2598C282215BE1D40013F513 /* PopOver.xib */,
+				2598C284215BE27A0013F513 /* PopOver.swift */,
+				25C3B640215D2ED80030771B /* PopOverFilter.xib */,
+				25C3B642215D2F460030771B /* PopOverFilter.swift */,
+				257C6390215C4B15001CDC5D /* gradientButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +236,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2598C283215BE1D40013F513 /* PopOver.xib in Resources */,
+				25C3B641215D2ED80030771B /* PopOverFilter.xib in Resources */,
 				25E926C8215420A500C1D019 /* LaunchScreen.storyboard in Resources */,
 				2565F4AF215423D30034FD72 /* GoogleService-Info.plist in Resources */,
 				25E926C5215420A500C1D019 /* Assets.xcassets in Resources */,
@@ -301,11 +321,14 @@
 			files = (
 				46DA731A215AD11900B87081 /* DatabaseManager.swift in Sources */,
 				259728B9215A816E0051DA61 /* SignUpController.swift in Sources */,
+				464C48C7215BF96B00B7D07F /* FriendListViewController.swift in Sources */,
 				259728BB215A8A4B0051DA61 /* ActiveChatsController.swift in Sources */,
 				25FDE3F02156917100D1C00E /* UIButtonExtentsion.swift in Sources */,
 				25FDE3F22156982B00D1C00E /* Colors.swift in Sources */,
 				2524C2E4215550BC008EBE5C /* SignInViewController.swift in Sources */,
+				25C3B643215D2F460030771B /* PopOverFilter.swift in Sources */,
 				2565F4C0215461610034FD72 /* ProfileViewController.swift in Sources */,
+				2598C285215BE27A0013F513 /* PopOver.swift in Sources */,
 				2524C2E82155685A008EBE5C /* ChatCell.swift in Sources */,
 				25E926BE215420A400C1D019 /* AppDelegate.swift in Sources */,
 				2524C2E621556725008EBE5C /* ChatController.swift in Sources */,
@@ -314,6 +337,7 @@
 				259728BD215A8AA20051DA61 /* ActiveChatsCell.swift in Sources */,
 				2565F4B7215440910034FD72 /* UsersDetailViewController.swift in Sources */,
 				2565F4BB21544CFC0034FD72 /* User.swift in Sources */,
+				257C6391215C4B15001CDC5D /* gradientButton.swift in Sources */,
 				2565F4B1215423DE0034FD72 /* UsersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

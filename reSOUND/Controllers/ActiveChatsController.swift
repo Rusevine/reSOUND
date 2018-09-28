@@ -15,7 +15,6 @@ class ActiveChatsController: UIViewController, UITableViewDataSource, UITableVie
   var chats = [String]()
   var id = [String]()
   var database = DatabaseManager.shared
-  var user: User?
 
 
     override func viewDidLoad() {
