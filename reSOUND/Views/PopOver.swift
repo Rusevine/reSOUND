@@ -39,29 +39,43 @@ class PopOver: UIView {
   
  
   @IBAction func addSkillsToProfile(_ sender: gradientButton) {
-    print("add skills to profile button pressed")
-    
-//    self.skillsLabel.text = "singer"
-//    var user = [String:String]()
-//    let keys = ["Audio Engineer","Singer","Producer","Lyricist"]
 //
-//    if (sender.pressed == true) {
-//
-//      //      self.skillsLabel.text = skillsArray.index(of: sender.currentTitle!)
-//      if skillsArray.contains(sender.currentTitle!){
-//        if let index = skillsArray.index(of: sender.currentTitle!) {
-//          skillsArray.remove(at: index)
-//        } else {
-//          self.skillsArray.append(sender.currentTitle!)
-//        }
-//        //        for key in keys {
-//        //          database.reference.updateChildValues(database.usersPath +"/\(skills)/" + key).updateValue(user[key])
-//        //          database.reference.child(database.usersPath + "/\(skills)/" + key).updateValue(user[key])
-//        //        }
+//    if skillsArray.contains(sender.currentTitle!){
+//      if let index = skillsArray.index(of: sender.currentTitle!) {
+//        skillsArray.remove(at: index)
 //      }
+//    } else {
+//      self.skillsArray.append(sender.currentTitle!)
 //    }
-  }
+    
+        print("add skills to profile button pressed")
+    if let textss = profileViewController?.skillsLabel.text {
+      var texts = textss
+      if let buttonTitle = sender.currentTitle {
+        let color = sender.currentTitleColor
+        if (color.isEqual(colors.fontBlue)) {
+          if let pVC = profileViewController {
+            print("button on")
+            texts.append(" \((sender.titleLabel?.text)!)")
+            pVC.skillsLabel.text = texts
+            pVC.skillSet[buttonTitle] = true
+          }
+        } else if (color.isEqual(colors.white)){
+          if let proVC = profileViewController {
+            print("button off")
+            let newSt = texts.replacingOccurrences(of: " \(buttonTitle)", with: "")
+            proVC.skillsLabel.text = newSt
+            proVC.skillSet[buttonTitle] = false
 
+          }
+        }
+      }
+ 
+      }
+    
+    
+  }
+  
 
 
 
