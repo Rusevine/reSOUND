@@ -21,6 +21,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     var friends = [String]()
     var friendsID = [String]()
     var chats: [DataSnapshot]! = []
+    var requests: [DataSnapshot]! = []
     var chatsID = [String]()
     var database = DatabaseManager.shared
     
@@ -28,6 +29,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         configureFriendsList()
         configureActiveChats()
+        configureFriendRequest()
         // Do any additional setup after loading the view.
     }
     func configureFriendsList() {
@@ -52,6 +54,15 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             strongSelf.chatsTables.insertRows(at: [IndexPath(row: strongSelf.chats.count-1, section: 0)], with: .automatic)
         })
     }
+    
+    func configureFriendRequest() {
+        guard let userID = database.currentUser?.uid else {return}
+        database.reference.child("friendRequest/\(userID)").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+            guard let strongSelf = self else { return }
+            strongSelf.requests.append(snapshot)
+            strongSelf.requestTables.insertRows(at: [IndexPath(row: strongSelf.requests.count-1, section: 0)], with: .automatic)
+        })
+    }
 
 
 
@@ -74,6 +85,8 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             return friends.count
         case chatsTables:
             return chats.count
+        case requestTables:
+            return requests.count
         default:
             return 0
         }
@@ -101,6 +114,15 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell = activeCell
             break
             
+        case requestTables:
+            let requestCell = self.requestTables.dequeueReusableCell(withIdentifier: "requestCell", for: indexPath) as! ActiveChatsCell
+            let snapshot = self.requests[indexPath.row].value as! [String:Any]
+            let name = snapshot["name"]
+           // let id = snapshot.
+            
+            
+            cell = requestCell
+            break
             default: break
             }
         

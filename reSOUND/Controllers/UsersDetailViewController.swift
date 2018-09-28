@@ -54,14 +54,17 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   //#Pragma Mark Actions
   
   @IBAction func connectButtonPressed(_ sender: UIButton) {
-    sender.setTitle("Pending Request", for: UIControlState.disabled)
-    sender.backgroundColor = UIColor.lightGray
-    sender.isEnabled = false
+//    sender.setTitle("Pending Request", for: UIControlState.disabled)
+//    sender.backgroundColor = UIColor.lightGray
+//    sender.isEnabled = false
  //   startChat(user: user!)
+    friendRequest(user: user!)
   }
     func friendRequest(user: User){
-        let request = [user.id:user.name]
-        database.reference.child("")
+        let senderID = database.currentUser?.uid ?? ""
+        let senderName = database.currentUser?.displayName ?? ""
+        let request = ["name":senderName,"pending":true,"rejected":false] as [String : Any]
+        database.reference.child("friendRequest/\(user.id)/\(senderID)").setValue(request)
     }
     
 //    func startChat(user: User){
