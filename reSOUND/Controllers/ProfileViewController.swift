@@ -114,10 +114,10 @@ class ProfileViewController: UIViewController {
     UIView.animate(withDuration: 2.0) {}
  //   popOverView != popOverView
     
-  
-  
-  
   }
+    
+    
+ 
   
 
  

@@ -309,12 +309,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSg-60-wlP">
-                                <rect key="frame" x="139" y="485" width="96" height="42"/>
+                                <rect key="frame" x="107.5" y="485" width="160" height="42"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <state key="normal" title="connect">
+                                <state key="normal" title="Add as Friend">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="connectButtonPressed:" destination="jJ0-IW-2xk" eventType="touchUpInside" id="qut-ee-Tq5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -334,9 +337,8 @@
                             <constraint firstItem="Aq2-Lg-jdM" firstAttribute="leading" secondItem="Rel-gA-1OQ" secondAttribute="leading" constant="10" id="fIs-wA-Ifb"/>
                             <constraint firstItem="vSg-60-wlP" firstAttribute="top" secondItem="V95-Xs-iAs" secondAttribute="bottom" constant="8" id="fwE-ns-Al1"/>
                             <constraint firstItem="V95-Xs-iAs" firstAttribute="top" secondItem="Aq2-Lg-jdM" secondAttribute="bottom" constant="8" id="kDI-Rh-ChG"/>
-                            <constraint firstItem="vSg-60-wlP" firstAttribute="leading" secondItem="Rel-gA-1OQ" secondAttribute="leading" constant="139" id="mN1-5W-uZU"/>
                             <constraint firstAttribute="bottom" secondItem="trf-yh-gz0" secondAttribute="bottom" constant="401" id="plU-zk-xdB"/>
-                            <constraint firstItem="Rel-gA-1OQ" firstAttribute="trailing" secondItem="vSg-60-wlP" secondAttribute="trailing" constant="140" id="u5g-j4-BZc"/>
+                            <constraint firstItem="vSg-60-wlP" firstAttribute="centerX" secondItem="Rel-gA-1OQ" secondAttribute="centerX" id="qnF-A2-Axe"/>
                             <constraint firstItem="Rel-gA-1OQ" firstAttribute="trailing" secondItem="trf-yh-gz0" secondAttribute="trailing" constant="88" id="vBX-74-iaj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rel-gA-1OQ"/>
@@ -631,7 +633,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lO0-Hy-QeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="78" y="3296"/>
+            <point key="canvasLocation" x="-26" y="3296"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="gfd-Td-2ls">
@@ -1087,6 +1089,6 @@
         <image name="britney" width="402" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YqP-dD-A2j"/>
+        <segue reference="2Pl-nZ-f8r"/>
     </inferredMetricsTieBreakers>
 </document>
