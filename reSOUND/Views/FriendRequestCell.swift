@@ -29,6 +29,10 @@ class FriendRequestCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func friendAccepted(_ sender: UIButton) {
+        let values = ["pending": false]
+        database.reference.child("friendRequest/\(database.currentUser?.uid ?? "")/\(user?.id ?? "")").updateChildValues(values)
+        let newFriend = [(user?.id)!:user?.name] as! [String:String]
+        database.reference.child("friendList/\(database.currentUser?.uid ?? "")").updateChildValues(newFriend)
     }
     
     @IBAction func friendRejected(_ sender: UIButton) {

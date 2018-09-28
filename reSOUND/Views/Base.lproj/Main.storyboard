@@ -1006,7 +1006,6 @@
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <connections>
-                                                                    <outlet property="activeChatsLabel" destination="X8z-jn-xk2" id="f56-tm-0Od"/>
                                                                     <outlet property="nameLabel" destination="X8z-jn-xk2" id="Vjc-gO-1pk"/>
                                                                 </connections>
                                                             </tableViewCell>
