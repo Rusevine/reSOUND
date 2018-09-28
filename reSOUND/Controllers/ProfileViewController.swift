@@ -95,6 +95,7 @@ class ProfileViewController: UIViewController {
   }
 
   @IBAction func skillsButtonPressed(_ sender: gradientButton) {
+    popOverView
     if (sender.pressed == true) {
       popOverTopConstraint.constant +=
         (popOverHeightConstraint.constant * -1)
@@ -107,7 +108,7 @@ class ProfileViewController: UIViewController {
     UIView.animate(withDuration: 2.0) {}
   }
 
-  
+ 
 //  func filterSkills(completion: @escaping ([String])->()){
 //    var keys = [String]()
 //    var count = 0 {

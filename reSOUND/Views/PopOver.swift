@@ -21,6 +21,8 @@ class PopOver: UIView {
   
   var gradient = CAGradientLayer()
   var pressed = false
+  var skillsArray = [String]()
+  var profileViewController: ProfileViewController?
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -36,16 +38,15 @@ class PopOver: UIView {
   }
   
  
-//  @IBAction func addSkillsToProfile(_ sender: gradientButton) {
-//    print("add skills to profile button pressed")
+  @IBAction func addSkillsToProfile(_ sender: gradientButton) {
+    print("add skills to profile button pressed")
+    
 //    self.skillsLabel.text = "singer"
 //    var user = [String:String]()
-//    
-//    self.skillsLabel.text = "singer"
 //    let keys = ["Audio Engineer","Singer","Producer","Lyricist"]
-//    
+//
 //    if (sender.pressed == true) {
-//      
+//
 //      //      self.skillsLabel.text = skillsArray.index(of: sender.currentTitle!)
 //      if skillsArray.contains(sender.currentTitle!){
 //        if let index = skillsArray.index(of: sender.currentTitle!) {
@@ -59,7 +60,7 @@ class PopOver: UIView {
 //        //        }
 //      }
 //    }
-//  }
+  }
 
 
 
