@@ -20,8 +20,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var friends = [String]()
     var friendsID = [String]()
-    var chats: [DataSnapshot]! = []
-    var requests: [DataSnapshot]! = []
+    var chats = [String]()
     var chatsID = [String]()
     var database = DatabaseManager.shared
     
@@ -29,7 +28,6 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         configureFriendsList()
         configureActiveChats()
-        configureFriendRequest()
         // Do any additional setup after loading the view.
     }
     func configureFriendsList() {
@@ -47,20 +45,13 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func configureActiveChats() {
         guard let userID = database.currentUser?.uid else {return}
-        
-        database.reference.child("activeChats/\(userID)").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
-            guard let strongSelf = self else { return }
-            strongSelf.chats.append(snapshot)
-            strongSelf.chatsTables.insertRows(at: [IndexPath(row: strongSelf.chats.count-1, section: 0)], with: .automatic)
-        })
-    }
-    
-    func configureFriendRequest() {
-        guard let userID = database.currentUser?.uid else {return}
-        database.reference.child("friendRequest/\(userID)").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
-            guard let strongSelf = self else { return }
-            strongSelf.requests.append(snapshot)
-            strongSelf.requestTables.insertRows(at: [IndexPath(row: strongSelf.requests.count-1, section: 0)], with: .automatic)
+        database.reference.child("activeChats/\(userID)").observeSingleEvent(of:  .value, with: {(snapshot) in
+            guard let value = snapshot.value as? [String:String] else { return }
+            for name in value {
+                self.chats.append(name.value)
+                self.chatsID.append(name.key)
+            }
+            self.chatsTables.reloadData()
         })
     }
 
@@ -85,8 +76,6 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             return friends.count
         case chatsTables:
             return chats.count
-        case requestTables:
-            return requests.count
         default:
             return 0
         }
@@ -103,25 +92,11 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             friendsCell.configureCell(name: friends[indexPath.row], id: friendsID[indexPath.row])
             cell = friendsCell
             break
-            
             case chatsTables:
-                
-                let activeCell = self.chatsTables.dequeueReusableCell(withIdentifier: "activeChatCell", for: indexPath) as! ActiveChatsCell
-                let snapshot = self.chats[indexPath.row]
-                let id = snapshot.key
-                guard let name = snapshot.value as? String else {fatalError()}
-                activeCell.configureCell(name: name, id: id)
-                cell = activeCell
-            break
-            
-        case requestTables:
-            let requestCell = self.requestTables.dequeueReusableCell(withIdentifier: "requestCell", for: indexPath) as! ActiveChatsCell
-            let snapshot = self.requests[indexPath.row].value as! [String:Any]
-            let name = snapshot["name"]
-           // let id = snapshot.
-            
-            
-            cell = requestCell
+            let activeCell = self.chatsTables.dequeueReusableCell(withIdentifier: "activeChatCell", for: indexPath) as! ActiveChatsCell
+                    
+            activeCell.configureCell(name: chats[indexPath.row], id: chatsID[indexPath.row])
+            cell = activeCell
             break
             default: break
             }

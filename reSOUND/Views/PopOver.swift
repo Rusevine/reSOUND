@@ -11,9 +11,14 @@ import UIKit
 class PopOver: UIView {
 
   let nibName = "PopOver"
+//  var contentView: UIView?
   @IBOutlet var contentView: UIView!
   
-
+  @IBOutlet weak var saveButton: gradientButton!
+  @IBOutlet weak var lyricistButton: gradientButton!
+  @IBOutlet weak var engineerButton: gradientButton!
+  @IBOutlet weak var producerButton: gradientButton!
+  @IBOutlet weak var singerButton: gradientButton!
   
   var gradient = CAGradientLayer()
   var pressed = false
@@ -25,6 +30,8 @@ class PopOver: UIView {
     addSubview(contentView)
     contentView.frame = self.bounds
     contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    
+    
 //    guard let view = loadViewFromNib() else { return }
 //    view.frame = self.bounds
 //    self.addSubview(view)
@@ -40,19 +47,19 @@ class PopOver: UIView {
   
   //Pragma Mark: Actions
   
-//  @IBAction func pressed(_ sender: gradientButton) {
-//  }
-//  
-//  @IBAction func lyricistButtonPressed(_ sender: gradientButton) {
-//  }
-//  
-//  @IBAction func engineerButtonPressed(_ sender: gradientButton) {
-//  }
-//  
-//  @IBAction func producerButtonPressed(_ sender: gradientButton) {
-//  }
-//  
-//  @IBAction func singerButtonPressed(_ sender: gradientButton) {
-//  }
+  @IBAction func pressed(_ sender: gradientButton) {
+  }
+  
+  @IBAction func lyricistButtonPressed(_ sender: gradientButton) {
+  }
+  
+  @IBAction func engineerButtonPressed(_ sender: gradientButton) {
+  }
+  
+  @IBAction func producerButtonPressed(_ sender: gradientButton) {
+  }
+  
+  @IBAction func singerButtonPressed(_ sender: gradientButton) {
+  }
 }
 

@@ -16,52 +16,49 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var cityTextField: UITextField!
   @IBOutlet weak var provinceTextField: UITextField!
   @IBOutlet weak var emailTextField: UITextField!
-  @IBOutlet weak var descriptionTextField: UITextField!
-  @IBOutlet weak var linkTextField: UITextField!
-  @IBOutlet weak var skillsLabel: UILabel!
-  
-  @IBOutlet weak var profileImageView: UIImageView!
+
   
   @IBOutlet weak var skillsButton: UIButton!
 
+  
   @IBOutlet weak var popOverView: UIView!
   @IBOutlet weak var popOverTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var popOverHeightConstraint: NSLayoutConstraint!
   
-//  var pressed = false
+  var pressed = false
+  
   let database = DatabaseManager.shared
-  var skillsArray = [String]()
 
   override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
     
-    view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
-    self.nameTextField.attributedPlaceholder = NSAttributedString(string: "enter name",
-                                                                  attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
-    self.cityTextField.attributedPlaceholder = NSAttributedString(string: "enter city",
-                                                                  attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
-    self.provinceTextField.attributedPlaceholder = NSAttributedString(string: "enter province",
-                                                                      attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
-    self.emailTextField.attributedPlaceholder = NSAttributedString(string: "enter email",
-                                                                   attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
-    self.descriptionTextField.attributedPlaceholder = NSAttributedString(string: "enter a little description about yourself", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
-    self.linkTextField.attributedPlaceholder = NSAttributedString(string: "enter any links to your work if applicable", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
-    
-    self.profileImageView.layer.masksToBounds = false 
-    self.profileImageView.layer.cornerRadius = profileImageView.frame.height/2
-    self.profileImageView.clipsToBounds = true
-    self.profileImageView.layer.borderWidth = 4
-    self.profileImageView.layer.borderColor = colors.white.cgColor
-  
-
     }
     
     func setupUI() {
         skillsButton.layer.cornerRadius = skillsButton.frame.size.height/4
         skillsButton.layer.masksToBounds = true
 //        skillsButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+      
+//        saveButton.layer.cornerRadius = saveButton.frame.size.height/2
+//        saveButton.layer.masksToBounds = true
+//        saveButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+//
+//        engineerButton.layer.cornerRadius = engineerButton.frame.size.height/2
+//        engineerButton.layer.masksToBounds = true
+//        engineerButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+//        lyricistButton.layer.cornerRadius = lyricistButton.frame.size.height/2
+//        lyricistButton.layer.masksToBounds = true
+//        lyricistButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+//        singerButton.layer.cornerRadius = singerButton.frame.size.height/2
+//        singerButton.layer.masksToBounds = true
+//        singerButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+//        producerButton.layer.cornerRadius = producerButton.frame.size.height/2
+//        producerButton.layer.masksToBounds = true
+//        producerButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+      
+        view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
     }
 
   
@@ -74,6 +71,7 @@ class ProfileViewController: UIViewController {
     user["province"] = provinceTextField.text
     user["email"] = emailTextField.text
     user["city"] = cityTextField.text
+    
     
     for key in keys {
         database.reference.child(database.usersPath + "/\(userID)/" + key).setValue(user[key])
@@ -94,50 +92,33 @@ class ProfileViewController: UIViewController {
     updateProfile()
   }
 
-  @IBAction func skillsButtonPressed(_ sender: gradientButton) {
-    if (sender.pressed == true) {
-      popOverTopConstraint.constant +=
-        (popOverHeightConstraint.constant * -1)
-      sender.setTitle("done", for: UIControlState.normal)
+
+  @IBAction func skillsButtonPressed(_ sender: UIButton) {
+    
+    if (!pressed) {
+        popOverTopConstraint.constant +=
+          (popOverHeightConstraint.constant * -1)
+        pressed = true
+     
     }  else  {
       popOverTopConstraint.constant -=
         (popOverHeightConstraint.constant * -1)
-      sender.setTitle("add skills", for: UIControlState.normal)
+      pressed = false
     }
+    
     UIView.animate(withDuration: 2.0) {}
+ //   popOverView != popOverView
+    
+  
+  
+  
   }
   
-//  @IBAction func addSkillsToProfile(_ sender: gradientButton) {
-//    var user = [String:String]()
-//    let keys = ["Audio Engineer","Singer","Producer","Lyricist"]
-//
-//    if (sender.pressed == true) {
-//
-////      self.skillsLabel.text = skillsArray.index(of: sender.currentTitle!)
-//      if skillsArray.contains(sender.currentTitle!){
-//        if let index = skillsArray.index(of: sender.currentTitle!) {
-//          skillsArray.remove(at: index)
-//        } else {
-//          self.skillsArray.append(sender.currentTitle!)
-//        }
-//        for key in keys {
-//          database.reference.updateChildValues(database.usersPath +"/\(skills)/" + key).updateValue(user[key])
-////          database.reference.child(database.usersPath + "/\(skills)/" + key).updateValue(user[key])
-//        }
-//      }
-//    }
-//  }
-  
-//  func filterSkills(completion: @escaping ([String])->()){
-//    var keys = [String]()
-//    var count = 0 {
-//      didSet {
-//        if count == skillsArray.count{
-//          completion(keys)
-//        }
-//      }
-//    }
 
+ 
+  
+  
+  
 //  @IBAction func engineerButtonPressed(_ sender: UIButton) {
 //    sender.pulsate()
 //    sender.flash()
@@ -154,7 +135,10 @@ class ProfileViewController: UIViewController {
 //  @IBAction func producerButtonPressed(_ sender: UIButton) {
 //    sender.pulsate()
 //  }
-
+  
+  
+  
+  
 //  @IBAction func engineerButtonPressed(_ sender: UIButton) {
 //    buttonPressed = !buttonPressed
 //    if (buttonPressed == true) {

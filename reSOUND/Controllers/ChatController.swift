@@ -94,11 +94,7 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
   func sendMessage(text: String) {
     
     let message = ["sender": database.currentUser?.displayName,
-<<<<<<< HEAD
-                              "text" : text]
-=======
                    "text" : text, "senderID": database.currentUser?.uid]
->>>>>>> friendRequests
     let key = database.reference.child(sendPath!).childByAutoId().key
     database.reference.child("\(sendPath!)/\(key)").setValue(message)
     database.reference.child("\(receivePath!)/\(key)").setValue(message)
