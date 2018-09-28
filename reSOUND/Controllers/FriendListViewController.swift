@@ -18,31 +18,32 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var chatsTables: UITableView!
     @IBOutlet weak var requestTables: UITableView!
     
-    var friends = [String]()
-    var friendsID = [String]()
+    var friends : [DataSnapshot]! = []
     var chats: [DataSnapshot]! = []
     var requests: [DataSnapshot]! = []
-    var chatsID = [String]()
     var database = DatabaseManager.shared
+    var filter = [String]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        filter = filterFriendRequests()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureFriendsList()
         configureActiveChats()
-        configureFriendRequest()
+        configureFriendRequest(filter: filter)
         // Do any additional setup after loading the view.
     }
     func configureFriendsList() {
+       
         guard let userID = database.currentUser?.uid else {return}
-        database.reference.child("friendList/\(userID)").observeSingleEvent(of:  .value, with: {(snapshot) in
-            guard let value = snapshot.value as? [String:String] else { return }
-            for name in value {
-                self.friends.append(name.value)
-                self.friendsID.append(name.key)
-            }
-            self.friendsTable.reloadData()
-        })
+        database.reference.child("friendList/\(userID)").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+            guard let strongSelf = self else { return }
+            strongSelf.friends.append(snapshot)
+            strongSelf.friendsTable.insertRows(at: [IndexPath(row: strongSelf.friends.count-1, section: 0)], with: .automatic)
         
+     })
     }
     
     func configureActiveChats() {
@@ -55,15 +56,38 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         })
     }
     
-    func configureFriendRequest() {
+    func configureFriendRequest(filter: [String]) {
         guard let userID = database.currentUser?.uid else {return}
         database.reference.child("friendRequest/\(userID)").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
+            let user = snapshot.key
+            if filter.contains(user){
             strongSelf.requests.append(snapshot)
             strongSelf.requestTables.insertRows(at: [IndexPath(row: strongSelf.requests.count-1, section: 0)], with: .automatic)
+            }
         })
     }
+    
+    func filterFriendRequests() -> [String]{
+        guard let userID = database.currentUser?.uid else {fatalError()}
+        var rejectList = [String]()
+        database.reference.child("friendRequest/\(userID)").observeSingleEvent(of: .value) { (snapshot) in
+    
+            let dictionary = snapshot.value
+            let users = dictionary as! [String:Any]
 
+            for id in users.keys {
+                let user = users[id] as! [String:Any]
+                let pending = user["pending"] as! Bool
+                let rejected = user["rejected"] as! Bool
+                if pending == true && rejected == false {
+                    rejectList.append(id)
+                }
+            
+            }
+        }
+        return rejectList
+    }
 
 
     
@@ -100,7 +124,11 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             case friendsTable:
             let friendsCell = self.friendsTable.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! ActiveChatsCell
             
-            friendsCell.configureCell(name: friends[indexPath.row], id: friendsID[indexPath.row])
+            let snapshot = self.friends[indexPath.row]
+            let id = snapshot.key
+            guard let name = snapshot.value as? String else {fatalError()}
+            
+            friendsCell.configureCell(name: name, id: id)
             cell = friendsCell
             break
             
@@ -115,7 +143,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             break
             
         case requestTables:
-            let requestCell = self.requestTables.dequeueReusableCell(withIdentifier: "requestCell", for: indexPath) as! ActiveChatsCell
+            let requestCell = self.requestTables.dequeueReusableCell(withIdentifier: "requestCell", for: indexPath) as! FriendRequestCell
             let snapshot = self.requests[indexPath.row]
             let values = snapshot.value as! [String:Any]
             let name = values["name"] as! String
