@@ -953,7 +953,7 @@
                                                         <rect key="frame" x="0.0" y="50" width="375" height="504"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="requestCell" id="Mfw-9D-zf1" customClass="ActiveChatsCell" customModule="reSOUND" customModuleProvider="target">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="requestCell" id="Mfw-9D-zf1" customClass="FriendRequestCell" customModule="reSOUND" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mfw-9D-zf1" id="Iqh-m2-TV9">
@@ -961,19 +961,43 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8z-jn-xk2">
-                                                                            <rect key="frame" x="166" y="11" width="42" height="21"/>
+                                                                            <rect key="frame" x="35" y="11" width="42" height="22"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pEt-Ys-r1E">
+                                                                            <rect key="frame" x="275" y="0.0" width="80" height="44"/>
+                                                                            <subviews>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44e-NK-eUL">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="44"/>
+                                                                                    <state key="normal" title="✅"/>
+                                                                                    <connections>
+                                                                                        <action selector="friendAccepted:" destination="Mfw-9D-zf1" eventType="touchUpInside" id="5ig-fx-fEq"/>
+                                                                                    </connections>
+                                                                                </button>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eHa-AX-fgb">
+                                                                                    <rect key="frame" x="50" y="0.0" width="30" height="44"/>
+                                                                                    <state key="normal" title="🚫"/>
+                                                                                    <connections>
+                                                                                        <action selector="friendRejected:" destination="Mfw-9D-zf1" eventType="touchUpInside" id="BQL-Iy-TDq"/>
+                                                                                    </connections>
+                                                                                </button>
+                                                                            </subviews>
+                                                                        </stackView>
                                                                     </subviews>
                                                                     <constraints>
-                                                                        <constraint firstItem="X8z-jn-xk2" firstAttribute="centerY" secondItem="Iqh-m2-TV9" secondAttribute="centerY" id="S1K-Gy-afz"/>
-                                                                        <constraint firstItem="X8z-jn-xk2" firstAttribute="centerX" secondItem="Iqh-m2-TV9" secondAttribute="centerX" id="kdz-PX-kJ8"/>
+                                                                        <constraint firstItem="X8z-jn-xk2" firstAttribute="top" secondItem="Iqh-m2-TV9" secondAttribute="topMargin" id="Iqm-lK-3PQ"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="pEt-Ys-r1E" secondAttribute="trailing" constant="20" id="Xwo-HA-9LY"/>
+                                                                        <constraint firstAttribute="bottomMargin" secondItem="X8z-jn-xk2" secondAttribute="bottom" id="acw-GK-vud"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="pEt-Ys-r1E" secondAttribute="bottom" id="clV-jO-3ph"/>
+                                                                        <constraint firstItem="pEt-Ys-r1E" firstAttribute="top" secondItem="Iqh-m2-TV9" secondAttribute="top" id="eGb-qQ-PE0"/>
+                                                                        <constraint firstItem="X8z-jn-xk2" firstAttribute="leading" secondItem="Iqh-m2-TV9" secondAttribute="leadingMargin" constant="20" id="pKM-kx-fQZ"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <connections>
                                                                     <outlet property="activeChatsLabel" destination="X8z-jn-xk2" id="f56-tm-0Od"/>
+                                                                    <outlet property="nameLabel" destination="X8z-jn-xk2" id="Vjc-gO-1pk"/>
                                                                 </connections>
                                                             </tableViewCell>
                                                         </prototypes>

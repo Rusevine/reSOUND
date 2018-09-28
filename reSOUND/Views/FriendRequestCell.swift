@@ -28,5 +28,9 @@ class FriendRequestCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    @IBAction func friendAccepted(_ sender: UIButton) {
+    }
+    
+    @IBAction func friendRejected(_ sender: UIButton) {
+    }
 }
