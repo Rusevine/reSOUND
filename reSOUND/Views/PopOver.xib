@@ -23,46 +23,39 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="what skills do you have?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRw-Sn-HnK">
                     <rect key="frame" x="10" y="30" width="355" height="29"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="21"/>
-                    <color key="textColor" red="0.2344965339" green="0.44257187840000001" blue="0.50560832020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="so9-ms-xtb" customClass="gradientButton" customModule="buttonTest" customModuleProvider="target">
-                    <rect key="frame" x="142" y="184" width="90" height="36"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
-                    <state key="normal" title="save">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                </button>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5Va-SB-wDJ">
                     <rect key="frame" x="23" y="104" width="328" height="36"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nb6-GI-QC5">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nb6-GI-QC5" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="76" height="36"/>
-                            <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                             <state key="normal" title="singer">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFF-dq-BF2">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFF-dq-BF2" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
                             <rect key="frame" x="84" y="0.0" width="76" height="36"/>
-                            <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                             <state key="normal" title="producer">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7i-aF-2kN">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f7i-aF-2kN" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
                             <rect key="frame" x="168" y="0.0" width="76" height="36"/>
-                            <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                             <state key="normal" title="engineer">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvn-8g-WhZ">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvn-8g-WhZ" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
                             <rect key="frame" x="252" y="0.0" width="76" height="36"/>
-                            <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                             <state key="normal" title="lyricist">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -76,14 +69,11 @@
                     </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="WRw-Sn-HnK" firstAttribute="top" secondItem="9Ah-QS-YA6" secondAttribute="top" constant="30" id="5du-Ac-zPI"/>
                 <constraint firstItem="5Va-SB-wDJ" firstAttribute="leading" secondItem="9Ah-QS-YA6" secondAttribute="leading" constant="23" id="6kW-1t-huq"/>
-                <constraint firstItem="9Ah-QS-YA6" firstAttribute="bottom" secondItem="so9-ms-xtb" secondAttribute="bottom" constant="30" id="D1J-aV-ftq"/>
-                <constraint firstItem="so9-ms-xtb" firstAttribute="leading" secondItem="9Ah-QS-YA6" secondAttribute="leading" constant="142" id="Qee-5w-DF3"/>
                 <constraint firstItem="5Va-SB-wDJ" firstAttribute="top" secondItem="WRw-Sn-HnK" secondAttribute="bottom" constant="45" id="VKq-6T-VqU"/>
-                <constraint firstItem="9Ah-QS-YA6" firstAttribute="trailing" secondItem="so9-ms-xtb" secondAttribute="trailing" constant="143" id="Wl7-SX-h9Y"/>
                 <constraint firstItem="WRw-Sn-HnK" firstAttribute="leading" secondItem="9Ah-QS-YA6" secondAttribute="leading" constant="10" id="buL-Wr-qt5"/>
                 <constraint firstItem="9Ah-QS-YA6" firstAttribute="trailing" secondItem="WRw-Sn-HnK" secondAttribute="trailing" constant="10" id="gs6-MI-Aj0"/>
                 <constraint firstItem="9Ah-QS-YA6" firstAttribute="trailing" secondItem="5Va-SB-wDJ" secondAttribute="trailing" constant="24" id="tLh-oP-5ah"/>
