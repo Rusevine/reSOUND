@@ -28,9 +28,9 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var popOverTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var popOverHeightConstraint: NSLayoutConstraint!
   
-  var pressed = false
-  
+//  var pressed = false
   let database = DatabaseManager.shared
+  var skillsArray = [String]()
 
   override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +75,6 @@ class ProfileViewController: UIViewController {
     user["email"] = emailTextField.text
     user["city"] = cityTextField.text
     
-    
     for key in keys {
         database.reference.child(database.usersPath + "/\(userID)/" + key).setValue(user[key])
     }
@@ -95,35 +94,50 @@ class ProfileViewController: UIViewController {
     updateProfile()
   }
 
-
-  @IBAction func skillsButtonPressed(_ sender: UIButton) {
-    
-    if (!pressed) {
+  @IBAction func skillsButtonPressed(_ sender: gradientButton) {
+    if (sender.pressed == true) {
       popOverTopConstraint.constant +=
         (popOverHeightConstraint.constant * -1)
-      skillsButton.setTitle("done", for: UIControlState.normal)
-      pressed = true
-      
+      sender.setTitle("done", for: UIControlState.normal)
     }  else  {
       popOverTopConstraint.constant -=
         (popOverHeightConstraint.constant * -1)
-      skillsButton.setTitle("add skills", for: UIControlState.normal)
-      pressed = false
+      sender.setTitle("add skills", for: UIControlState.normal)
     }
-    
     UIView.animate(withDuration: 2.0) {}
- //   popOverView != popOverView
-    
   }
-    
-    
- 
   
+//  @IBAction func addSkillsToProfile(_ sender: gradientButton) {
+//    var user = [String:String]()
+//    let keys = ["Audio Engineer","Singer","Producer","Lyricist"]
+//
+//    if (sender.pressed == true) {
+//
+////      self.skillsLabel.text = skillsArray.index(of: sender.currentTitle!)
+//      if skillsArray.contains(sender.currentTitle!){
+//        if let index = skillsArray.index(of: sender.currentTitle!) {
+//          skillsArray.remove(at: index)
+//        } else {
+//          self.skillsArray.append(sender.currentTitle!)
+//        }
+//        for key in keys {
+//          database.reference.updateChildValues(database.usersPath +"/\(skills)/" + key).updateValue(user[key])
+////          database.reference.child(database.usersPath + "/\(skills)/" + key).updateValue(user[key])
+//        }
+//      }
+//    }
+//  }
+  
+//  func filterSkills(completion: @escaping ([String])->()){
+//    var keys = [String]()
+//    var count = 0 {
+//      didSet {
+//        if count == skillsArray.count{
+//          completion(keys)
+//        }
+//      }
+//    }
 
- 
-  
-  
-  
 //  @IBAction func engineerButtonPressed(_ sender: UIButton) {
 //    sender.pulsate()
 //    sender.flash()
@@ -140,10 +154,7 @@ class ProfileViewController: UIViewController {
 //  @IBAction func producerButtonPressed(_ sender: UIButton) {
 //    sender.pulsate()
 //  }
-  
-  
-  
-  
+
 //  @IBAction func engineerButtonPressed(_ sender: UIButton) {
 //    buttonPressed = !buttonPressed
 //    if (buttonPressed == true) {
