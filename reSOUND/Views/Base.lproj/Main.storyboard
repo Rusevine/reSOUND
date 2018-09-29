@@ -480,6 +480,13 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHo-RY-Xh7">
+                                <rect key="frame" x="59.5" y="214" width="24" height="24"/>
+                                <state key="normal" image="addPhoto1x"/>
+                                <connections>
+                                    <action selector="didTapAddPhoto:" destination="lOk-34-fsC" eventType="touchUpInside" id="tvk-Nh-bM9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -492,12 +499,14 @@
                             <constraint firstItem="PAd-yO-PDl" firstAttribute="trailing" secondItem="Qj3-ez-nIH" secondAttribute="trailing" constant="10" id="P2b-oc-yiC"/>
                             <constraint firstAttribute="trailing" secondItem="3al-8f-Am8" secondAttribute="trailing" id="QtC-AB-z3W"/>
                             <constraint firstItem="PAd-yO-PDl" firstAttribute="trailing" secondItem="KwC-c0-TOV" secondAttribute="trailing" constant="146" id="Uix-fe-KCO"/>
+                            <constraint firstItem="3HX-75-4PD" firstAttribute="leading" secondItem="BHo-RY-Xh7" secondAttribute="trailing" constant="10" id="WXm-pJ-KQM"/>
                             <constraint firstItem="KwC-c0-TOV" firstAttribute="leading" secondItem="PAd-yO-PDl" secondAttribute="leading" constant="146" id="cQI-h0-NSJ"/>
                             <constraint firstItem="3al-8f-Am8" firstAttribute="top" secondItem="PAd-yO-PDl" secondAttribute="bottom" id="dSn-9e-XxG"/>
                             <constraint firstItem="2Em-x2-1Cv" firstAttribute="width" secondItem="d5b-UO-nN2" secondAttribute="height" multiplier="65:667" id="gsa-lY-goN"/>
                             <constraint firstItem="y0h-TL-JR7" firstAttribute="leading" secondItem="PAd-yO-PDl" secondAttribute="leading" constant="10" id="j4n-7M-49c"/>
                             <constraint firstItem="y0h-TL-JR7" firstAttribute="top" secondItem="Qj3-ez-nIH" secondAttribute="bottom" constant="8" id="jd4-Y3-fzO"/>
                             <constraint firstItem="KwC-c0-TOV" firstAttribute="top" secondItem="y0h-TL-JR7" secondAttribute="bottom" constant="8" id="lVH-nU-QEv"/>
+                            <constraint firstItem="Qj3-ez-nIH" firstAttribute="top" secondItem="BHo-RY-Xh7" secondAttribute="bottom" constant="40" id="mm2-Io-lou"/>
                             <constraint firstItem="3al-8f-Am8" firstAttribute="leading" secondItem="d5b-UO-nN2" secondAttribute="leading" id="rpo-3J-CJc"/>
                             <constraint firstItem="Qj3-ez-nIH" firstAttribute="leading" secondItem="PAd-yO-PDl" secondAttribute="leading" constant="10" id="w6H-Pp-vjT"/>
                             <constraint firstItem="3al-8f-Am8" firstAttribute="top" secondItem="KwC-c0-TOV" secondAttribute="bottom" constant="16" id="yzT-mB-pPb"/>
@@ -1124,6 +1133,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addPhoto1x" width="24" height="24"/>
         <image name="britney" width="402" height="302"/>
     </resources>
     <inferredMetricsTieBreakers>

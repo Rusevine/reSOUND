@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate {
 
   @IBOutlet weak var profileView: UIView!
   @IBOutlet weak var nameTextField: UITextField!
@@ -139,60 +139,63 @@ class ProfileViewController: UIViewController {
 //      }
 //    }
 
-//  @IBAction func engineerButtonPressed(_ sender: UIButton) {
-//    sender.pulsate()
-//    sender.flash()
-//    }
-//
-//  @IBAction func lyricistButtonPressed(_ sender: UIButton) {
-//    sender.flash()
-//  }
-//
-//  @IBAction func singerButtonPressed(_ sender: UIButton) {
-//    sender.pulsate()
-//  }
-//
-//  @IBAction func producerButtonPressed(_ sender: UIButton) {
-//    sender.pulsate()
-//  }
-
-//  @IBAction func engineerButtonPressed(_ sender: UIButton) {
-//    buttonPressed = !buttonPressed
-//    if (buttonPressed == true) {
-//      engineerButton.setImage(UIImage(named: "InvertedEngineer.png"), for: .normal)
-//    } else {
-//      engineerButton.setImage(UIImage(named: "Engineer.png"), for: .normal)
-//    }
-//  }
-//  
-//  @IBAction func lyricistButtonPressed(_ sender: Any) {
-//    buttonPressed = !buttonPressed
-//    if (buttonPressed == true) {
-//      lyricistButton.setImage(UIImage(named: "InvertedLyricist.png"), for: .normal)
-//    } else {
-//      lyricistButton.setImage(UIImage(named: "Lyricist.png"), for: .normal)
-//    }
-//  }
-//  
-//  @IBAction func producerButtonPressed(_ sender: UIButton) {
-//    buttonPressed = !buttonPressed
-//    if (buttonPressed == true) {
-//      producerButton.setImage(UIImage(named: "InvertedProducer.png"), for: .normal)
-//    } else {
-//      producerButton.setImage(UIImage(named: "Producer.png"), for: .normal)
-//    }
-//  }
-//  
-//  @IBAction func singerButtonPressed(_ sender: UIButton) {
-//    buttonPressed = !buttonPressed
-//    if (buttonPressed == true) {
-//      singerButton.setImage(UIImage(named: "InvertedSinger.png"), for: .normal)
-//    } else {
-//      singerButton.setImage(UIImage(named: "Singer.png"), for: .normal)
-//    }
-//  }
+  //Pragma Mark: Image Picker
   
+  @IBAction func didTapAddPhoto(_ sender: AnyObject) {
+    print("did tap add photo button worked")
+    let picker = UIImagePickerController()
+    picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate //maybe fix this line to just self if not working
+    if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+      picker.sourceType = UIImagePickerControllerSourceType.camera
+    } else {
+      picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+    }
+    present(picker, animated: true, completion: nil)
   }
+  
+//  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//    picker.dismiss(animated: true, completion: nil)
+//    guard let uid = Auth.auth().currentUser?.uid else { return }
+//    // if it's a photo from the library, not an image from the camera
+//    if #available(iOS 8.0, *), let referenceURL = info[UIImagePickerControllerReferenceURL] as? URL {
+//      let assets = PHAsset.fetchAssets(withALAssetURLs: [referenceURL], options: nil)
+//      let asset = assets.firstObject
+//      let imageFile = contentEditingInput?.fullSizeImageURL
+//      let filePath = "\(uid)/\(Int(Date.timeIntervalSinceReferenceDate * 1000))/\((referenceURL as AnyObject).lastPathComponent!)"
+//      guard let strongSelf = self else { return }
+//      self.database.reference.child(filePath)
+//        .putFile(from: imageFile!, metadata: nil) { (metadata, error) in
+//          if let error = error {
+//            let nsError = error as NSError
+//            print("Error uploading: \(nsError.localizedDescription)")
+//            return
+//          }
+//          strongSelf.sendMessage(withData: [Constants.MessageFields.imageURL:
+//            strongSelf.reference.child((metadata?.path)!).description])
+//    })
+//  } else {
+//  guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+//  let imageData = UIImageJPEGRepresentation(image, 0.8)
+//  let imagePath = "\(uid)/\(Int(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+//  let metadata = StorageMetadata()
+//  metadata.contentType = "image/jpeg"
+//  self.storageRef.child(imagePath)
+//  .putData(imageData!, metadata: metadata) { [weak self] (metadata, error) in
+//  if let error = error {
+//  print("Error uploading: \(error)")
+//  return
+//  }
+//  guard let strongSelf = self else { return }
+//  strongSelf.sendMessage(withData: [Constants.MessageFields.imageURL: strongSelf.storageRef.child((metadata?.path)!).description])
+//  }
+//  }
+//}
+
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    picker.dismiss(animated: true, completion:nil)
+  }
+
+}
 
 
 
