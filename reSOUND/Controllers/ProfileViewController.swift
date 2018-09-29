@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
   @IBOutlet weak var profileView: UIView!
   @IBOutlet weak var nameTextField: UITextField!
@@ -31,8 +32,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate {
   
 //  var pressed = false
   let database = DatabaseManager.shared
+  let storageRef = Storage.storage()
   var skillsArray = [String]()
+  var picsArray = [UIImage]()
   var skillSet = ["engineer":false,"lyricist":false,"singer":false,"producer":false]
+  var imagePicker: UIImagePickerController!
 
   override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,8 +61,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate {
     self.profileImageView.layer.borderWidth = 4
     self.profileImageView.layer.borderColor = colors.white.cgColor
   
-
+    let imageTap = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))
+    profileImageView.isUserInteractionEnabled = true
+    profileImageView.addGestureRecognizer(imageTap)
+//    profileImageView.layer.cornerRadius = profileImageView.bounds.height / 2
+//    profileImageView.clipsToBounds = true
+    //tapToChangeProfileButton.addTarget(self, action: #selector(openImagePicker), for: .touchUpInside)
+    
+    imagePicker = UIImagePickerController()
+    imagePicker.allowsEditing = true
+    imagePicker.sourceType = .photoLibrary
+    imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
     }
+  
+  @objc func openImagePicker(_ sender:Any) {
+    // Open Image Picker
+    self.present(imagePicker, animated: true, completion: nil)
+  }
     
     func setupUI() {
         skillsButton.layer.cornerRadius = skillsButton.frame.size.height/4
@@ -69,7 +88,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate {
   
   func updateProfile() {
     var user = [String:String]()
-    let keys = ["name","province","email","city", "id"]
+    let keys = ["name","province","email","city", "id","link","description"]
     
     let userID = database.currentUser!.uid
     user["name"] = nameTextField.text
@@ -77,6 +96,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate {
     user["email"] = emailTextField.text
     user["city"] = cityTextField.text
     user["id"] = userID
+    user["link"] = linkTextField.text
+    user["description"] = descriptionTextField.text
+//    user["image"] = profileImageView.image
     
     for key in keys {
         database.reference.child(database.usersPath + "/\(userID)/" + key).setValue(user[key])
@@ -97,8 +119,111 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate {
     for key in keys {
       database.reference.child(database.skillsPath + "/\(skills)/" + key).setValue(skill[key])
     }
-    
   }
+  
+  //////can upload an image to firebase, just not from profileImageView
+  func uploadPic() {
+
+    let storage = Storage.storage().reference()
+    let tempImageRef = storage.child("tmpDir/tmpImage.jpg")
+
+    let image = UIImage(named: "britney")
+    let metaData = StorageMetadata()
+    metaData.contentType = "image/jpg"
+
+    tempImageRef.putData(UIImageJPEGRepresentation(image!, 0.8)!, metadata:metaData) { (data, error) in
+      if error == nil {
+        print("upload successful")
+      } else {
+        print("error with upload pic")
+      }
+    }
+  }
+  
+//  func updatePic() {
+//    var pics = [UIImage]()
+//    let keys = [URL]()
+//
+//    print(picsArray)
+//    let pictures = database.currentUser!.uid
+//    pics["image"] = picsArray[profileImageView]
+//
+//    for key in keys {
+//      database.reference.child(database.skillsPath + "/\(pictures)/" + key).setValue(pics[key])
+//    }
+//  }
+  
+//  @objc func handlePic() {
+//    guard let image = profileImageView.image else { return }
+//        self.uploadProfileImage(image) { url in
+//          if url != nil {
+//            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+//            changeRequest?.photoURL = url
+//
+//            changeRequest?.commitChanges { error in
+//              if error == nil {
+//                print("User display name changed!")
+//
+//                self.saveProfilePic( profileImageURL: url!) { success in
+//                  if success {
+//                    self.dismiss(animated: true, completion: nil)
+//                  } else {
+//                    self.resetForm()
+//                  }
+//                }
+//              } else {
+//                print("Error: \(error!.localizedDescription)")
+//                self.resetForm()
+//              }
+//            }
+//          } else {
+//            self.resetForm()
+//          }
+//    }
+//  }
+//
+//  func resetForm() {
+//    let alert = UIAlertController(title: "did you fill out all the fields?", message: nil, preferredStyle: .alert)
+//    alert.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+//    self.present(alert, animated: true, completion: nil)
+//  }
+//
+//func uploadProfileImage(_ image:UIImage, completion: @escaping ((_ url:URL?)->())) {
+//  guard let uid = Auth.auth().currentUser?.uid else { return }
+//  let storageRef = Storage.storage().reference()
+//
+//  guard let imageData = UIImageJPEGRepresentation(image, 0.75) else { return }
+//
+//
+//  let metaData = StorageMetadata()
+//  metaData.contentType = "image/jpg"
+//
+//  storageRef.putData(imageData, metadata: metaData) { metaData, error in
+//    if error == nil, metaData != nil {
+//      // You can also access to download URL after upload.
+//      storageRef.downloadURL { url, error in
+//        completion(url)
+//        // success!
+//      }
+//    } else {
+//      // failed
+//        completion(nil)
+//      }
+//    }
+//  }
+//
+//  func saveProfilePic(profileImageURL:URL, completion: @escaping ((_ success:Bool)->())) {
+//            let userID = database.currentUser!.uid
+//            let databaseRef = Database.database().reference().child("users/\(userID)")
+//
+//            let userPicture = [
+//              "photoURL": profileImageURL.absoluteString
+//              ] as [String:Any]
+//
+//      databaseRef.setValue(userPicture) { error, ref in
+//        completion(error == nil)
+//      }
+//  }
   
   func animateBackgroundColor() {
     UIView.animate(withDuration: 15, delay: 0, options: [.autoreverse, .curveLinear, .repeat], animations: {
@@ -109,9 +234,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate {
   
   //#Pragma Mark Actions
   @IBAction func saveButtonPressed(_ sender: Any) {
-   // saveProfile()
     updateSkills()
     updateProfile()
+    uploadPic()
+    
   }
 
   @IBAction func skillsButtonPressed(_ sender: gradientButton) {
@@ -128,73 +254,53 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate {
     UIView.animate(withDuration: 2.0) {}
   }
 
- 
-//  func filterSkills(completion: @escaping ([String])->()){
-//    var keys = [String]()
-//    var count = 0 {
-//      didSet {
-//        if count == skillsArray.count{
-//          completion(keys)
-//        }
-//      }
-//    }
 
   //Pragma Mark: Image Picker
   
-  @IBAction func didTapAddPhoto(_ sender: AnyObject) {
-    print("did tap add photo button worked")
-    let picker = UIImagePickerController()
-    picker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate //maybe fix this line to just self if not working
-    if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-      picker.sourceType = UIImagePickerControllerSourceType.camera
-    } else {
-      picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+      picker.dismiss(animated: true, completion: nil)
     }
-    present(picker, animated: true, completion: nil)
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+      
+      if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+        self.profileImageView.image = pickedImage
+      }
+      
+      picker.dismiss(animated: true, completion: nil)
+  
+    }
+  
+//////////////trying to upload image to firebase from profileImageView
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+    profileImageView.image = image
+    let userID = database.currentUser!.uid
+    let storage = Storage.storage().reference()
+    let tempImageRef = storage.child("tmpDir/tmpImage.jpg")
+    let storageRef = Storage.storage().reference()
+    
+    dismiss(animated: true, completion: nil)
+    var data = NSData()
+    data = UIImageJPEGRepresentation(profileImageView.image!, 0.8)! as NSData
+    // set upload path
+    let filePath = "\(Auth.auth().currentUser!.uid)/\("userPhoto")"
+    let metaData = StorageMetadata()
+    metaData.contentType = "image/jpg"
+    tempImageRef.child(filePath).putData(data as Data, metadata: metaData){(metaData,error) in
+      if let error = error {
+        print(error.localizedDescription)
+        return
+      }else{
+        //store downloadURL
+        tempImageRef.downloadURL { url, error in
+        //store downloadURL at database
+          self.database.reference.child(self.database.usersPath + "/\(userID)/")
+      }
+
+    }
+  }
   }
   
-//  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//    picker.dismiss(animated: true, completion: nil)
-//    guard let uid = Auth.auth().currentUser?.uid else { return }
-//    // if it's a photo from the library, not an image from the camera
-//    if #available(iOS 8.0, *), let referenceURL = info[UIImagePickerControllerReferenceURL] as? URL {
-//      let assets = PHAsset.fetchAssets(withALAssetURLs: [referenceURL], options: nil)
-//      let asset = assets.firstObject
-//      let imageFile = contentEditingInput?.fullSizeImageURL
-//      let filePath = "\(uid)/\(Int(Date.timeIntervalSinceReferenceDate * 1000))/\((referenceURL as AnyObject).lastPathComponent!)"
-//      guard let strongSelf = self else { return }
-//      self.database.reference.child(filePath)
-//        .putFile(from: imageFile!, metadata: nil) { (metadata, error) in
-//          if let error = error {
-//            let nsError = error as NSError
-//            print("Error uploading: \(nsError.localizedDescription)")
-//            return
-//          }
-//          strongSelf.sendMessage(withData: [Constants.MessageFields.imageURL:
-//            strongSelf.reference.child((metadata?.path)!).description])
-//    })
-//  } else {
-//  guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
-//  let imageData = UIImageJPEGRepresentation(image, 0.8)
-//  let imagePath = "\(uid)/\(Int(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
-//  let metadata = StorageMetadata()
-//  metadata.contentType = "image/jpeg"
-//  self.storageRef.child(imagePath)
-//  .putData(imageData!, metadata: metadata) { [weak self] (metadata, error) in
-//  if let error = error {
-//  print("Error uploading: \(error)")
-//  return
-//  }
-//  guard let strongSelf = self else { return }
-//  strongSelf.sendMessage(withData: [Constants.MessageFields.imageURL: strongSelf.storageRef.child((metadata?.path)!).description])
-//  }
-//  }
-//}
-
-  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-    picker.dismiss(animated: true, completion:nil)
-  }
-
 }
 
 
