@@ -17,6 +17,9 @@ class DatabaseManager: NSObject {
     let reference = Database.database().reference()
     let currentUser = Auth.auth().currentUser
     
+    var friends : [DataSnapshot]! = []
+    var requests: [DataSnapshot]! = [] 
+    
     let usersPath = "users"
     let skillsPath = "skills"
     

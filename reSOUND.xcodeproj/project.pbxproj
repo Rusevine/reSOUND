@@ -101,11 +101,11 @@
 			children = (
 				2565F4B0215423DE0034FD72 /* UsersViewController.swift */,
 				2565F4BF215461610034FD72 /* ProfileViewController.swift */,
-				46DA7319215AD11900B87081 /* DatabaseManager.swift */,
 				2565F4B6215440910034FD72 /* UsersDetailViewController.swift */,
 				2524C2E3215550BC008EBE5C /* SignInViewController.swift */,
 				259728B8215A816E0051DA61 /* SignUpController.swift */,
 				2524C2E521556725008EBE5C /* ChatController.swift */,
+				46DA7319215AD11900B87081 /* DatabaseManager.swift */,
 				259728BA215A8A4A0051DA61 /* ActiveChatsController.swift */,
 				464C48C6215BF96B00B7D07F /* FriendListViewController.swift */,
 			);

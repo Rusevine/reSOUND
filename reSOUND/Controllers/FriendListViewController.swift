@@ -18,21 +18,18 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var chatsTables: UITableView!
     @IBOutlet weak var requestTables: UITableView!
     
-    var friends : [DataSnapshot]! = []
+   // var friends : [DataSnapshot]! = []
     var chats: [DataSnapshot]! = []
-    var requests: [DataSnapshot]! = []
     var database = DatabaseManager.shared
-    var filter = [String]()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        filter = filterFriendRequests()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        filter = filterFriendRequests()
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureFriendsList()
         configureActiveChats()
-        configureFriendRequest(filter: filter)
+        configureFriendRequest()
         // Do any additional setup after loading the view.
     }
     func configureFriendsList() {
@@ -40,8 +37,8 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         guard let userID = database.currentUser?.uid else {return}
         database.reference.child("friendList/\(userID)").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
-            strongSelf.friends.append(snapshot)
-            strongSelf.friendsTable.insertRows(at: [IndexPath(row: strongSelf.friends.count-1, section: 0)], with: .automatic)
+            strongSelf.database.friends.append(snapshot)
+            strongSelf.friendsTable.insertRows(at: [IndexPath(row: strongSelf.database.friends.count-1, section: 0)], with: .automatic)
         
      })
     }
@@ -56,38 +53,36 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         })
     }
     
-    func configureFriendRequest(filter: [String]) {
+    func configureFriendRequest() {
         guard let userID = database.currentUser?.uid else {return}
         database.reference.child("friendRequest/\(userID)").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
-            let user = snapshot.key
-            if filter.contains(user){
-            strongSelf.requests.append(snapshot)
-            strongSelf.requestTables.insertRows(at: [IndexPath(row: strongSelf.requests.count-1, section: 0)], with: .automatic)
-            }
+            strongSelf.database.requests.append(snapshot)
+            strongSelf.requestTables.insertRows(at: [IndexPath(row: strongSelf.database.requests.count-1, section: 0)], with: .automatic)
+        
         })
     }
     
-    func filterFriendRequests() -> [String]{
-        guard let userID = database.currentUser?.uid else {fatalError()}
-        var rejectList = [String]()
-        database.reference.child("friendRequest/\(userID)").observeSingleEvent(of: .value) { (snapshot) in
-    
-            let dictionary = snapshot.value
-            let users = dictionary as! [String:Any]
-
-            for id in users.keys {
-                let user = users[id] as! [String:Any]
-                let pending = user["pending"] as! Bool
-                let rejected = user["rejected"] as! Bool
-                if pending == true && rejected == false {
-                    rejectList.append(id)
-                }
-            
-            }
-        }
-        return rejectList
-    }
+//    func filterFriendRequests() -> [String]{
+//        guard let userID = database.currentUser?.uid else {fatalError()}
+//        var rejectList = [String]()
+//        database.reference.child("friendRequest/\(userID)").observeSingleEvent(of: .value) { (snapshot) in
+//
+//            let dictionary = snapshot.value
+//            let users = dictionary as! [String:Any]
+//
+//            for id in users.keys {
+//                let user = users[id] as! [String:Any]
+//                let pending = user["pending"] as! Bool
+//                let rejected = user["rejected"] as! Bool
+//                if pending == true && rejected == false {
+//                    rejectList.append(id)
+//                }
+//
+//            }
+//        }
+//        return rejectList
+//    }
 
 
     
@@ -106,11 +101,11 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case friendsTable:
-            return friends.count
+            return database.friends.count
         case chatsTables:
             return chats.count
         case requestTables:
-            return requests.count
+            return database.requests.count
         default:
             return 0
         }
@@ -124,7 +119,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             case friendsTable:
             let friendsCell = self.friendsTable.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! ActiveChatsCell
             
-            let snapshot = self.friends[indexPath.row]
+            let snapshot = self.database.friends[indexPath.row]
             let id = snapshot.key
             guard let name = snapshot.value as? String else {fatalError()}
             
@@ -144,12 +139,14 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             
         case requestTables:
             let requestCell = self.requestTables.dequeueReusableCell(withIdentifier: "requestCell", for: indexPath) as! FriendRequestCell
-            let snapshot = self.requests[indexPath.row]
+            let snapshot = self.database.requests[indexPath.row]
             let values = snapshot.value as! [String:Any]
             let name = values["name"] as! String
             let id = snapshot.key
             
             requestCell.configureCell(name: name, id: id)
+            requestCell.acceptButton.tag = indexPath.row
+            requestCell.acceptButton.addTarget(self, action: #selector(accepted), for: .touchUpInside)
             cell = requestCell
             
             break
@@ -158,6 +155,22 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell!
   }
+    
+    @objc func accepted(sender: UIButton) {
+        if database.requests.count < 1 {
+            database.requests = []
+        } else {
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        database.requests.remove(at: sender.tag)
+        requestTables.deleteRows(at: [indexPath], with: .fade)
+        var index = 0
+        while index < database.requests.count {
+            
+            requestTables.cellForRow(at: IndexPath(row: index, section: 0))?.tag = index
+            index += 1
+        }
+    }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -174,3 +187,4 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
 }
+

@@ -14,6 +14,7 @@ class FriendRequestCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     var user: User?
     var database = DatabaseManager.shared
+    @IBOutlet weak var acceptButton: UIButton!
     
     func configureCell(name: String, id: String) {
         nameLabel.text = name
@@ -29,12 +30,16 @@ class FriendRequestCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func friendAccepted(_ sender: UIButton) {
-        let values = ["pending": false]
-        database.reference.child("friendRequest/\(database.currentUser?.uid ?? "")/\(user?.id ?? "")").updateChildValues(values)
+      //  let values = ["name":nil,"pending": nil, "rejected": nil] as [String : Any]
+        let userID = database.currentUser?.uid ?? ""
+        database.reference.child("friendRequest/\(userID)").child("\(user?.id ?? "")").removeValue()
         let newFriend = [(user?.id)!:user?.name] as! [String:String]
-        database.reference.child("friendList/\(database.currentUser?.uid ?? "")").updateChildValues(newFriend)
+        database.reference.child("friendList/\(userID)").updateChildValues(newFriend)
+        
+
     }
     
     @IBAction func friendRejected(_ sender: UIButton) {
+        
     }
 }
