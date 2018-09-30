@@ -25,6 +25,15 @@ class DatabaseManager: NSObject {
     let city = "city"
     let province = "province"
     let email = "email"
-    
-    
+    let userDescription = "description"
+    let userLink = "link"
+  
+    let profileImage = UIImage()
+    private var image: UIImage!
+    init(image:UIImage) {
+    self.image = image
+  }
+  
+
+  
 }
