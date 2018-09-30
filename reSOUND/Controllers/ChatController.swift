@@ -92,7 +92,6 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
   //Pragma Mark send massage
   
   func sendMessage(text: String) {
-    
     let message = ["sender": database.currentUser?.displayName,
                    "text" : text, "senderID": database.currentUser?.uid]
     let key = database.reference.child(sendPath!).childByAutoId().key
