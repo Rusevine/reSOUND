@@ -22,6 +22,7 @@
 		259728BD215A8AA20051DA61 /* ActiveChatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259728BC215A8AA20051DA61 /* ActiveChatsCell.swift */; };
 		2598C283215BE1D40013F513 /* PopOver.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2598C282215BE1D40013F513 /* PopOver.xib */; };
 		2598C285215BE27A0013F513 /* PopOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2598C284215BE27A0013F513 /* PopOver.swift */; };
+		25BC9D6621615A260075BBBF /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BC9D6521615A260075BBBF /* ImageData.swift */; };
 		25C3B641215D2ED80030771B /* PopOverFilter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C3B640215D2ED80030771B /* PopOverFilter.xib */; };
 		25C3B643215D2F460030771B /* PopOverFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C3B642215D2F460030771B /* PopOverFilter.swift */; };
 		25E926BE215420A400C1D019 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E926BD215420A400C1D019 /* AppDelegate.swift */; };
@@ -53,6 +54,7 @@
 		259728BC215A8AA20051DA61 /* ActiveChatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatsCell.swift; sourceTree = "<group>"; };
 		2598C282215BE1D40013F513 /* PopOver.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopOver.xib; sourceTree = "<group>"; };
 		2598C284215BE27A0013F513 /* PopOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOver.swift; sourceTree = "<group>"; };
+		25BC9D6521615A260075BBBF /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 		25C3B640215D2ED80030771B /* PopOverFilter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopOverFilter.xib; sourceTree = "<group>"; };
 		25C3B642215D2F460030771B /* PopOverFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverFilter.swift; sourceTree = "<group>"; };
 		25E926BA215420A400C1D019 /* reSOUND.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reSOUND.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +94,7 @@
 				25FDE3EF2156917100D1C00E /* UIButtonExtentsion.swift */,
 				25FDE3F321569AFF00D1C00E /* UIViewExtentsion.swift */,
 				25FDE3F12156982B00D1C00E /* Colors.swift */,
+				25BC9D6521615A260075BBBF /* ImageData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				25FDE3F421569AFF00D1C00E /* UIViewExtentsion.swift in Sources */,
 				2565F4B5215431BA0034FD72 /* UsersCollectionViewCell.swift in Sources */,
 				259728BD215A8AA20051DA61 /* ActiveChatsCell.swift in Sources */,
+				25BC9D6621615A260075BBBF /* ImageData.swift in Sources */,
 				2565F4B7215440910034FD72 /* UsersDetailViewController.swift in Sources */,
 				2565F4BB21544CFC0034FD72 /* User.swift in Sources */,
 				257C6391215C4B15001CDC5D /* gradientButton.swift in Sources */,

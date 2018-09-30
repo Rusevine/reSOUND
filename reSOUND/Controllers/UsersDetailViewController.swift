@@ -17,6 +17,9 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   @IBOutlet weak var detailProvinceLabel: UILabel!
   @IBOutlet weak var detailSkillsLabel: UILabel!
   @IBOutlet weak var connectButton: UIButton!
+  @IBOutlet weak var detailDescriptionLabel: UILabel!
+  @IBOutlet weak var detailLinkLabel: UILabel!
+  
   
   var user: User?
   var skills = [String]()
@@ -26,6 +29,9 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
     
     setupUI()
     setupUserInfo()
+    
+    view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
+
 
   }
   
@@ -38,6 +44,8 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
     self.detailNameLabel.text = user?.name
     self.detailCityLabel.text = user?.city
     self.detailProvinceLabel.text = user?.province
+    self.detailLinkLabel.text = user?.userLink
+    self.detailDescriptionLabel.text = user?.userDescription
     
     database.reference.child((database.skillsPath) + "/" + (user?.id)!).observeSingleEvent(of: .value, with: { (snapshot) in
         guard let value = snapshot.value as? [String:Bool] else {return}

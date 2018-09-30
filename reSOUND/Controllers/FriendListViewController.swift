@@ -34,6 +34,8 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         configureActiveChats()
         configureFriendRequest(filter: filter)
         // Do any additional setup after loading the view.
+      view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
+
     }
     func configureFriendsList() {
        
