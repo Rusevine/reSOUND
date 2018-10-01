@@ -11,16 +11,14 @@ import Firebase
 
 
 
-class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate,UITextViewDelegate {
 
 
     @IBOutlet weak var chatTextView: UITextView!
     @IBOutlet weak var chatTableView: UITableView!
-  @IBOutlet weak var chatTextField: UITextField!
   @IBOutlet weak var chatSendButton: UIButton!
   
   var messages: [DataSnapshot]! = []
-  var chatTextFieldDelegate: UITextFieldDelegate?
   var database = DatabaseManager.shared
   fileprivate var _refHandle: DatabaseHandle!
   var msglength: NSNumber = 140
@@ -36,12 +34,19 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
   
   override func viewDidLoad() {
-        super.viewDidLoad()
-    
-    view.setGradientBackground(colorOne: colors.black, colorTwo: colors.lightGrey)
-    chatTextFieldDelegate = self
+    super.viewDidLoad()
+    chatTextView.layer.cornerRadius = 5
+    chatSendButton.layer.cornerRadius = 5
+    chatTableView.layer.cornerRadius = 5
+    chatTextView.text = "Enter Message"
+    chatTextView.textColor = UIColor.lightGray
+    chatTextView.delegate = self
+    view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
+ 
     configurePaths()
     configureDatabase()
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     
     }
     func configurePaths() {
@@ -55,6 +60,7 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
       guard let strongSelf = self else { return }
       strongSelf.messages.append(snapshot)
       strongSelf.chatTableView.insertRows(at: [IndexPath(row: strongSelf.messages.count-1, section: 0)], with: .automatic)
+      strongSelf.chatTableView.scrollToRow(at: IndexPath(item:strongSelf.messages.count-1, section: 0), at: .bottom, animated: true)
     })
   }
     
@@ -62,15 +68,18 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
   
   @IBAction func chatSendButtonPressed(_ sender: UIButton) {
-     _ = textFieldShouldReturn(chatTextField)
+    guard let text = chatTextView.text else {fatalError()}
+    sendMessage(text: text)
+    chatTextView.text = ""
   }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard let message = textView.text else { return true }
+        
+        let newLength = message.characters.count + text.characters.count - range.length
+        return newLength <= self.msglength.intValue
+    }
   
-  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    guard let text = textField.text else { return true }
-
-    let newLength = text.characters.count + string.characters.count - range.length
-    return newLength <= self.msglength.intValue // Bool
-  }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return messages.count
@@ -100,12 +109,38 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
     database.reference.child("\(receivePath!)/\(key)").setValue(message)
     }
   
-  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    guard let text = textField.text else { return true }
-    textField.text = ""
-    view.endEditing(true)
-    sendMessage(text: text)
-    return true
-  }
+
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if (textView.text == "Enter Message" && textView.textColor == .lightGray)
+        {
+            textView.text = ""
+            textView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView)
+    {
+        if (textView.text == "")
+        {
+            textView.text = "Enter Message"
+            textView.textColor = .lightGray
+        }
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
+        }
+    
 
 }
