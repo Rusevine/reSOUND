@@ -53,6 +53,7 @@ class UsersCollectionViewCell: UICollectionViewCell {
         let image = UIImage(data: data!)
 
         self.usersImageView.image = image
+        self.user?.image = image
       }
     }
 

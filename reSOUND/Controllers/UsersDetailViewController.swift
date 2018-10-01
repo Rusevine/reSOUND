@@ -53,8 +53,7 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
     self.detailProvinceLabel.text = user?.province
     self.detailLinkLabel.text = user?.link
     self.detailDescriptionLabel.text = user?.userDescription
-    
-    self.detailImageView.image = usersCollectionViewCell.usersImageView.image
+    self.detailImageView.image = user?.image 
     
     database.reference.child((database.skillsPath) + "/" + (user?.id)!).observeSingleEvent(of: .value, with: { (snapshot) in
         guard let value = snapshot.value as? [String:Bool] else {return}
