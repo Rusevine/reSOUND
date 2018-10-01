@@ -42,7 +42,7 @@ class UsersCollectionViewCell: UICollectionViewCell {
     
 
 
-    let usersProfileImageRef = self.storageRef.child("users/\(user.id)/usersProfileImage")
+    let usersProfileImageRef = self.storageRef.child("users/\(user.id)/usersProfileImage.jpg")
 
     // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
     usersProfileImageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
