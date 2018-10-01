@@ -122,16 +122,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
   }
   
   //////can upload an image to firebase, just not from profileImageView
-  func uploadPic() {
+    func uploadPic(profileImage: UIImage) {
 
     let storage = Storage.storage().reference()
     let tempImageRef = storage.child("tmpDir/tmpImage.jpg")
 
-    let image = UIImage(named: "britney")
+    let image = profileImage
     let metaData = StorageMetadata()
     metaData.contentType = "image/jpg"
 
-    tempImageRef.putData(UIImageJPEGRepresentation(image!, 0.8)!, metadata:metaData) { (data, error) in
+        tempImageRef.putData(UIImageJPEGRepresentation(image, 0.8)!, metadata:metaData) { (data, error) in
       if error == nil {
         print("upload successful")
       } else {
@@ -236,7 +236,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
   @IBAction func saveButtonPressed(_ sender: Any) {
     updateSkills()
     updateProfile()
-    uploadPic()
+    uploadPic(profileImage: self.profileImageView.image!)
     
   }
 
@@ -312,34 +312,34 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
   ////////////////
   
 //////////////trying to upload image to firebase from profileImageView
-  func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-    profileImageView.image = image
-    let userID = database.currentUser!.uid
-    let storage = Storage.storage().reference()
-    let tempImageRef = storage.child("tmpDir/tmpImage.jpg")
-    let storageRef = Storage.storage().reference()
-
-    dismiss(animated: true, completion: nil)
-    var data = NSData()
-    data = UIImageJPEGRepresentation(profileImageView.image!, 0.8)! as NSData
-    // set upload path
-    let filePath = "\(Auth.auth().currentUser!.uid)/\("users")"
-    let metaData = StorageMetadata()
-    metaData.contentType = "image/jpg"
-    tempImageRef.child(filePath).putData(data as Data, metadata: metaData){(metaData,error) in
-      if let error = error {
-        print(error.localizedDescription)
-        return
-      }else{
-        //store downloadURL
-        tempImageRef.downloadURL { url, error in
-        //store downloadURL at database
-          self.database.reference.child(self.database.usersPath + "/\(userID)/")
-      }
-
-    }
-  }
-  }
+//  func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+//    profileImageView.image = image
+//    let userID = database.currentUser!.uid
+//    let storage = Storage.storage().reference()
+//    let tempImageRef = storage.child("tmpDir/tmpImage.jpg")
+//    let storageRef = Storage.storage().reference()
+//
+//    dismiss(animated: true, completion: nil)
+//    var data = NSData()
+//    data = UIImageJPEGRepresentation(profileImageView.image!, 0.8)! as NSData
+//    // set upload path
+//    let filePath = "\(Auth.auth().currentUser!.uid)/\("users")"
+//    let metaData = StorageMetadata()
+//    metaData.contentType = "image/jpg"
+//    tempImageRef.child(filePath).putData(data as Data, metadata: metaData){(metaData,error) in
+//      if let error = error {
+//        print(error.localizedDescription)
+//        return
+//      }else{
+//        //store downloadURL
+//        tempImageRef.downloadURL { url, error in
+//        //store downloadURL at database
+//          self.database.reference.child(self.database.usersPath + "/\(userID)/")
+//      }
+//
+//    }
+//  }
+//  }
   
   //////////////
 //  func uploadMedia(completion: @escaping (_ url: String?) -> Void) {
