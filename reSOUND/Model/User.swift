@@ -18,10 +18,7 @@ class User: NSObject {
   
   var link: String
   var userDescription: String
-  
-//  var usersProfileImage: UIImage
 
-//  var skills: String
   
   init(name: String, city: String, province: String, email: String, id: String, userDescription: String, link: String) {
     self.name = name
@@ -31,7 +28,6 @@ class User: NSObject {
     self.id = id
     self.link = link
     self.userDescription = userDescription
-    //self.skills = skills
 
   }
 

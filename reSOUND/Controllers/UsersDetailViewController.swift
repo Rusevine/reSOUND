@@ -26,7 +26,7 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   var skills = [String]()
   let database = DatabaseManager.shared
   let storageRef = Storage.storage()
-
+  let usersCollectionViewCell = UsersCollectionViewCell()
   
   override func viewDidLoad() {
     
@@ -53,6 +53,8 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
     self.detailProvinceLabel.text = user?.province
     self.detailLinkLabel.text = user?.link
     self.detailDescriptionLabel.text = user?.userDescription
+    
+    self.detailImageView.image = usersCollectionViewCell.usersImageView.image
     
     database.reference.child((database.skillsPath) + "/" + (user?.id)!).observeSingleEvent(of: .value, with: { (snapshot) in
         guard let value = snapshot.value as? [String:Bool] else {return}
