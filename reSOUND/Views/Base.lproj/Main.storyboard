@@ -209,19 +209,19 @@
                                     <constraint firstAttribute="height" constant="250" id="qU5-cw-GsN"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pxS-Gr-K3q">
-                                <rect key="frame" x="0.0" y="-121.5" width="375" height="33"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pxS-Gr-K3q">
+                                <rect key="frame" x="0.0" y="-145" width="375" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5B-7x-UKC" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="33"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Singer"/>
                                         <connections>
                                             <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ICs-N9-OzH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1e7-BE-Hvd" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                        <rect key="frame" x="55" y="0.0" width="185" height="33"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1e7-BE-Hvd" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                                        <rect key="frame" x="95" y="0.0" width="90" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Audio Engineer"/>
                                         <connections>
@@ -229,7 +229,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRH-is-9at" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                        <rect key="frame" x="245" y="0.0" width="54" height="33"/>
+                                        <rect key="frame" x="190" y="0.0" width="90" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Lyricist"/>
                                         <connections>
@@ -237,7 +237,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSc-aa-4W6" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                        <rect key="frame" x="304" y="0.0" width="71" height="33"/>
+                                        <rect key="frame" x="285" y="0.0" width="90" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Producer"/>
                                         <connections>
@@ -245,23 +245,31 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="pRH-is-9at" firstAttribute="width" secondItem="ZSc-aa-4W6" secondAttribute="width" id="DYR-bt-eT7"/>
+                                    <constraint firstItem="1e7-BE-Hvd" firstAttribute="width" secondItem="ZSc-aa-4W6" secondAttribute="width" id="Umy-s9-PTG"/>
+                                    <constraint firstAttribute="height" constant="40" id="VEM-MK-PuU"/>
+                                    <constraint firstItem="z5B-7x-UKC" firstAttribute="width" secondItem="ZSc-aa-4W6" secondAttribute="width" id="r7G-mr-vhq"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ZkO-z1-4ks" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8OB-a8-Qpr"/>
                             <constraint firstItem="ZkO-z1-4ks" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-250" id="Fht-gB-ta6"/>
+                            <constraint firstItem="pxS-Gr-K3q" firstAttribute="centerX" secondItem="ZkO-z1-4ks" secondAttribute="centerX" id="Jer-tg-Mqz"/>
                             <constraint firstItem="rFD-F2-lmC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KxH-NJ-Hri"/>
-                            <constraint firstItem="pxS-Gr-K3q" firstAttribute="trailing" secondItem="ZkO-z1-4ks" secondAttribute="trailing" id="Meq-AC-4re"/>
                             <constraint firstItem="rFD-F2-lmC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="NTh-vE-6lY"/>
                             <constraint firstItem="rFD-F2-lmC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="POI-LG-MVz"/>
                             <constraint firstItem="822-ho-CEM" firstAttribute="top" secondItem="rFD-F2-lmC" secondAttribute="bottom" id="Q76-Cv-Oc0"/>
-                            <constraint firstItem="pxS-Gr-K3q" firstAttribute="centerX" secondItem="ZkO-z1-4ks" secondAttribute="centerX" id="RY3-LY-s9J"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="822-ho-CEM" secondAttribute="bottom" id="SJR-II-9SX"/>
                             <constraint firstItem="822-ho-CEM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SUZ-W6-NFd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="822-ho-CEM" secondAttribute="trailing" id="VyS-59-cqL"/>
+                            <constraint firstItem="pxS-Gr-K3q" firstAttribute="centerY" secondItem="ZkO-z1-4ks" secondAttribute="centerY" id="g2G-nS-90W"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZkO-z1-4ks" secondAttribute="trailing" id="gps-JN-Oov"/>
-                            <constraint firstItem="pxS-Gr-K3q" firstAttribute="centerY" secondItem="ZkO-z1-4ks" secondAttribute="centerY" constant="20" id="mf3-3y-7J4"/>
+                            <constraint firstItem="pxS-Gr-K3q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ice-L4-9jv"/>
+                            <constraint firstItem="pxS-Gr-K3q" firstAttribute="width" secondItem="822-ho-CEM" secondAttribute="width" id="loH-MG-uiA"/>
+                            <constraint firstAttribute="trailing" secondItem="pxS-Gr-K3q" secondAttribute="trailing" id="yzh-fY-zxz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -285,7 +293,7 @@
                         <outlet property="engineerButton" destination="1e7-BE-Hvd" id="rXk-OJ-V1v"/>
                         <outlet property="filterButton" destination="1BK-SN-sa9" id="jQi-un-0l6"/>
                         <outlet property="lyricistButton" destination="pRH-is-9at" id="qWp-ih-LUu"/>
-                        <outlet property="popOverFilter" destination="ZkO-z1-4ks" id="YkW-8n-SaT"/>
+                        <outlet property="popOverFilter" destination="ZkO-z1-4ks" id="rax-L5-8KG"/>
                         <outlet property="popOverFilterHeightContraint" destination="qU5-cw-GsN" id="i5o-cx-gbh"/>
                         <outlet property="popOverFilterTopConstraint" destination="Fht-gB-ta6" id="aXQ-zL-oSI"/>
                         <outlet property="producerButton" destination="ZSc-aa-4W6" id="d30-DA-oq2"/>
@@ -661,12 +669,10 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AlS-cu-z7D">
                                 <rect key="frame" x="10" y="548" width="288" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="JhR-62-ZDf"/>
                                 </constraints>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
-
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

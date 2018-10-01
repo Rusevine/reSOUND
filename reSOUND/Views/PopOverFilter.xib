@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="what skills do you need?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZh-cE-Jbs">
-                    <rect key="frame" x="10" y="20" width="355" height="29"/>
+                    <rect key="frame" x="10" y="10" width="355" height="29"/>
                     <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="21"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -80,13 +80,13 @@
             <constraints>
                 <constraint firstItem="lEd-n9-35W" firstAttribute="leading" secondItem="MaX-W2-A1G" secondAttribute="leading" constant="142" id="3cm-wS-WpN"/>
                 <constraint firstItem="UEv-Bf-bqo" firstAttribute="leading" secondItem="MaX-W2-A1G" secondAttribute="leading" constant="23" id="8xM-MA-XPF"/>
+                <constraint firstItem="MaX-W2-A1G" firstAttribute="trailing" secondItem="fZh-cE-Jbs" secondAttribute="trailing" constant="10" id="EPK-8J-tK9"/>
+                <constraint firstItem="fZh-cE-Jbs" firstAttribute="leading" secondItem="MaX-W2-A1G" secondAttribute="leading" constant="10" id="HoS-AM-bA1"/>
                 <constraint firstItem="MaX-W2-A1G" firstAttribute="trailing" secondItem="UEv-Bf-bqo" secondAttribute="trailing" constant="24" id="Jd2-yx-xJR"/>
-                <constraint firstItem="fZh-cE-Jbs" firstAttribute="leading" secondItem="MaX-W2-A1G" secondAttribute="leading" constant="10" id="NBm-vo-NmI"/>
-                <constraint firstItem="MaX-W2-A1G" firstAttribute="trailing" secondItem="fZh-cE-Jbs" secondAttribute="trailing" constant="10" id="TJK-dU-zV5"/>
+                <constraint firstItem="UEv-Bf-bqo" firstAttribute="top" secondItem="fZh-cE-Jbs" secondAttribute="bottom" constant="40" id="KlP-fa-zsu"/>
                 <constraint firstItem="MaX-W2-A1G" firstAttribute="bottom" secondItem="lEd-n9-35W" secondAttribute="bottom" constant="20" id="Xg5-Qf-2Wo"/>
-                <constraint firstItem="fZh-cE-Jbs" firstAttribute="top" secondItem="MaX-W2-A1G" secondAttribute="top" constant="20" id="alu-EC-IL8"/>
                 <constraint firstItem="MaX-W2-A1G" firstAttribute="trailing" secondItem="lEd-n9-35W" secondAttribute="trailing" constant="143" id="dB9-Lm-zRL"/>
-                <constraint firstItem="UEv-Bf-bqo" firstAttribute="top" secondItem="fZh-cE-Jbs" secondAttribute="bottom" constant="30" id="e5Z-Ie-TM3"/>
+                <constraint firstItem="fZh-cE-Jbs" firstAttribute="top" secondItem="MaX-W2-A1G" secondAttribute="top" constant="10" id="fZx-Xu-O9L"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="MaX-W2-A1G"/>
