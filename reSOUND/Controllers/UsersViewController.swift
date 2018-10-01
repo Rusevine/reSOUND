@@ -19,7 +19,7 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
   @IBOutlet weak var engineerButton: UIButton!
   @IBOutlet weak var producerButton: UIButton!
   @IBOutlet weak var lyricistButton: UIButton!
-  @IBOutlet weak var popOverFilter: UIView!
+  @IBOutlet weak var popOverFilter: PopOverFilter!
   @IBOutlet weak var popOverFilterHeightContraint: NSLayoutConstraint!
   @IBOutlet weak var popOverFilterTopConstraint: NSLayoutConstraint!
   
@@ -116,18 +116,17 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
   }
   
   @IBAction func filterButtonPressed(_ sender: Any) {
+//    popOverFilter.usersViewController = self
     print("filter button was pressed")
     if (!pressed) {
-      popOverFilterTopConstraint.constant += popOverFilterHeightContraint.constant
+      popOverFilterTopConstraint.constant += (popOverFilterHeightContraint.constant * +1)
       pressed = true
       filterButton.setTitle("done", for: UIControlState.normal)
       filterButton.setTitleColor(colors.fontBlue, for: UIControlState.normal)
-
     } else {
-      popOverFilterTopConstraint.constant -= popOverFilterHeightContraint.constant
+      popOverFilterTopConstraint.constant -= (popOverFilterHeightContraint.constant * +1)
       pressed = false
       filterButton.setTitle("filter", for: UIControlState.normal)
-
     }
     UIView.animate(withDuration: 2) {}
   }

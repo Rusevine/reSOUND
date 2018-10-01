@@ -26,7 +26,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
   @IBOutlet weak var skillsButton: UIButton!
 
   @IBOutlet weak var popOverView: PopOver!
-//  @IBOutlet weak var popOverView: UIView!
   @IBOutlet weak var popOverTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var popOverHeightConstraint: NSLayoutConstraint!
   
@@ -117,7 +116,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func uploadPic(profileImage: UIImage) {
     let userID = database.currentUser!.uid
     let storage = Storage.storage().reference()
-    let tempImageRef = storage.child("users/\(userID)/usersProfileImage")
+    let tempImageRef = storage.child("users/\(userID)/usersProfileImage.jpg")
 
     let image = profileImage
     let metaData = StorageMetadata()

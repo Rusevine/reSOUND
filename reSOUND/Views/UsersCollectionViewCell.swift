@@ -24,6 +24,7 @@ class UsersCollectionViewCell: UICollectionViewCell {
   let database = DatabaseManager.shared
   let storageRef = Storage.storage().reference()
 
+
   
   func configureCell(withUser user:User){
     self.user = user
@@ -40,23 +41,21 @@ class UsersCollectionViewCell: UICollectionViewCell {
     usersImageView.layer.borderColor = colors.white.cgColor
     
 
+
     let usersProfileImageRef = self.storageRef.child("users/\(user.id)/usersProfileImage")
+
     // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
     usersProfileImageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
-      if error != nil {
-        print("error in getting image")
+      if let error = error {
+        // Uh-oh, an error occurred!
       } else {
         // Data for "images/island.jpg" is returned
         let image = UIImage(data: data!)
-//        self.usersImageView = image
-//        var grabImage = UIImageView(data: data!)
+
         self.usersImageView.image = image
       }
     }
-    
 
   }
-  
 
-  
 }
