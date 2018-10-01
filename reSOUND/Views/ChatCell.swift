@@ -25,10 +25,11 @@ class ChatCell: UITableViewCell {
     func configureCell(senderID: String, sender: String, message: String,timestamp: String) {
         senderLabel.text = sender
         timestampLabel.text = "sent on " + timestamp
- 
+        messageLabel.layer.masksToBounds = true
         messageLabel.text = message
         messageLabel.layer.cornerRadius = 5
         messageLabel.numberOfLines = 0
+        
      //   messageLabel.sizeToFit()
     //    messageLabel.preferredMaxLayoutWidth = self.frame.width * 0.80
         

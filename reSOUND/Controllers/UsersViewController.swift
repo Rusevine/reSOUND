@@ -48,10 +48,13 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
   func configureDatabase() {
 
       database.reference.child(database.usersPath).observe(.childAdded, with: {[weak self] (snapshot) -> Void in
+        let snap = snapshot.value as! [String:String]
+        let id = snap["id"]
+        if id != self?.database.currentUser?.uid {
       guard let strongSelf = self else { return }
       strongSelf.users.append(snapshot)
       strongSelf.collectionView.insertItems(at: [IndexPath(row: strongSelf.users.count-1, section: 0)])
-    })
+        }})
   }
   
   //#Pragma Mark UICollectionViewDatasource methods

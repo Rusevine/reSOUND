@@ -41,6 +41,8 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
     chatTextView.text = "Enter Message"
     chatTextView.textColor = UIColor.lightGray
     chatTextView.delegate = self
+    chatTableView.rowHeight = UITableViewAutomaticDimension
+    chatTableView.estimatedRowHeight = 200
     view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
  
     configurePaths()
