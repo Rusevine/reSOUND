@@ -93,8 +93,9 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //    cell.textLabel?.text = "sent by: \(sender)"
     let text = message["text"] ?? ""
     let senderID = message["senderID"] ?? ""
+    let timestamp = message["timestamp"] ?? ""
     
-    cell.configureCell(senderID: senderID, sender: sender, message: text)
+    cell.configureCell(senderID: senderID, sender: sender, message: text, timestamp: timestamp)
   
     return cell
 }
@@ -102,8 +103,15 @@ class ChatController: UIViewController, UITableViewDelegate, UITableViewDataSour
   //Pragma Mark send massage
   
   func sendMessage(text: String) {
+    
+    let formatter = DateFormatter()
+    formatter.dateFormat = "MM/dd/yyyy HH:mm"
+    let today = Date()
+    let timestamp = formatter.string(from: today)
+    
+    
     let message = ["sender": database.currentUser?.displayName,
-                   "text" : text, "senderID": database.currentUser?.uid]
+                   "text" : text, "senderID": database.currentUser?.uid, "timestamp": timestamp]
     let key = database.reference.child(sendPath!).childByAutoId().key
     database.reference.child("\(sendPath!)/\(key)").setValue(message)
     database.reference.child("\(receivePath!)/\(key)").setValue(message)

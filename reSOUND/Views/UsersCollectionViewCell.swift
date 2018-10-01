@@ -22,7 +22,7 @@ class UsersCollectionViewCell: UICollectionViewCell {
     var user: User?
     var id = User.self
   let database = DatabaseManager.shared
-  let storageRef = Storage.storage()
+  let storageRef = Storage.storage().reference()
 
   
   func configureCell(withUser user:User){
@@ -31,7 +31,6 @@ class UsersCollectionViewCell: UICollectionViewCell {
     addressLabel.text = user.city + ","
     provinceLabel.text = user.province
     
-//    usersImageView.image = user.usersProfileImage
     
     placeHolderView.layer.cornerRadius = placeHolderView.frame.height/2
     imageContainer.layer.cornerRadius = 5
@@ -40,15 +39,8 @@ class UsersCollectionViewCell: UICollectionViewCell {
     usersImageView.layer.borderWidth = 4
     usersImageView.layer.borderColor = colors.white.cgColor
     
-    //    self.usersProfileImage = usersProfileImage
-    // Create a reference to the file you want to download
-    //    let islandRef = storageRef.child("images/island.jpg")
-    
-    let userID = database.currentUser!.uid
-    var user = UIImageView()
 
-    let storageRef = Storage.storage().reference()
-    let usersProfileImageRef = storageRef.child("users/usersProfileImage")
+    let usersProfileImageRef = self.storageRef.child("users/\(user.id)/usersProfileImage")
     // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
     usersProfileImageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
       if error != nil {
@@ -58,38 +50,9 @@ class UsersCollectionViewCell: UICollectionViewCell {
         let image = UIImage(data: data!)
 //        self.usersImageView = image
 //        var grabImage = UIImageView(data: data!)
-//        self.usersImageView = grabImage!
+        self.usersImageView.image = image
       }
     }
-    
-//    let dbRef = database.reference().child("users")
-//    dbRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
-//      // Get download URL from snapshot
-//      let downloadURL = snapshot.value() as! String
-//      // Create a storage reference from the URL
-//      let storageRef = storage.referenceFromURL(downloadURL)
-//      // Download the data, assuming a max size of 1MB (you can change this as necessary)
-//      storageRef.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
-//        // Create a UIImage, add it to the array
-//        let pic = UIImage(data: data)
-//        picArray.append(pic)
-//      }
-//    })
- 
-
-//    self.databaseRef.child("users").child(id!).observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-//      // check if user has photo
-//      if snapshot.hasChild("userPhoto"){
-//        // set image locatin
-//        let filePath = "\(userID!)/\("userPhoto")"
-//        // Assuming a < 10MB file, though you can change that
-//        self.storageRef.child(filePath).dataWithMaxSize(10*1024*1024, completion: { (data, error) in
-//
-//          let userPhoto = UIImage(data: data!)
-//          self.userPhoto.image = userPhoto
-//        })
-//      }
-//    })
     
 
   }
