@@ -72,9 +72,9 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
     let email = user[database.email] ?? ""
     let id = user[database.id] ?? ""
     let userDescription = user[database.userDescription] ?? ""
-    let userlink = user[database.userLink] ?? ""
+    let link = user[database.link] ?? ""
     
-    let _user = User(name: name, city: city, province: province, email: email, id: id, userDescription: userDescription, userLink: userlink)
+    let _user = User(name: name, city: city, province: province, email: email, id: id, userDescription: userDescription, link: link)
     
     cell.configureCell(withUser: _user)
     

@@ -88,7 +88,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
   
   func updateProfile() {
     var user = [String:String]()
-    let keys = ["name","province","email","city", "id","userLink","userDescription"]
+    let keys = ["name","province","email","city", "id","link","userDescription"]
     
     let userID = database.currentUser!.uid
     user["name"] = nameTextField.text
@@ -96,7 +96,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     user["email"] = emailTextField.text
     user["city"] = cityTextField.text
     user["id"] = userID
-    user["userLink"] = linkTextField.text
+    user["link"] = linkTextField.text
     user["userDescription"] = descriptionTextField.text
 //    user["image"] = profileImageView.image
     

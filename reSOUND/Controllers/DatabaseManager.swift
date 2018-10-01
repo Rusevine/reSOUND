@@ -30,7 +30,7 @@ class DatabaseManager: NSObject {
     let email = "email"
   
     let userDescription = "userDescription"
-    let userLink = "userLink"
+    let link = "link"
   
     let profileImage = UIImage()
     private var image: UIImage!

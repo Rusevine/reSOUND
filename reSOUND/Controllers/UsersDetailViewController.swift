@@ -44,7 +44,7 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
     self.detailNameLabel.text = user?.name
     self.detailCityLabel.text = user?.city
     self.detailProvinceLabel.text = user?.province
-    self.detailLinkLabel.text = user?.userLink
+    self.detailLinkLabel.text = user?.link
     self.detailDescriptionLabel.text = user?.userDescription
     
     database.reference.child((database.skillsPath) + "/" + (user?.id)!).observeSingleEvent(of: .value, with: { (snapshot) in
