@@ -32,10 +32,10 @@ class DatabaseManager: NSObject {
     let userDescription = "userDescription"
     let link = "link"
   
-    let profileImage = UIImage()
-    private var image: UIImage!
-    init(image:UIImage) {
-    self.image = image
+    var usersProfileImage = UIImage()
+//    private var usersProfileImage: UIImage!
+    init(usersProfileImage:UIImage) {
+    self.usersProfileImage = usersProfileImage
   }
   
 

@@ -18,6 +18,8 @@ class User: NSObject {
   
   var link: String
   var userDescription: String
+  
+//  var usersProfileImage: UIImage
 
 //  var skills: String
   
@@ -30,8 +32,7 @@ class User: NSObject {
     self.link = link
     self.userDescription = userDescription
     //self.skills = skills
+
   }
-  
-  
-  
+
 }

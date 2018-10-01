@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 
 class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollectionViewDataSource {
@@ -26,7 +27,9 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
   
   var users: [DataSnapshot]! = []
   let database = DatabaseManager.shared
+  let storageRef = Storage.storage().reference()
   var skillsArray = [String]()
+  var picArray = [UIImage]()
   var pressed = false
 
   override func viewDidLoad() {
@@ -74,6 +77,19 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
     let userDescription = user[database.userDescription] ?? ""
     let link = user[database.link] ?? ""
     
+//    let userID = database.currentUser!.uid
+//    // Create a reference to the file you want to download
+//    //    let islandRef = storageRef.child("images/island.jpg")
+//    let usersProfileImageRef = storageRef.child("users/\(userID)/usersProfileImage")
+//    // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+//    usersProfileImageRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+//      if let error = error {
+//        print("error in getting image")
+//      } else {
+//      // Data for "images/island.jpg" is returned
+//        let image = UIImage(data: data!)
+//      }
+//    }
     let _user = User(name: name, city: city, province: province, email: email, id: id, userDescription: userDescription, link: link)
     
     cell.configureCell(withUser: _user)

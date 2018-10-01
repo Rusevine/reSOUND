@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class UsersDetailViewController: UIViewController, UIImagePickerControllerDelegate {
   
@@ -19,11 +20,13 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   @IBOutlet weak var connectButton: UIButton!
   @IBOutlet weak var detailDescriptionLabel: UILabel!
   @IBOutlet weak var detailLinkLabel: UILabel!
-  
+  @IBOutlet weak var detailImageView: UIImageView!
   
   var user: User?
   var skills = [String]()
   let database = DatabaseManager.shared
+  let storageRef = Storage.storage()
+
   
   override func viewDidLoad() {
     
@@ -31,8 +34,12 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
     setupUserInfo()
     
     view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
-
-
+    
+    detailView.layer.cornerRadius = detailView.frame.height/2
+    
+    detailImageView.layer.cornerRadius = detailImageView.frame.height/2
+    detailImageView.layer.borderWidth = 4
+    detailImageView.layer.borderColor = colors.white.cgColor
   }
   
  
