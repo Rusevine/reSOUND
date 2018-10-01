@@ -19,7 +19,7 @@ class ActiveChatsCell: UITableViewCell {
     activeChatsLabel.text = name
     ref.child("users/\(id)").observeSingleEvent(of: .value) { (snapshot) in
       guard let value = snapshot.value as? [String:String] else {return}
-      self.user = User(name: value["name"]!, city: value["city"]!, province: value["province"]!, email: value["email"]!, id: value["id"]!)
+      self.user = User(name: value["name"]!, city: value["city"]!, province: value["province"]!, email: value["email"]!, id: value["id"]!, userDescription: value["description"]!, userLink: value["userLink"]!)
     }
   }
 

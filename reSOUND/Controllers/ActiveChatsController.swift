@@ -23,6 +23,8 @@ class ActiveChatsController: UIViewController, UITableViewDataSource, UITableVie
       activeChatsTableView.delegate = self
       configureDatabase()
         // Do any additional setup after loading the view.
+      view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
+
     }
 
   func configureDatabase() {

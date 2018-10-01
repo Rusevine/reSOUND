@@ -20,7 +20,7 @@ class FriendRequestCell: UITableViewCell {
         nameLabel.text = name
         database.reference.child("users/\(id)").observeSingleEvent(of: .value) { (snapshot) in
             guard let value = snapshot.value as? [String:String] else {return}
-            self.user = User(name: value["name"]!, city: value["city"]!, province: value["province"]!, email: value["email"]!, id: value["id"]!)
+          self.user = User(name: value["name"]!, city: value["city"]!, province: value["province"]!, email: value["email"]!, id: value["id"]!, userDescription: value["userDescription"]!, userLink: value["userLink"]!)
         }
     }
 

@@ -88,7 +88,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
   
   func updateProfile() {
     var user = [String:String]()
-    let keys = ["name","province","email","city", "id","link","description"]
+    let keys = ["name","province","email","city", "id","userLink","userDescription"]
     
     let userID = database.currentUser!.uid
     user["name"] = nameTextField.text
@@ -96,8 +96,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     user["email"] = emailTextField.text
     user["city"] = cityTextField.text
     user["id"] = userID
-    user["link"] = linkTextField.text
-    user["description"] = descriptionTextField.text
+    user["userLink"] = linkTextField.text
+    user["userDescription"] = descriptionTextField.text
 //    user["image"] = profileImageView.image
     
     for key in keys {
@@ -141,15 +141,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
   }
   
 //  func updatePic() {
-//    var pics = [UIImage]()
+//    var picture = imagePicker
 //    let keys = [URL]()
 //
 //    print(picsArray)
 //    let pictures = database.currentUser!.uid
-//    pics["image"] = picsArray[profileImageView]
+//    picture!["image"] =
 //
 //    for key in keys {
-//      database.reference.child(database.skillsPath + "/\(pictures)/" + key).setValue(pics[key])
+//      database.reference.child(database.skillsPath + "/\(pictures)/" + key).setValue(picture[key])
 //    }
 //  }
   
@@ -260,16 +260,56 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
       picker.dismiss(animated: true, completion: nil)
     }
-    
+    /////////////
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-      
+
       if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
         self.profileImageView.image = pickedImage
       }
-      
+
       picker.dismiss(animated: true, completion: nil)
-  
+
     }
+/////////////////
+//  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+//    dismiss(animated: true, completion: nil)
+//    var metaData = StorageMetadata()
+//    metaData.contentType = "image/jpg"
+//    if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+//      ////get data to firebase
+//
+//      ///data in memory
+//      var data = Data()
+//      data = UIImageJPEGRepresentation(pickedImage, 0.8)!
+//
+//      ///create a reference to the name of the file i want to upload
+//      let imageRef = Storage.storage().reference().child("images/" + randomString(20));
+//
+//      ///upload the file to the path "images/randomString
+//      _ = imageRef.putData(data, metadata: nil) { (metadata, error) in
+//
+//          return
+//        }
+////        let downLoadURL = metaData.downLoadURL()
+////        print(downLoadURL)
+//      
+//    }
+//  }
+
+//  func randomString(_ length: Int) -> String {
+//    let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+//    let len = UInt32(letters.length)
+//
+//    var randomString = " "
+//
+//    for _ in 0 ..< length {
+//      let rand = arc4random_uniform(len)
+//      var nextChar = letters.character(at: Int(rand))
+//      randomString += NSString(characters: &nextChar, length: 1) as String
+//    }
+//    return randomString
+//  }
+  ////////////////
   
 //////////////trying to upload image to firebase from profileImageView
   func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
@@ -278,12 +318,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     let storage = Storage.storage().reference()
     let tempImageRef = storage.child("tmpDir/tmpImage.jpg")
     let storageRef = Storage.storage().reference()
-    
+
     dismiss(animated: true, completion: nil)
     var data = NSData()
     data = UIImageJPEGRepresentation(profileImageView.image!, 0.8)! as NSData
     // set upload path
-    let filePath = "\(Auth.auth().currentUser!.uid)/\("userPhoto")"
+    let filePath = "\(Auth.auth().currentUser!.uid)/\("users")"
     let metaData = StorageMetadata()
     metaData.contentType = "image/jpg"
     tempImageRef.child(filePath).putData(data as Data, metadata: metaData){(metaData,error) in
@@ -300,6 +340,50 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
   }
   }
+  
+  //////////////
+//  func uploadMedia(completion: @escaping (_ url: String?) -> Void) {
+//    let storageRef = Storage.storage().reference().child("userPhoto")
+//    if let uploadData = UIImagePNGRepresentation(self.profileImageView.image!) {
+//      storageRef.put(uploadData, metadata: nil) { (metadata, error) in
+//        if error != nil {
+//          print("error")
+//          completion(nil)
+//        } else {
+//          completion((metadata?.downloadURL()?.absoluteString)!))
+//          // your uploaded photo url.
+//        }
+//      }
+//    }
+  
+
+//  var images = [ImageData]()
+//  func postImage() {
+//    let uniqueImageIDPath = NSUUID().uuidString
+//    let storageRef = Storage.storage().reference().child("images/\(uniqueImageIDPath)")
+//
+//        if let myImages = UIImageJPEGRepresentation(self.profileImageView.image!, 0.1){
+//          storageRef.putData(myImages, metadata: nil, completion: {
+//            (metadata, error) in
+//            if error != nil{
+//              print(error?.localizedDescription)
+//            }
+//            if let myImageString = metadata?.downloadURL()?.absoluteString{
+//                let imageData = ImageData()
+//                imageData.imageOne = myImageString
+//                self.images.append(imageData)
+//                let values = ["imageOneURL": imageData.imageOneURL]
+//                let ref = Database.database().reference().child("users")
+//                        ref.updateChildValues(values, withCompletionBlock: {
+//                          (error, user) in
+//              }
+//                          if error != nil {
+//                            print(error?.localizedDescription)
+//                          }
+//                        })
+//                      }
+//  }
+
   
 }
 
