@@ -18,7 +18,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate  {
   @IBOutlet weak var signInButton: GIDSignInButton!
   
   var handle: AuthStateDidChangeListenerHandle?
-  
+ // let ref = Database.database().reference()
   
   
   override func viewDidLoad() {
@@ -41,6 +41,10 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate  {
       Auth.auth().removeStateDidChangeListener(handle)
     }
   }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let ref = Database.database().reference()
+        
+    }
   
 }
 

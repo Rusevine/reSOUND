@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class FriendListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FriendListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -27,6 +27,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.delegate = self
         configureFriendsList()
         configureActiveChats()
         configureFriendRequest()
@@ -91,14 +92,17 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func left(_ sender: Any) {
         scrollView.contentOffset.x = 0
+        navigationItem.title = "Friends"
     }
     
     @IBAction func middle(_ sender: Any) {
         scrollView.contentOffset.x = scrollView.frame.width
+        navigationItem.title = "Chats"
     }
     
     @IBAction func right(_ sender: Any) {
         scrollView.contentOffset.x = scrollView.frame.width * 2
+        navigationItem.title = "Requests"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -120,7 +124,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     
         switch tableView {
             case friendsTable:
-            let friendsCell = self.friendsTable.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! ActiveChatsCell
+            let friendsCell = self.friendsTable.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendCell
             
             let snapshot = self.database.friends[indexPath.row]
             let id = snapshot.key
@@ -175,6 +179,24 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        switch scrollView.contentOffset.x {
+        case 0:
+            navigationItem.title = "Friends"
+            break
+        case scrollView.frame.width:
+            navigationItem.title = "Chats"
+            break
+        case (scrollView.frame.width * 2):
+            navigationItem.title = "Requests"
+            break
+        default:
+            break
+        }
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "chatSegue" {
@@ -183,7 +205,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             vc.user = chatCell.user
         }
         if segue.identifier == "detailSegue" {
-            let friendsCell = sender as! ActiveChatsCell
+            let friendsCell = sender as! FriendCell
             let vc = segue.destination as! UsersDetailViewController
             vc.user = friendsCell.user
             
