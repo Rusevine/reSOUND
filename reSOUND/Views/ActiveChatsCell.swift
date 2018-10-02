@@ -41,6 +41,12 @@ class ActiveChatsCell: UITableViewCell {
                 self.profileImageView.image = image
                 self.user?.image = image
             }
+            guard let uid = Auth.auth().currentUser?.uid else {return}
+            self.ref.child("chats/\(uid)/\(self.user?.id ?? "")").queryLimited(toLast: 1).observe(.childAdded, with: { (snapshot) in
+                let value = snapshot.value as! [String:Any]
+                let time = value["timestamp"]
+                print("\(time ?? "")")
+            })
         }
     }
   }
