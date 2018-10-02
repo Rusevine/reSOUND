@@ -51,10 +51,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate  {
 
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "signInSegue" {
-      let vc = segue.destination as! UsersViewController
-      }
-    
+
     if segue.identifier == "signUpSegue" {
       let vc = segue.destination as! SignUpController
       }
