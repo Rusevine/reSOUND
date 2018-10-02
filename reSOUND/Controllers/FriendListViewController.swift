@@ -30,8 +30,8 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         configureFriendsList()
         configureActiveChats()
         configureFriendRequest()
-        chatsTables.rowHeight = chatsTables.frame.height/6
-        friendsTable.rowHeight = friendsTable.frame.height/6
+        chatsTables.rowHeight = chatsTables.frame.height/4
+        friendsTable.rowHeight = friendsTable.frame.height/4
       view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
 
     }
