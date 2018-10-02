@@ -31,6 +31,7 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   override func viewDidLoad() {
     
     setupUI()
+    checkPending()
     setupUserInfo()
     
     view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
@@ -44,12 +45,25 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   
  
   func setupUI() {
+    guard let userID = self.user?.id else {return}
     database.reference.child("friendList/\(database.currentUser?.uid ?? "")").observeSingleEvent(of: .value) { (snapshot) in
-        guard let userID = self.user?.id else {return}
         guard let value = snapshot.value as? [String:String] else {return}
         if value.keys.contains(userID) {
             self.connectButton.setTitle("Send Message", for: UIControlState.normal)
+            }
         }
+    }
+    func checkPending() {
+        guard let userID = self.user?.id else {return}
+        database.reference.child("friendRequest/\(userID)/\(database.currentUser?.uid ?? "")").observeSingleEvent(of: .value) { (snapshot) in
+            guard let value = snapshot.value as? [String:Any] else {return}
+            let pending = value["pending"] as? Bool
+            let rejected = value["rejected"] as? Bool
+            if pending == true || rejected == true {
+                self.connectButton.setTitle("Pending Request", for: UIControlState.disabled)
+                self.connectButton.backgroundColor = UIColor.lightGray
+                self.connectButton.isEnabled = false
+            }
         }
     }
     
@@ -77,14 +91,14 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   //#Pragma Mark Actions
   
   @IBAction func connectButtonPressed(_ sender: UIButton) {
-//    sender.setTitle("Pending Request", for: UIControlState.disabled)
-//    sender.backgroundColor = UIColor.lightGray
-//    sender.isEnabled = false
- //   startChat(user: user!)
+    
     if sender.titleLabel?.text == "Send Message" {
         startChat(user: user!)
     } else {
     friendRequest(user: user!)
+    sender.setTitle("Pending Request", for: UIControlState.disabled)
+    sender.backgroundColor = UIColor.lightGray
+    sender.isEnabled = false
     }
     
   }
@@ -100,7 +114,7 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
 
         let addNew = [user.id:user.name]
         database.reference.child("activeChats/\(database.currentUser?.uid ?? "")/").updateChildValues(addNew)
-
+        performSegue(withIdentifier: "detailToChatSegue", sender: nil)
 
     }
 

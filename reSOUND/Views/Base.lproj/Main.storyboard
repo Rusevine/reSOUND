@@ -426,6 +426,7 @@
                         <outlet property="detailProvinceLabel" destination="Aq2-Lg-jdM" id="RZN-2O-21N"/>
                         <outlet property="detailSkillsLabel" destination="V95-Xs-iAs" id="L1j-Fd-jV2"/>
                         <outlet property="detailView" destination="trf-yh-gz0" id="te6-wl-tfe"/>
+                        <segue destination="Oeb-Wb-hbv" kind="show" identifier="detailToChatSegue" id="jqo-PF-NWc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eat-bH-dr4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1237,6 +1238,7 @@
         <image name="addPhoto" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="jqo-PF-NWc"/>
         <segue reference="2Pl-nZ-f8r"/>
     </inferredMetricsTieBreakers>
 </document>
