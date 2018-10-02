@@ -44,7 +44,14 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   
  
   func setupUI() {
-  }
+    database.reference.child("friendList/\(database.currentUser?.uid ?? "")").observeSingleEvent(of: .value) { (snapshot) in
+        guard let userID = self.user?.id else {return}
+        guard let value = snapshot.value as? [String:String] else {return}
+        if value.keys.contains(userID) {
+            self.connectButton.setTitle("Send Message", for: UIControlState.normal)
+        }
+        }
+    }
     
   func setupUserInfo() {
 
@@ -74,8 +81,14 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
 //    sender.backgroundColor = UIColor.lightGray
 //    sender.isEnabled = false
  //   startChat(user: user!)
+    if sender.titleLabel?.text == "Send Message" {
+        startChat(user: user!)
+    } else {
     friendRequest(user: user!)
+    }
+    
   }
+    
     func friendRequest(user: User){
         let senderID = database.currentUser?.uid ?? ""
         let senderName = database.currentUser?.displayName ?? ""
@@ -83,21 +96,21 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
         database.reference.child("friendRequest/\(user.id)/\(senderID)").setValue(request)
     }
     
-//    func startChat(user: User){
-//
-//        let addNew = [user.id:user.name]
-//        database.reference.child("activeChats/\(database.currentUser?.uid ?? "")/").updateChildValues(addNew)
-//
-//
-//    }
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        if segue.identifier == "detailToChatSegue" {
-//            let vc = segue.destination as! ChatController
-//            vc.user = self.user
-//        }
-//    }
+    func startChat(user: User){
+
+        let addNew = [user.id:user.name]
+        database.reference.child("activeChats/\(database.currentUser?.uid ?? "")/").updateChildValues(addNew)
+
+
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "detailToChatSegue" {
+            let vc = segue.destination as! ChatController
+            vc.user = self.user
+        }
+    }
   
 }
 
