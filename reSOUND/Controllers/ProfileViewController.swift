@@ -28,6 +28,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
   @IBOutlet weak var popOverView: PopOver!
   @IBOutlet weak var popOverTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var popOverHeightConstraint: NSLayoutConstraint!
+  @IBOutlet weak var signOutButton: gradientButton!
+  
+  
   
 //  var pressed = false
   let database = DatabaseManager.shared
@@ -160,6 +163,20 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     UIView.animate(withDuration: 2.0) {}
   }
 
+  @IBAction func signOutButtonPressed(_ sender: gradientButton) {
+    // [START signout]
+    self.dismiss(animated: true, completion: {});
+    self.navigationController?.popViewController(animated: true);
+    
+    let firebaseAuth = Auth.auth()
+    do {
+      try firebaseAuth.signOut()
+    } catch let signOutError as NSError {
+      print ("Error signing out: %@", signOutError)
+    }
+    // [END signout]
+  }
+  
   //Pragma Mark: Image Picker
   @objc func openImagePicker(_ sender:Any) {
     self.present(imagePicker, animated: true, completion: nil)

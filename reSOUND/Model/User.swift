@@ -18,7 +18,7 @@ class User: NSObject {
   
   var link: String
   var userDescription: String
-    var image: UIImage?
+  var image: UIImage?
 
   
   init(name: String, city: String, province: String, email: String, id: String, userDescription: String, link: String) {
