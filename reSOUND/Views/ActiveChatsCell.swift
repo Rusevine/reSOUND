@@ -12,6 +12,7 @@ import FirebaseStorage
 
 class ActiveChatsCell: UITableViewCell {
 
+    @IBOutlet weak var lastSentLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var activeChatsLabel: UILabel!
@@ -43,9 +44,9 @@ class ActiveChatsCell: UITableViewCell {
             }
             guard let uid = Auth.auth().currentUser?.uid else {return}
             self.ref.child("chats/\(uid)/\(self.user?.id ?? "")").queryLimited(toLast: 1).observe(.childAdded, with: { (snapshot) in
-                let value = snapshot.value as! [String:Any]
+                let value = snapshot.value as! [String:String]
                 let time = value["timestamp"]
-                print("\(time ?? "")")
+                self.lastSentLabel.text = time
             })
         }
     }

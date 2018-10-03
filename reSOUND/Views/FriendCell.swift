@@ -19,7 +19,7 @@ class FriendCell: UITableViewCell {
     @IBOutlet weak var skillsLabel: UILabel!
     var user: User?
     var skills = [String]()
-    var ref = Database.database().reference()
+    let ref = Database.database().reference()
     let storageRef = Storage.storage().reference()
     
     func configureCell(name: String, id: String) {
