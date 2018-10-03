@@ -19,6 +19,16 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
   @IBOutlet weak var engineerButton: UIButton!
   @IBOutlet weak var producerButton: UIButton!
   @IBOutlet weak var lyricistButton: UIButton!
+  
+  @IBOutlet weak var musicianButton: UIButton!
+
+  @IBOutlet weak var topLinerButton: UIButton!
+  
+  @IBOutlet weak var composerButton: UIButton!
+  
+  @IBOutlet weak var listenerButton: UIButton!
+  
+  
   @IBOutlet weak var popOverFilter: PopOverFilter!
   @IBOutlet weak var popOverFilterHeightContraint: NSLayoutConstraint!
   @IBOutlet weak var popOverFilterTopConstraint: NSLayoutConstraint!

@@ -250,18 +250,30 @@
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akA-HK-vhs" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
                                                 <state key="normal" title="musician"/>
+                                                <connections>
+                                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="feQ-qx-cw8"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azs-9t-3h6" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="0.0" height="40"/>
                                                 <state key="normal" title="top liner"/>
+                                                <connections>
+                                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="goX-ob-5u2"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpz-Ey-7Dz" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="0.0" width="0.0" height="40"/>
                                                 <state key="normal" title="composer"/>
+                                                <connections>
+                                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LVf-fL-LNq"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC7-qs-vsX" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
                                                 <rect key="frame" x="24" y="0.0" width="47" height="40"/>
                                                 <state key="normal" title="listener"/>
+                                                <connections>
+                                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vwR-IG-xg7"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -315,14 +327,18 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="822-ho-CEM" id="a9u-Lg-cK2"/>
+                        <outlet property="composerButton" destination="lpz-Ey-7Dz" id="DYH-So-YYL"/>
                         <outlet property="engineerButton" destination="1e7-BE-Hvd" id="rXk-OJ-V1v"/>
                         <outlet property="filterButton" destination="1BK-SN-sa9" id="jQi-un-0l6"/>
+                        <outlet property="listenerButton" destination="nC7-qs-vsX" id="pFs-9H-Xhf"/>
                         <outlet property="lyricistButton" destination="pRH-is-9at" id="qWp-ih-LUu"/>
+                        <outlet property="musicianButton" destination="akA-HK-vhs" id="mNw-pC-zHR"/>
                         <outlet property="popOverFilter" destination="ZkO-z1-4ks" id="rax-L5-8KG"/>
                         <outlet property="popOverFilterHeightContraint" destination="qU5-cw-GsN" id="i5o-cx-gbh"/>
                         <outlet property="popOverFilterTopConstraint" destination="Fht-gB-ta6" id="aXQ-zL-oSI"/>
                         <outlet property="producerButton" destination="ZSc-aa-4W6" id="d30-DA-oq2"/>
                         <outlet property="singerButton" destination="z5B-7x-UKC" id="pKT-5e-lnC"/>
+                        <outlet property="topLinerButton" destination="azs-9t-3h6" id="lam-wG-8MF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
