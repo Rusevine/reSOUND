@@ -44,6 +44,7 @@ class gradientButton: UIButton {
     self.titleLabel?.layer.zPosition = 20
     self.setTitleColor(UIColor.white, for: .normal)
     
+    
     // Actions
     addTarget(self, action: #selector(touchUpInside), for: .touchUpInside)
   }

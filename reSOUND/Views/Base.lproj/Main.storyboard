@@ -678,7 +678,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lcp-UB-EfH">
-                                <rect key="frame" x="0.0" y="64" width="375" height="440"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="484"/>
                                 <color key="backgroundColor" red="0.83165590454171789" green="0.85217757608230416" blue="0.88292954083021524" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatCell" rowHeight="128" id="vBp-jQ-7bb" customClass="ChatCell" customModule="reSOUND" customModuleProvider="target">
@@ -753,7 +753,7 @@
                                 </connections>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AlS-cu-z7D">
-                                <rect key="frame" x="10" y="504" width="288" height="60"/>
+                                <rect key="frame" x="10" y="548" width="288" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="JhR-62-ZDf"/>
@@ -763,7 +763,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3za-TC-eRl">
-                                <rect key="frame" x="308" y="504" width="57" height="60"/>
+                                <rect key="frame" x="308" y="548" width="57" height="60"/>
                                 <color key="backgroundColor" red="0.083244337612414038" green="0.65187439988374041" blue="0.95479060913705582" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="send">
@@ -1480,7 +1480,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8zP-zs-O2u"/>
-        <segue reference="jqo-PF-NWc"/>
-        <segue reference="YqP-dD-A2j"/>
+        <segue reference="Ozv-Mf-40s"/>
+        <segue reference="2Pl-nZ-f8r"/>
     </inferredMetricsTieBreakers>
 </document>

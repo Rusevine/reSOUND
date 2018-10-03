@@ -138,7 +138,7 @@ class UsersViewController: UIViewController, UICollectionViewDelegate,  UICollec
     }
     UIView.animate(withDuration: 2) {}
   }
-  
+
   func filterSkills(completion: @escaping ([String])->()){
     var keys = [String]()
     var count = 0 {

@@ -90,10 +90,11 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
     
     if sender.titleLabel?.text == "Send Message" {
         startChat(user: user!)
+      sender.backgroundColor = UIColor.clear
     } else {
     friendRequest(user: user!)
     sender.setTitle("Pending Request", for: UIControlState.disabled)
-    sender.backgroundColor = UIColor.lightGray
+    sender.backgroundColor = UIColor.clear
     sender.isEnabled = false
     }
     
