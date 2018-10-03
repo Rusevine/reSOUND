@@ -33,22 +33,10 @@ class ChatCell: UITableViewCell {
      //   messageLabel.sizeToFit()
     //    messageLabel.preferredMaxLayoutWidth = self.frame.width * 0.80
         
-//        if senderID != Auth.auth().currentUser?.uid {
-//            rightConstraint.constant = 0
-//            leftConstraint.constant = 199
-//            messageLabel.backgroundColor = UIColor.lightGray
-//            messageLabel.textAlignment = NSTextAlignment.right
-//            senderLabel.textAlignment = NSTextAlignment.right
-//        } else {
-//            leftConstraint.constant = 0
-//            rightConstraint.constant = 199
-//            messageLabel.backgroundColor = UIColor.blue
-//            messageLabel.textAlignment = NSTextAlignment.left
-//            senderLabel.textAlignment = NSTextAlignment.left
-//          }
-        
+        if senderID != Auth.auth().currentUser?.uid {
+            messageLabel.backgroundColor = UIColor.lightGray
         }
-
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

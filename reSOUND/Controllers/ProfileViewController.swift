@@ -46,16 +46,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         setupUI()
     
     view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
-    self.nameTextField.attributedPlaceholder = NSAttributedString(string: "enter name",
-                                                                  attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
-    self.cityTextField.attributedPlaceholder = NSAttributedString(string: "enter city",
-                                                                  attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
-    self.provinceTextField.attributedPlaceholder = NSAttributedString(string: "enter province",
-                                                                      attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
-    self.emailTextField.attributedPlaceholder = NSAttributedString(string: "enter email",
-                                                                   attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
-    self.descriptionTextField.attributedPlaceholder = NSAttributedString(string: "enter a little description about yourself", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
-    self.linkTextField.attributedPlaceholder = NSAttributedString(string: "enter any links to your work if applicable", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+//    self.nameTextField.attributedPlaceholder = NSAttributedString(string: "enter name",
+//                                                                  attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+//    self.cityTextField.attributedPlaceholder = NSAttributedString(string: "enter city",
+//                                                                  attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+//    self.provinceTextField.attributedPlaceholder = NSAttributedString(string: "enter province",
+//                                                                      attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+//    self.emailTextField.attributedPlaceholder = NSAttributedString(string: "enter email",
+//                                                                   attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+//    self.descriptionTextField.attributedPlaceholder = NSAttributedString(string: "enter a little description about yourself", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
+//    self.linkTextField.attributedPlaceholder = NSAttributedString(string: "enter any links to your work if applicable", attributes: [NSAttributedStringKey.foregroundColor: UIColor.gray])
     
     self.profileImageView.layer.masksToBounds = false 
     self.profileImageView.layer.cornerRadius = profileImageView.frame.width/2
@@ -79,7 +79,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     func setupUI() {
         skillsButton.layer.cornerRadius = skillsButton.frame.size.height/4
         skillsButton.layer.masksToBounds = true
-//        skillsButton.setGradientBackground(colorOne: colors.orange, colorTwo: colors.brightOrange)
+        
+        database.reference.child("users/\(database.currentUser?.uid ?? "")").observeSingleEvent(of: .value) { (snapshot) in
+            let user = snapshot.value as! [String:String]
+            self.nameTextField.text = user["name"]
+            self.provinceTextField.text = user["province"]
+            self.emailTextField.text = user["email"]
+            self.cityTextField.text = user["city"]
+            self.linkTextField.text = user["link"]
+            self.descriptionTextField.text = user["userDescription"]
+        }
     }
 
   func updateProfile() {

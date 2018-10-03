@@ -95,9 +95,9 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
     sender.setTitle("Pending Request", for: UIControlState.disabled)
     sender.backgroundColor = UIColor.lightGray
     sender.isEnabled = false
-    }
     
   }
+}
     
     func friendRequest(user: User){
         let senderID = database.currentUser?.uid ?? ""

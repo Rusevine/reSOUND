@@ -389,7 +389,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSg-60-wlP" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                <rect key="frame" x="107" y="558" width="160" height="40"/>
+                                <rect key="frame" x="107" y="514" width="160" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="R5U-i4-LeE"/>
@@ -808,8 +808,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUz-X0-giK" customClass="GIDSignInButton">
-                                <rect key="frame" x="67" y="268" width="240" height="131"/>
+                                <rect key="frame" x="114" y="306" width="146" height="55"/>
                                 <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="146" id="j8R-qC-pmG"/>
+                                    <constraint firstAttribute="height" constant="55" id="oi9-4g-aEr"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="welcome to reSOUND" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzY-Vx-ytp">
                                 <rect key="frame" x="10" y="40" width="355" height="37"/>
@@ -818,8 +822,8 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newreSOUNDIcon" translatesAutoresizingMaskIntoConstraints="NO" id="PKT-9S-G2D">
-                                <rect key="frame" x="137" y="125" width="100" height="120"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="newreSOUNDIcon" translatesAutoresizingMaskIntoConstraints="NO" id="PKT-9S-G2D">
+                                <rect key="frame" x="137" y="140" width="100" height="120"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -827,12 +831,10 @@
                             <constraint firstItem="lzY-Vx-ytp" firstAttribute="top" secondItem="eDD-sE-csf" secondAttribute="top" constant="20" id="7vw-ae-Fqp"/>
                             <constraint firstItem="eDD-sE-csf" firstAttribute="trailing" secondItem="PKT-9S-G2D" secondAttribute="trailing" constant="138" id="B5f-19-nSl"/>
                             <constraint firstItem="lzY-Vx-ytp" firstAttribute="leading" secondItem="eDD-sE-csf" secondAttribute="leading" constant="10" id="Cc1-W3-dpr"/>
+                            <constraint firstItem="tUz-X0-giK" firstAttribute="centerX" secondItem="eDD-sE-csf" secondAttribute="centerX" id="E54-12-Xhw"/>
                             <constraint firstItem="PKT-9S-G2D" firstAttribute="top" secondItem="lzY-Vx-ytp" secondAttribute="bottom" constant="48" id="I1U-4G-BHj"/>
-                            <constraint firstItem="tUz-X0-giK" firstAttribute="leading" secondItem="eDD-sE-csf" secondAttribute="leading" constant="67" id="JGv-Yz-980"/>
                             <constraint firstItem="tUz-X0-giK" firstAttribute="centerY" secondItem="VBo-Ux-au3" secondAttribute="centerY" id="UDw-xz-yo1"/>
                             <constraint firstItem="eDD-sE-csf" firstAttribute="trailing" secondItem="lzY-Vx-ytp" secondAttribute="trailing" constant="10" id="XmY-Q7-rd5"/>
-                            <constraint firstItem="eDD-sE-csf" firstAttribute="trailing" secondItem="tUz-X0-giK" secondAttribute="trailing" constant="68" id="ZuO-QJ-fbs"/>
-                            <constraint firstItem="eDD-sE-csf" firstAttribute="bottom" secondItem="tUz-X0-giK" secondAttribute="bottom" constant="268" id="piA-z6-gN4"/>
                             <constraint firstItem="PKT-9S-G2D" firstAttribute="leading" secondItem="eDD-sE-csf" secondAttribute="leading" constant="137" id="zw7-BU-sp3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eDD-sE-csf"/>
@@ -845,7 +847,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OyT-Iq-SVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2385" y="752"/>
+            <point key="canvasLocation" x="-2386.4000000000001" y="751.57421289355329"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dED-4V-bnA">
@@ -1479,7 +1481,7 @@
         <image name="newreSOUNDIcon" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8zP-zs-O2u"/>
+        <segue reference="T1B-5u-sqm"/>
         <segue reference="jqo-PF-NWc"/>
         <segue reference="YqP-dD-A2j"/>
     </inferredMetricsTieBreakers>
