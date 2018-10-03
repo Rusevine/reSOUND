@@ -36,8 +36,6 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
     
     view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
     
-    detailView.layer.cornerRadius = detailView.frame.height/2
-    
     detailImageView.layer.cornerRadius = detailImageView.frame.height/2
     detailImageView.layer.borderWidth = 4
     detailImageView.layer.borderColor = colors.white.cgColor
@@ -70,7 +68,7 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   func setupUserInfo() {
 
     self.detailNameLabel.text = user?.name
-    self.detailCityLabel.text = user?.city
+    self.detailCityLabel.text = (user?.city)! + ", " + (user?.province)!
     self.detailProvinceLabel.text = user?.province
     self.detailLinkLabel.text = user?.link
     self.detailDescriptionLabel.text = user?.userDescription
