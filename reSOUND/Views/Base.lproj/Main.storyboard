@@ -86,7 +86,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="822-ho-CEM">
-                                <rect key="frame" x="0.0" y="124" width="375" height="494"/>
+                                <rect key="frame" x="0.0" y="124" width="375" height="450"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="oAx-Gc-EUf">
                                     <size key="itemSize" width="187" height="240"/>
@@ -213,7 +213,7 @@
                                 <rect key="frame" x="0.0" y="-145" width="375" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5B-7x-UKC" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Singer"/>
                                         <connections>
@@ -221,7 +221,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1e7-BE-Hvd" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                        <rect key="frame" x="95" y="0.0" width="90" height="40"/>
+                                        <rect key="frame" x="76" y="0.0" width="71" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Audio Engineer"/>
                                         <connections>
@@ -229,7 +229,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRH-is-9at" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                        <rect key="frame" x="190" y="0.0" width="90" height="40"/>
+                                        <rect key="frame" x="152" y="0.0" width="71" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Lyricist"/>
                                         <connections>
@@ -237,13 +237,34 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSc-aa-4W6" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                        <rect key="frame" x="285" y="0.0" width="90" height="40"/>
+                                        <rect key="frame" x="228" y="0.0" width="71" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Producer"/>
                                         <connections>
                                             <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gEu-lK-uis"/>
                                         </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DzC-1X-EZG">
+                                        <rect key="frame" x="304" y="0.0" width="71" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akA-HK-vhs" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
+                                                <state key="normal" title="musician"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azs-9t-3h6" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="0.0" width="0.0" height="40"/>
+                                                <state key="normal" title="top liner"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpz-Ey-7Dz" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="0.0" width="0.0" height="40"/>
+                                                <state key="normal" title="composer"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC7-qs-vsX" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                                                <rect key="frame" x="24" y="0.0" width="47" height="40"/>
+                                                <state key="normal" title="listener"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="pRH-is-9at" firstAttribute="width" secondItem="ZSc-aa-4W6" secondAttribute="width" id="DYR-bt-eT7"/>
@@ -274,6 +295,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="users" id="4AQ-SO-M9y"/>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="3zL-Kt-vA1"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="EI6-wf-uqR">
                         <barButtonItem key="rightBarButtonItem" id="0St-t0-ycf">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1BK-SN-sa9">
@@ -288,6 +312,7 @@
                             <color key="tintColor" red="0.23449653387069702" green="0.44257187843322754" blue="0.50560832023620605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="822-ho-CEM" id="a9u-Lg-cK2"/>
                         <outlet property="engineerButton" destination="1e7-BE-Hvd" id="rXk-OJ-V1v"/>
@@ -532,7 +557,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwC-c0-TOV" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
                                 <rect key="frame" x="146" y="566" width="83" height="36"/>
-                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="add skills">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1288,7 +1313,7 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dw-gg-2AJ" customClass="PopOver" customModule="reSOUND" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dw-gg-2AJ" customClass="PopOverSignUp" customModule="reSOUND" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="667" width="375" height="250"/>
                                 <color key="backgroundColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1307,7 +1332,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iz6-4M-Wut" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
                                 <rect key="frame" x="146" y="615" width="83" height="36"/>
-                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="add skills">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1322,6 +1347,7 @@
                                 <state key="normal" title="sign up"/>
                                 <connections>
                                     <action selector="signUpButtonPressed:" destination="qMZ-08-VIq" eventType="touchUpInside" id="QgS-FE-h3L"/>
+                                    <segue destination="pZc-8o-UAh" kind="show" id="8zP-zs-O2u"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tap above to change photo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2I7-gJ-mrS">
@@ -1371,8 +1397,8 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="006-audio" id="ixC-e5-eeu"/>
                     <connections>
                         <outlet property="popOverHeightConstraint" destination="KMk-yK-hYL" id="Wmw-ig-SiI"/>
+                        <outlet property="popOverSignUp" destination="9dw-gg-2AJ" id="qWR-15-E2d"/>
                         <outlet property="popOverTopConstraint" destination="lIZ-g1-U5I" id="OG6-Al-2zn"/>
-                        <outlet property="popOverView" destination="9dw-gg-2AJ" id="Bt0-y1-k13"/>
                         <outlet property="signUpAddSkillsButton" destination="Iz6-4M-Wut" id="CQI-wJ-xhZ"/>
                         <outlet property="signUpCity" destination="2bc-IR-v55" id="Kuz-c9-hf7"/>
                         <outlet property="signUpDescription" destination="qJT-bC-RD6" id="RtX-U9-tN6"/>
@@ -1399,7 +1425,8 @@
         <image name="newreSOUNDIcon" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="8zP-zs-O2u"/>
         <segue reference="Ozv-Mf-40s"/>
-        <segue reference="2Pl-nZ-f8r"/>
+        <segue reference="YqP-dD-A2j"/>
     </inferredMetricsTieBreakers>
 </document>

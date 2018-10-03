@@ -12,11 +12,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopOver" customModule="reSOUND" customModuleProvider="target">
             <connections>
+                <outlet property="composerButtonXib" destination="rDh-hY-eu8" id="AQ2-Dp-88L"/>
                 <outlet property="contentView" destination="ULq-zB-IGL" id="Hwo-pN-SKZ"/>
                 <outlet property="engineerButtonXib" destination="f7i-aF-2kN" id="Qtt-ti-S1I"/>
+                <outlet property="listenerButtonXib" destination="8qC-hh-kgE" id="yYc-Wv-s4f"/>
                 <outlet property="lyricistButtonXib" destination="qvn-8g-WhZ" id="6Lp-DS-Une"/>
+                <outlet property="musicianButtonXib" destination="bUf-fd-Rr2" id="hPa-Aq-nq0"/>
                 <outlet property="producerButtonXib" destination="oFF-dq-BF2" id="q5I-2g-v1U"/>
                 <outlet property="singerButtonXib" destination="nb6-GI-QC5" id="sEw-HT-xUl"/>
+                <outlet property="topLinerButtonXib" destination="eq4-sK-Kfh" id="rUz-wL-a58"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -84,15 +88,66 @@
                         <constraint firstItem="nb6-GI-QC5" firstAttribute="width" secondItem="oFF-dq-BF2" secondAttribute="width" id="ofm-tZ-gTp"/>
                     </constraints>
                 </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="m3O-VQ-nt8">
+                    <rect key="frame" x="23" y="150" width="328" height="36"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDh-hY-eu8" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="82" height="36"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                            <state key="normal" title="composer">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="addSkillsToProfile:" destination="-1" eventType="touchUpInside" id="ybJ-6A-cf1"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUf-fd-Rr2" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                            <rect key="frame" x="90" y="0.0" width="73" height="36"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                            <state key="normal" title="musician">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="addSkillsToProfile:" destination="-1" eventType="touchUpInside" id="xpm-ap-cY7"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eq4-sK-Kfh" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                            <rect key="frame" x="171" y="0.0" width="82" height="36"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                            <state key="normal" title="top liner">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="addSkillsToProfile:" destination="-1" eventType="touchUpInside" id="al5-9u-y2a"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qC-hh-kgE" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                            <rect key="frame" x="261" y="0.0" width="67" height="36"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                            <state key="normal" title="listener">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="addSkillsToProfile:" destination="-1" eventType="touchUpInside" id="JJK-4v-IGB"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="eq4-sK-Kfh" firstAttribute="width" secondItem="rDh-hY-eu8" secondAttribute="width" id="tcc-7M-fK9"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="WRw-Sn-HnK" firstAttribute="top" secondItem="9Ah-QS-YA6" secondAttribute="top" constant="30" id="5du-Ac-zPI"/>
+                <constraint firstItem="9Ah-QS-YA6" firstAttribute="trailing" secondItem="m3O-VQ-nt8" secondAttribute="trailing" constant="24" id="5zh-7M-sbO"/>
                 <constraint firstItem="5Va-SB-wDJ" firstAttribute="leading" secondItem="9Ah-QS-YA6" secondAttribute="leading" constant="23" id="6kW-1t-huq"/>
+                <constraint firstItem="m3O-VQ-nt8" firstAttribute="leading" secondItem="9Ah-QS-YA6" secondAttribute="leading" constant="23" id="NIN-ZY-VFl"/>
                 <constraint firstItem="5Va-SB-wDJ" firstAttribute="top" secondItem="WRw-Sn-HnK" secondAttribute="bottom" constant="45" id="VKq-6T-VqU"/>
                 <constraint firstItem="WRw-Sn-HnK" firstAttribute="leading" secondItem="9Ah-QS-YA6" secondAttribute="leading" constant="10" id="buL-Wr-qt5"/>
                 <constraint firstItem="9Ah-QS-YA6" firstAttribute="trailing" secondItem="WRw-Sn-HnK" secondAttribute="trailing" constant="10" id="gs6-MI-Aj0"/>
                 <constraint firstItem="9Ah-QS-YA6" firstAttribute="trailing" secondItem="5Va-SB-wDJ" secondAttribute="trailing" constant="24" id="tLh-oP-5ah"/>
+                <constraint firstItem="m3O-VQ-nt8" firstAttribute="top" secondItem="5Va-SB-wDJ" secondAttribute="bottom" constant="10" id="yrK-1L-irb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="9Ah-QS-YA6"/>

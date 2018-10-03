@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
   let storageRef = Storage.storage()
   var skillsArray = [String]()
   var picsArray = [UIImage]()
-  var skillSet = ["engineer":false,"lyricist":false,"singer":false,"producer":false]
+  var skillSet = ["engineer":false,"lyricist":false,"singer":false,"producer":false,"musician":false,"top liner":false,"listener":false,"composer":false]
   var imagePicker: UIImagePickerController!
 
   override func viewDidLoad() {
@@ -102,7 +102,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
   
   func updateSkills() {
     var skill = [String:Bool]()
-    let keys = ["Audio Engineer", "Lyricist", "Producer", "Singer"]
+    let keys = ["Audio Engineer", "Lyricist", "Producer", "Singer","Musician","Top Liner","Listener","Composer"]
     
     print(skillSet)
     let skills = database.currentUser!.uid
@@ -110,6 +110,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     skill["Lyricist"] = skillSet["lyricist"]
     skill["Producer"] = skillSet["producer"]
     skill["Singer"] = skillSet["singer"]
+    skill["Musician"] = skillSet["musician"]
+    skill["Top Liner"] = skillSet["top liner"]
+    skill["Listener"] = skillSet["listener"]
+    skill["Composer"] = skillSet["composer"]
     
     for key in keys {
       database.reference.child(database.skillsPath + "/\(skills)/" + key).setValue(skill[key])

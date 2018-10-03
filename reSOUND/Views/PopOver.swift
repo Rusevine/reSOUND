@@ -18,6 +18,15 @@ class PopOver: UIView {
   @IBOutlet weak var engineerButtonXib: gradientButton!
   @IBOutlet weak var lyricistButtonXib: gradientButton!
   
+  @IBOutlet weak var composerButtonXib: gradientButton!
+  
+  @IBOutlet weak var musicianButtonXib: gradientButton!
+  
+  @IBOutlet weak var topLinerButtonXib: gradientButton!
+  
+  @IBOutlet weak var listenerButtonXib: gradientButton!
+  
+  
   
   var gradient = CAGradientLayer()
   var pressed = false
@@ -39,15 +48,6 @@ class PopOver: UIView {
   
  
   @IBAction func addSkillsToProfile(_ sender: gradientButton) {
-//
-//    if skillsArray.contains(sender.currentTitle!){
-//      if let index = skillsArray.index(of: sender.currentTitle!) {
-//        skillsArray.remove(at: index)
-//      }
-//    } else {
-//      self.skillsArray.append(sender.currentTitle!)
-//    }
-    
         print("add skills to profile button pressed")
     if let textss = profileViewController?.skillsLabel.text {
       var texts = textss
@@ -70,14 +70,9 @@ class PopOver: UIView {
           }
         }
       }
- 
       }
-    
-    
+  
   }
   
-
-
-
 }
 

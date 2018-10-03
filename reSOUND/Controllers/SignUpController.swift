@@ -21,18 +21,21 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
   @IBOutlet weak var signUpDescription: UITextField!
   @IBOutlet weak var signUpLink: UITextField!
   @IBOutlet weak var signUpSkills: UILabel!
-  @IBOutlet weak var popOverView: PopOver!
+  @IBOutlet weak var popOverSignUp: PopOverSignUp!
   @IBOutlet weak var popOverHeightConstraint: NSLayoutConstraint!
   @IBOutlet weak var popOverTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var signUpAddSkillsButton: gradientButton!
   
+  //  @IBOutlet weak var profileView: UIView!
+  //  @IBOutlet weak var skillsButton: UIButton!
+
   var user: User?
   var userName  = Auth.auth().currentUser!
   let database = DatabaseManager.shared
   let storageRef = Storage.storage()
   var skillsArray = [String]()
   var picsArray = [UIImage]()
-  var skillSet = ["engineer":false,"lyricist":false,"singer":false,"producer":false]
+  var skillSet = ["engineer":false,"lyricist":false,"singer":false,"producer":false,"musician":false,"top liner":false,"listener":false,"composer":false]
   var imagePicker: UIImagePickerController!
  
 
@@ -40,11 +43,8 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     override func viewDidLoad() {
         super.viewDidLoad()
       
-      self.signUpName.text = userName.displayName
-      self.signUpEmail.text = userName.email
-      
-        setupUI()
-      
+//      self.signUpName.text = userName.displayName
+//      self.signUpEmail.text = userName.email
         view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
       
         self.signUpName.attributedPlaceholder = NSAttributedString(string: "enter name",
@@ -74,11 +74,6 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
     }
 
-  func setupUI() {
-    signUpAddSkillsButton.layer.cornerRadius = signUpAddSkillsButton.frame.size.height/4
-    signUpAddSkillsButton.layer.masksToBounds = true
-  }
-  
   func updateProfile() {
     var user = [String:String]()
     let keys = ["name","province","email","city", "id","link","userDescription"]
@@ -96,10 +91,10 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
       database.reference.child(database.usersPath + "/\(userID)/" + key).setValue(user[key])
     }
   }
- 
+
   func updateSkills() {
     var skill = [String:Bool]()
-    let keys = ["Audio Engineer", "Lyricist", "Producer", "Singer"]
+    let keys = ["Audio Engineer", "Lyricist", "Producer", "Singer","Musician","Top Liner","Listener","Composer"]
   
     print(skillSet)
     let skills = database.currentUser!.uid
@@ -107,6 +102,10 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     skill["Lyricist"] = skillSet["lyricist"]
     skill["Producer"] = skillSet["producer"]
     skill["Singer"] = skillSet["singer"]
+    skill["Musician"] = skillSet["musician"]
+    skill["Top Liner"] = skillSet["top liner"]
+    skill["Listener"] = skillSet["listener"]
+    skill["Composer"] = skillSet["composer"]
   
     for key in keys {
       database.reference.child(database.skillsPath + "/\(skills)/" + key).setValue(skill[key])
@@ -137,9 +136,10 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
       self.signUpImageView.transform = CGAffineTransform(translationX: x, y: 0)
     })
   }
-  
+
   ////#Pragma Mark Actions
   @IBAction func skillsButtonPressed(_ sender: gradientButton) {
+    popOverSignUp.signUpController = self 
       if (sender.pressed == true) {
         popOverTopConstraint.constant +=
           (popOverHeightConstraint.constant * -1)
@@ -151,21 +151,11 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
       }
       UIView.animate(withDuration: 2.0) {}
   }
-  
-  
+
   @IBAction func signUpButtonPressed(_ sender: UIButton) {
       updateSkills()
       updateProfile()
       uploadPic(profileImage: self.signUpImageView.image!)
-    
-    
-//    Auth.auth().createUserWithEmail(signUpEmail.text!, password: signUpName.text!, completion: { (user: User?, error) in
-//      if error == nil {
-//        //registration successful
-//      }else{
-//        //registration failure
-//      }
-//    })
   }
   
   ////Pragma Mark: Image Picker
@@ -187,8 +177,6 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
   }
   
 }
-
-
 
 
 

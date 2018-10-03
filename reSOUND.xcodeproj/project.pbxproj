@@ -25,6 +25,8 @@
 		25BC9D6621615A260075BBBF /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BC9D6521615A260075BBBF /* ImageData.swift */; };
 		25C3B641215D2ED80030771B /* PopOverFilter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25C3B640215D2ED80030771B /* PopOverFilter.xib */; };
 		25C3B643215D2F460030771B /* PopOverFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C3B642215D2F460030771B /* PopOverFilter.swift */; };
+		25D0EAEA216436610067562F /* PopOverSignUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25D0EAE9216436610067562F /* PopOverSignUp.xib */; };
+		25D0EAEC216436A60067562F /* PopOverSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D0EAEB216436A60067562F /* PopOverSignUp.swift */; };
 		25E926BE215420A400C1D019 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E926BD215420A400C1D019 /* AppDelegate.swift */; };
 		25E926C3215420A400C1D019 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25E926C1215420A400C1D019 /* Main.storyboard */; };
 		25E926C5215420A500C1D019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25E926C4215420A500C1D019 /* Assets.xcassets */; };
@@ -58,6 +60,8 @@
 		25BC9D6521615A260075BBBF /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 		25C3B640215D2ED80030771B /* PopOverFilter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopOverFilter.xib; sourceTree = "<group>"; };
 		25C3B642215D2F460030771B /* PopOverFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverFilter.swift; sourceTree = "<group>"; };
+		25D0EAE9216436610067562F /* PopOverSignUp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopOverSignUp.xib; sourceTree = "<group>"; };
+		25D0EAEB216436A60067562F /* PopOverSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverSignUp.swift; sourceTree = "<group>"; };
 		25E926BA215420A400C1D019 /* reSOUND.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reSOUND.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25E926BD215420A400C1D019 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25E926C2215420A400C1D019 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 				2598C284215BE27A0013F513 /* PopOver.swift */,
 				25C3B640215D2ED80030771B /* PopOverFilter.xib */,
 				25C3B642215D2F460030771B /* PopOverFilter.swift */,
+				25D0EAE9216436610067562F /* PopOverSignUp.xib */,
+				25D0EAEB216436A60067562F /* PopOverSignUp.swift */,
 				257C6390215C4B15001CDC5D /* gradientButton.swift */,
 			);
 			path = Views;
@@ -248,6 +254,7 @@
 				2598C283215BE1D40013F513 /* PopOver.xib in Resources */,
 				25C3B641215D2ED80030771B /* PopOverFilter.xib in Resources */,
 				25E926C8215420A500C1D019 /* LaunchScreen.storyboard in Resources */,
+				25D0EAEA216436610067562F /* PopOverSignUp.xib in Resources */,
 				2565F4AF215423D30034FD72 /* GoogleService-Info.plist in Resources */,
 				25E926C5215420A500C1D019 /* Assets.xcassets in Resources */,
 				25E926C3215420A400C1D019 /* Main.storyboard in Resources */,
@@ -343,6 +350,7 @@
 				25E926BE215420A400C1D019 /* AppDelegate.swift in Sources */,
 				2524C2E621556725008EBE5C /* ChatController.swift in Sources */,
 				25FDE3F421569AFF00D1C00E /* UIViewExtentsion.swift in Sources */,
+				25D0EAEC216436A60067562F /* PopOverSignUp.swift in Sources */,
 				2565F4B5215431BA0034FD72 /* UsersCollectionViewCell.swift in Sources */,
 				259728BD215A8AA20051DA61 /* ActiveChatsCell.swift in Sources */,
 				25BC9D6621615A260075BBBF /* ImageData.swift in Sources */,
