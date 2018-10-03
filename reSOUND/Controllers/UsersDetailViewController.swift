@@ -15,7 +15,6 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
   @IBOutlet weak var detailView: UIView!
   @IBOutlet weak var detailNameLabel: UILabel!
   @IBOutlet weak var detailCityLabel: UILabel!
-  @IBOutlet weak var detailProvinceLabel: UILabel!
   @IBOutlet weak var detailSkillsLabel: UILabel!
   @IBOutlet weak var connectButton: UIButton!
   @IBOutlet weak var detailDescriptionLabel: UILabel!
@@ -69,9 +68,8 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
 
     self.detailNameLabel.text = user?.name
     self.detailCityLabel.text = (user?.city)! + ", " + (user?.province)!
-    self.detailProvinceLabel.text = user?.province
     self.detailLinkLabel.text = user?.link
-    self.detailDescriptionLabel.text = user?.userDescription
+    self.detailDescriptionLabel.text = "Bio: " + (user?.userDescription)!
     self.detailImageView.image = user?.image 
     
     database.reference.child((database.skillsPath) + "/" + (user?.id)!).observeSingleEvent(of: .value, with: { (snapshot) in
