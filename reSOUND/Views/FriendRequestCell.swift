@@ -69,7 +69,13 @@ class FriendRequestCell: UITableViewCell {
         let newFriend = [(user?.id)!:user?.name] as! [String:String]
         database.reference.child("friendList/\(userID)").updateChildValues(newFriend)
         
-
+        database.reference.child("users/\(database.currentUser?.uid ?? "")").observeSingleEvent(of: .value) { (snapshot) in
+            let value = snapshot.value as! [String:String]
+            let id = value["id"] as! String
+            let name = value["name"] as! String
+            let sender = [id:name]
+            self.database.reference.child("friendList/\(self.user?.id ?? "")").updateChildValues(sender)
+     }
     }
     
     @IBAction func friendRejected(_ sender: UIButton) {

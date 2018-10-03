@@ -108,8 +108,18 @@ class UsersDetailViewController: UIViewController, UIImagePickerControllerDelega
     
     func startChat(user: User){
 
-        let addNew = [user.id:user.name]
-        database.reference.child("activeChats/\(database.currentUser?.uid ?? "")/").updateChildValues(addNew)
+        let receiver = [user.id:user.name]
+    
+        database.reference.child("activeChats/\(database.currentUser?.uid ?? "")/").updateChildValues(receiver)
+        
+        database.reference.child("users/\(database.currentUser?.uid ?? "")").observeSingleEvent(of: .value) { (snapshot) in
+            let value = snapshot.value as! [String:String]
+            let id = value["id"] as! String
+            let name = value["name"] as! String
+            let sender = [id:name]
+            self.database.reference.child("activeChats/\(user.id)/").updateChildValues(sender)
+        }
+        
         performSegue(withIdentifier: "detailToChatSegue", sender: nil)
 
     }
