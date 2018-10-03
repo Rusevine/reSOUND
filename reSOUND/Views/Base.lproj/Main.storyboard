@@ -213,7 +213,7 @@
                                 <rect key="frame" x="0.0" y="-145" width="375" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5B-7x-UKC" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="71" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Singer"/>
                                         <connections>
@@ -221,7 +221,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1e7-BE-Hvd" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                        <rect key="frame" x="76" y="0.0" width="71" height="40"/>
+                                        <rect key="frame" x="95" y="0.0" width="90" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Audio Engineer"/>
                                         <connections>
@@ -229,7 +229,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRH-is-9at" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                        <rect key="frame" x="152" y="0.0" width="71" height="40"/>
+                                        <rect key="frame" x="190" y="0.0" width="90" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Lyricist"/>
                                         <connections>
@@ -237,46 +237,13 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSc-aa-4W6" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                        <rect key="frame" x="228" y="0.0" width="71" height="40"/>
+                                        <rect key="frame" x="285" y="0.0" width="90" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Producer"/>
                                         <connections>
                                             <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gEu-lK-uis"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DzC-1X-EZG">
-                                        <rect key="frame" x="304" y="0.0" width="71" height="40"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akA-HK-vhs" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
-                                                <state key="normal" title="musician"/>
-                                                <connections>
-                                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="feQ-qx-cw8"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azs-9t-3h6" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="0.0" width="0.0" height="40"/>
-                                                <state key="normal" title="top liner"/>
-                                                <connections>
-                                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="goX-ob-5u2"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpz-Ey-7Dz" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="0.0" width="0.0" height="40"/>
-                                                <state key="normal" title="composer"/>
-                                                <connections>
-                                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LVf-fL-LNq"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC7-qs-vsX" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
-                                                <rect key="frame" x="24" y="0.0" width="47" height="40"/>
-                                                <state key="normal" title="listener"/>
-                                                <connections>
-                                                    <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vwR-IG-xg7"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="pRH-is-9at" firstAttribute="width" secondItem="ZSc-aa-4W6" secondAttribute="width" id="DYR-bt-eT7"/>
@@ -285,11 +252,62 @@
                                     <constraint firstItem="z5B-7x-UKC" firstAttribute="width" secondItem="ZSc-aa-4W6" secondAttribute="width" id="r7G-mr-vhq"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DzC-1X-EZG">
+                                <rect key="frame" x="0.0" y="-95" width="375" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akA-HK-vhs" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="c6y-ou-3v4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Musician"/>
+                                        <connections>
+                                            <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="feQ-qx-cw8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azs-9t-3h6" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                                        <rect key="frame" x="95" y="0.0" width="90" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Top Liner"/>
+                                        <connections>
+                                            <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="goX-ob-5u2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpz-Ey-7Dz" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                                        <rect key="frame" x="190" y="0.0" width="90" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Composer"/>
+                                        <connections>
+                                            <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LVf-fL-LNq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC7-qs-vsX" customClass="gradientButton" customModule="reSOUND" customModuleProvider="target">
+                                        <rect key="frame" x="285" y="0.0" width="90" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Listener"/>
+                                        <connections>
+                                            <action selector="pickedSkillsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vwR-IG-xg7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="lpz-Ey-7Dz" firstAttribute="width" secondItem="akA-HK-vhs" secondAttribute="width" id="Kco-KO-naK"/>
+                                    <constraint firstItem="lpz-Ey-7Dz" firstAttribute="height" secondItem="akA-HK-vhs" secondAttribute="height" id="OW7-kA-bHj"/>
+                                    <constraint firstItem="nC7-qs-vsX" firstAttribute="height" secondItem="akA-HK-vhs" secondAttribute="height" id="fmm-HD-TDJ"/>
+                                    <constraint firstItem="azs-9t-3h6" firstAttribute="width" secondItem="akA-HK-vhs" secondAttribute="width" id="iO3-n2-cXo"/>
+                                    <constraint firstItem="azs-9t-3h6" firstAttribute="height" secondItem="akA-HK-vhs" secondAttribute="height" id="kPK-JN-2LU"/>
+                                    <constraint firstItem="nC7-qs-vsX" firstAttribute="width" secondItem="akA-HK-vhs" secondAttribute="width" id="s42-do-Dbd"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ZkO-z1-4ks" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8OB-a8-Qpr"/>
+                            <constraint firstItem="DzC-1X-EZG" firstAttribute="centerX" secondItem="pxS-Gr-K3q" secondAttribute="centerX" id="CDW-Ec-NVf"/>
                             <constraint firstItem="ZkO-z1-4ks" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-250" id="Fht-gB-ta6"/>
+                            <constraint firstItem="DzC-1X-EZG" firstAttribute="trailing" secondItem="pxS-Gr-K3q" secondAttribute="trailing" id="GuC-mP-sif"/>
+                            <constraint firstItem="DzC-1X-EZG" firstAttribute="leading" secondItem="pxS-Gr-K3q" secondAttribute="leading" id="H3N-O7-PBs"/>
                             <constraint firstItem="pxS-Gr-K3q" firstAttribute="centerX" secondItem="ZkO-z1-4ks" secondAttribute="centerX" id="Jer-tg-Mqz"/>
                             <constraint firstItem="rFD-F2-lmC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KxH-NJ-Hri"/>
                             <constraint firstItem="rFD-F2-lmC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="NTh-vE-6lY"/>
@@ -298,6 +316,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="822-ho-CEM" secondAttribute="bottom" id="SJR-II-9SX"/>
                             <constraint firstItem="822-ho-CEM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SUZ-W6-NFd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="822-ho-CEM" secondAttribute="trailing" id="VyS-59-cqL"/>
+                            <constraint firstItem="DzC-1X-EZG" firstAttribute="top" secondItem="pxS-Gr-K3q" secondAttribute="top" constant="50" id="bO5-v7-tPa"/>
                             <constraint firstItem="pxS-Gr-K3q" firstAttribute="centerY" secondItem="ZkO-z1-4ks" secondAttribute="centerY" id="g2G-nS-90W"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZkO-z1-4ks" secondAttribute="trailing" id="gps-JN-Oov"/>
                             <constraint firstItem="pxS-Gr-K3q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ice-L4-9jv"/>
