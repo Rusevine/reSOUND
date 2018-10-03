@@ -11,7 +11,10 @@ import Firebase
 
 class FriendListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
-
+    @IBOutlet weak var friendsButton: UIButton!
+    @IBOutlet weak var chatsButton: UIButton!
+    @IBOutlet weak var requestsButton: UIButton!
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var friendsTable: UITableView!
@@ -35,6 +38,10 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         friendsTable.rowHeight = friendsTable.frame.height/4
         requestTables.rowHeight = requestTables.frame.height/4
       view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
+        friendsButton.setBackgroundColor(color: .lightGray, forState: .selected)
+        chatsButton.setBackgroundColor(color: .lightGray, forState: .selected)
+        requestsButton.setBackgroundColor(color: .lightGray, forState: .selected)
+       friendsButton.isSelected = true
 
     }
     func configureFriendsList() {
@@ -62,9 +69,13 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         guard let userID = database.currentUser?.uid else {return}
         database.reference.child("friendRequest/\(userID)").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
+            let value = snapshot.value as! [String:Any]
+            let pending = value["pending"] as! Bool
+    
+            if pending == true {
             strongSelf.database.requests.append(snapshot)
             strongSelf.requestTables.insertRows(at: [IndexPath(row: strongSelf.database.requests.count-1, section: 0)], with: .automatic)
-        
+            }
         })
     }
     
@@ -94,17 +105,28 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func left(_ sender: Any) {
         scrollView.contentOffset.x = 0
         navigationItem.title = "Friends"
+        friendsButton.isSelected = true
+        chatsButton.isSelected = false
+        requestsButton.isSelected = false
     }
     
     @IBAction func middle(_ sender: Any) {
         scrollView.contentOffset.x = scrollView.frame.width
         navigationItem.title = "Chats"
+        chatsButton.isSelected = true
+        friendsButton.isSelected = false
+        requestsButton.isSelected = false
     }
     
     @IBAction func right(_ sender: Any) {
         scrollView.contentOffset.x = scrollView.frame.width * 2
         navigationItem.title = "Requests"
+        requestsButton.isSelected = true
+        chatsButton.isSelected = false
+        friendsButton.isSelected = false
+        
     }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
@@ -154,7 +176,10 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
             
             requestCell.configureCell(name: name, id: id)
             requestCell.acceptButton.tag = indexPath.row
-            requestCell.acceptButton.addTarget(self, action: #selector(accepted), for: .touchUpInside)
+            requestCell.acceptButton.addTarget(self, action: #selector(requestActionTaken), for: .touchUpInside)
+            requestCell.rejectButton.tag = indexPath.row
+            requestCell.rejectButton.addTarget(self, action: #selector(requestActionTaken), for: .touchUpInside)
+            
             cell = requestCell
             
             break
@@ -164,7 +189,7 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell!
   }
     
-    @objc func accepted(sender: UIButton) {
+    @objc func requestActionTaken(sender: UIButton) {
         if database.requests.count < 1 {
             database.requests = []
         } else {
@@ -181,20 +206,23 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
+       
+        if scrollView == self.scrollView {
         switch scrollView.contentOffset.x {
         case 0:
-            navigationItem.title = "Friends"
+           // navigationItem.title = "Friends"
+            left((Any).self)
             break
         case scrollView.frame.width:
-            navigationItem.title = "Chats"
+            middle((Any).self)
             break
         case (scrollView.frame.width * 2):
-            navigationItem.title = "Requests"
+            right((Any).self)
             break
         default:
             break
         }
+    }
         
     }
     
@@ -213,4 +241,18 @@ class FriendListViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
 }
+
+extension UIButton {
+    func setBackgroundColor(color: UIColor, forState: UIControlState) {
+        
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+        UIGraphicsGetCurrentContext()!.setFillColor(color.cgColor)
+        UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+        let colorImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        self.setBackgroundImage(colorImage, for: forState)
+    }
+}
+
 
