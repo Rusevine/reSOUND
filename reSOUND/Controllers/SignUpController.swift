@@ -11,7 +11,7 @@ import Firebase
 import FirebaseStorage
 
 
-class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
   
   @IBOutlet weak var signUpImageView: UIImageView!
   @IBOutlet weak var signUpName: UITextField!
@@ -43,6 +43,12 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     override func viewDidLoad() {
         super.viewDidLoad()
       
+      signUpCity.delegate = self
+      signUpName.delegate = self
+      signUpProvince.delegate = self
+      signUpLink.delegate = self
+      signUpEmail.delegate = self
+      signUpDescription.delegate = self
 //      self.signUpName.text = userName.displayName
 //      self.signUpEmail.text = userName.email
         view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
@@ -174,6 +180,48 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     }
   
     picker.dismiss(animated: true, completion: nil)
+  }
+  
+  
+  //  Pragma Mark: Text Field Delegate
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    animateViewMoving(up: true, moveValue: 120)
+  }
+  
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    animateViewMoving(up: false, moveValue: 120)
+  }
+  
+  func animateViewMoving (up:Bool, moveValue :CGFloat){
+    let movementDuration:TimeInterval = 0.3
+    let movement:CGFloat = ( up ? -moveValue : moveValue)
+    UIView.beginAnimations( "animateView", context: nil)
+    UIView.setAnimationBeginsFromCurrentState(true)
+    UIView.setAnimationDuration(movementDuration )
+    self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+    UIView.commitAnimations()
+  }
+  
+  //Dismiss keyboard method
+  func keyboardDismiss() {
+    signUpName.resignFirstResponder()
+    signUpProvince.resignFirstResponder()
+    signUpCity.resignFirstResponder()
+    signUpLink.resignFirstResponder()
+    signUpDescription.resignFirstResponder()
+    signUpEmail.resignFirstResponder()
+  }
+  
+  //ADD Gesture Recignizer to Dismiss keyboard then view tapped
+  @IBAction func viewTapped(_ sender: AnyObject) {
+    keyboardDismiss()
+  }
+  
+  //Dismiss keyboard using Return Key (Done) Button
+  //Do not forgot to add protocol UITextFieldDelegate
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    keyboardDismiss()
+    return true
   }
   
 }

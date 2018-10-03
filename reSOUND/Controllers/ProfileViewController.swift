@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
   @IBOutlet weak var profileView: UIView!
   @IBOutlet weak var nameTextField: UITextField!
@@ -42,7 +42,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
   override func viewDidLoad() {
         super.viewDidLoad()
-
+        nameTextField.delegate = self
+        cityTextField.delegate = self
+        provinceTextField.delegate = self
+        linkTextField.delegate = self
+        emailTextField.delegate = self
+        descriptionTextField.delegate = self
+    
         setupUI()
     
     view.setGradientBackground(colorOne: colors.black, colorTwo: colors.darkGrey)
@@ -74,9 +80,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     imagePicker.allowsEditing = true
     imagePicker.sourceType = .photoLibrary
     imagePicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-    }
-  
-    func setupUI() {
+
+  }
+
+  func setupUI() {
         skillsButton.layer.cornerRadius = skillsButton.frame.size.height/4
         skillsButton.layer.masksToBounds = true
         
@@ -209,6 +216,47 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     }
 
+//  Pragma Mark: Text Field Delegate
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    animateViewMoving(up: true, moveValue: 120)
+  }
+
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    animateViewMoving(up: false, moveValue: 120)
+  }
+
+  func animateViewMoving (up:Bool, moveValue :CGFloat){
+    let movementDuration:TimeInterval = 0.3
+    let movement:CGFloat = ( up ? -moveValue : moveValue)
+    UIView.beginAnimations( "animateView", context: nil)
+    UIView.setAnimationBeginsFromCurrentState(true)
+    UIView.setAnimationDuration(movementDuration )
+    self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+    UIView.commitAnimations()
+  }
+
+  //Dismiss keyboard method
+  func keyboardDismiss() {
+    nameTextField.resignFirstResponder()
+    provinceTextField.resignFirstResponder()
+    cityTextField.resignFirstResponder()
+    linkTextField.resignFirstResponder()
+    descriptionTextField.resignFirstResponder()
+    emailTextField.resignFirstResponder()
+  }
+  
+  //ADD Gesture Recignizer to Dismiss keyboard then view tapped
+  @IBAction func viewTapped(_ sender: AnyObject) {
+    keyboardDismiss()
+  }
+  
+  //Dismiss keyboard using Return Key (Done) Button
+  //Do not forgot to add protocol UITextFieldDelegate
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    keyboardDismiss()
+    return true
+  }
+  
 }
 
 
